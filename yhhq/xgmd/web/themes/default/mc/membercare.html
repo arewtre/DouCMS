@@ -1,0 +1,161 @@
+{template 'common/header'}
+<style>
+	.label{line-height: 1.8}
+</style>
+{if $do != 'credit_record' && $do != 'credit_stat'}
+<ul class="nav nav-tabs">
+	<li {if $do == 'display'}class="active"{/if}><a href="{php echo url('mc/membercare/display')}">会员列表</a></li>
+<!-- 	<li {if $do == 'system_edit'}class="active"{/if}><a href="{php echo url('mc/membercare/system_edit')}">功能设置</a></li> -->
+</ul>
+{else}
+<ul class="nav nav-tabs">
+	<li {if $do  == 'credit_stat'} class="active"{/if}><a href="{php echo url('mc/member/credit_stat', array('type' => 1, 'uid' => $uid));}">数据概况</a></li>
+	<li {if $do  == 'credit_record' &&  $type == 'credit1'} class="active"{/if}><a href="{php echo url('mc/member/credit_record', array('type' => 'credit1', 'uid' => $uid));}">积分日志</a></li>
+	<li {if $do  == 'credit_record' &&  $type == 'credit2'} class="active"{/if}><a href="{php echo url('mc/member/credit_record', array('type' => 'credit2', 'uid' => $uid));}">余额日志</a></li>
+</ul>
+{/if}
+{if $do=='system_edit'}
+<div class="panel panel-info">
+	<div class="panel-heading">设置</div>
+	<div class="panel-body">
+		<form action="./index.php?c=mc&a=membercare&do=system_edit&type=form" method="post" class="form-horizontal" role="form" id="form1">
+		<input type="hidden" name="c" value="mc">
+		<input type="hidden" name="a" value="membercare">
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">会员关怀</label>
+				<div class="col-sm-9">
+                        <label for="settled1" class="radio-inline"><input type="radio" name="settled" value="1" id="settled1" {if empty($setting) || $setting['settled'] == 1}checked="true"{/if} /> 开启</label>
+                        <label for="settled2" class="radio-inline"><input type="radio" name="settled" value="0" id="settled2"  {if !empty($setting) && $setting['settled'] == 0}checked="true"{/if} /> 关闭</label>
+                        <span class="help-block"></span>
+                    </div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">短信内容</label>
+				<div class="col-sm-9">
+                        <textarea name="smstext" class="richtext form-control">{$setting['smstext']}</textarea>
+                        <span style="color: grey;">提示：短信中如要填写会员信息，请以%%包裹，如 %姓名%,%电话%,%年龄%...</span><br>
+                        <span style="color: grey;">例如：亲爱的%欧文%，一首歌好听是因为熟悉，一首诗流传是因为舒情，一个梦美丽是因为拥有，一个你可爱是因为真诚，祝福善良的你开心，祝福%20%岁生日的你快乐。</span>
+                    </div>
+			</div>
+			<div class="pull-right col-xs-12 col-sm-3 col-md-2 col-lg-2">
+				<button class="btn btn-success"><i class="fa btn-success"></i>提交</button>
+				<input type="hidden" name="token" value="{$_W['token']}"/>
+			</div>
+			</div>
+		</form>
+	</div>
+{/if}
+{if $do=='display'}
+<div class="panel panel-info">
+	<div class="panel-heading">筛选</div>
+	<div class="panel-body">
+		<form action="./index.php" method="get" class="form-horizontal" role="form">
+		<input type="hidden" name="c" value="mc">
+		<input type="hidden" name="a" value="membercare">
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">注册时间</label>
+				<div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
+					{php echo tpl_form_field_daterange('createtime', array('starttime' => date('Y-m-d', $starttime), 'endtime' => date('Y-m-d', $endtime),));}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">昵称/姓名/手机号码/openid</label>
+				<div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
+					<input type="text" class="form-control" name="username" value="{$_GPC['username']}" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">所属用户组</label>
+				<div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
+					<select name="groupid" class="form-control">
+						<option value="" selected="selected">不限</option>
+						{loop $groups $group}
+						<option value="{$group['groupid']}"{if $group['groupid'] == $_GPC['groupid']} selected="selected"{/if}>{$group['title']}</option>
+						{/loop}
+					</select>
+				</div>
+				<div class="pull-right col-xs-12 col-sm-3 col-md-2 col-lg-2">
+					<button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+					<input type="hidden" name="token" value="{$_W['token']}"/>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<form method="post" class="form-horizontal" id="form1">
+<div class="panel panel-default ">
+	<div class="table-responsive panel-body">
+	<table class="table table-hover">
+		<input type="hidden" name="do" value="del" />
+		<thead class="navbar-inner">
+			<tr>
+				<th style="width:80px;">会员编号</th>
+				<th style="width:150px;">昵称/真实姓名</th>
+				<th style="min-width:100px;">手机</th>
+				<th style="min-width:100px;">生日</th>
+				<th style="min-width:90px;">注册时间</th>
+				<th style="width:410px;text-align:right">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+		{loop $list $li}
+			<tr>
+				<td>{$li['uid']}</td>
+				<td>
+					{if $li['nickname']}{$li['nickname']}{else}未完善{/if}
+					<br>
+					{if $li['realname']}{$li['realname']}{else}未完善{/if}
+				</td>
+				<td>{if $li['mobile']}{$li['mobile']}{else}未完善{/if}</td>
+				<td>{if $li['birthyear'] !=0}{$li['birthyear']}-{$li['birthmonth']}-{$li['birthday']}{else}未完善{/if}</td>
+				<td>{php echo date('Y-m-d H:i',$li['createtime'])}</td>
+				<td class="text-right" style="overflow:visible;">
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						{$_W['account']['groups'][$li['groupid']]['title']}
+						</button>
+					</div>
+					<a href="{php echo url('mc/membercare/post',array('uid' => $li['uid'],'realname' => $li['realname']))}" title="短信关怀" class="btn btn-success">短信关怀</a>
+					</div>
+				</td>
+			</tr>
+		{/loop}
+		</tbody>
+	</table>
+</div>
+</div>
+	{$pager}
+</form>
+{/if}
+
+{if $do=='post'}
+<div class="main">
+<form action="./index.php?c=mc&a=membercare&do=post&type=form" class="form-horizontal form" method="post" enctype="multipart/form-data">
+<div class="panel panel-default">
+	<div class="panel-heading">短信关怀</div>
+	<div class="panel-body">
+		<div class="form-group">
+			<label class="col-xs-12 col-sm-3 col-md-2 control-label">会员真实姓名</label>
+			<div class="col-sm-9 col-xs-12">
+				<input type="hidden"  name="uid"  value="{$uid}" />
+				<input type="text" class="form-control" name="realname" disabled="disabled" value="{$realname}" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-12 col-sm-3 col-md-2 control-label">短信内容</label>
+			<div class="col-sm-9 col-xs-12">
+				<textarea name="smstext" class="richtext form-control">{$setting['smstext']}</textarea>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="form-group">
+		<div class="col-sm-12">
+			<button type="submit" class="btn btn-primary col-lg-1" name="submit" value="提交">提交</button>
+			<input type="hidden" name="token" value="{$_W['token']}" />
+		</div>
+	</div>
+</form>
+</div>
+{/if}
+{template 'common/footer'}

@@ -1,0 +1,131 @@
+{template 'common/header-gw'}
+<ol class="breadcrumb">
+	<li><a href="./?refresh"><i class="fa fa-home"></i></a></li>
+	<li><a href="{url 'system/welcome'}">系统</a></li>
+	<li class="active">购买记录</li>
+</ol>
+
+<ul class="nav nav-tabs">
+
+	<li {if $do == 'modlist'}class="active"{/if}><a href="{php echo url('shop/mrecord/modlist');}">模块购买记录</a></li>
+
+	<li {if $do == 'paylist' && !$id}class="active"{/if}><a href="{php echo url('shop/mrecord/paylist');}">用户充值记录</a></li>
+
+</ul>
+{if $do == 'modlist'}
+<div class="rule panel panel-default">
+
+	<div class="table-responsive panel-body">
+
+	<table class="table table-hover">
+
+		<thead class="navbar-inner">
+
+			<tr>
+
+				<th >模块名称</th>
+
+				<th >模块标示</th>
+
+				<th >付款金额</th>
+                
+                <th >对应公众号id</th>
+
+				<th >购买时间</th>
+
+				<th >到期时间</th>
+
+				{if $_W['isfounder']}<th >操作</th>{/if}
+
+
+			</tr>
+
+		</thead>
+
+		<tbody>
+
+			{loop $modules $row}
+
+			<tr>
+
+				<td>{$row['name']}</td>
+
+				<td>{$row['module']}</td>
+
+				<td>{$row['price']}</td>
+   
+				<td>{$row['weid']}</td>
+
+				<td>{php echo date('Y-m-d H:i:s', $row['starttime'])}</td>
+
+				<td>{php echo date('Y-m-d H:i:s', $row['endtime'])}</td>
+
+				{if $_W['isfounder']}<td>删除</td>{/if}
+
+			</tr>
+
+			{/loop}
+
+		</tbody>
+
+	</table>
+
+	</div>
+
+</div>
+{elseif $do == 'paylist'}
+<div class="rule panel panel-default">
+
+	<div class="table-responsive panel-body">
+
+	<table class="table table-hover">
+
+		<thead class="navbar-inner">
+
+			<tr>
+
+				<th >用户名称</th>
+
+				<th >充值方式</th>
+
+				<th >充值金额</th>
+                
+                <th >状态</th>
+
+				<th >充值时间</th>
+
+			</tr>
+
+		</thead>
+
+		<tbody>
+
+			{loop $modules $row}
+
+			<tr>
+                {php $items = pdo_fetch("SELECT * FROM " . tablename('users')."where uid=:uid", array(':uid' => $row['uid']));}
+				<td>{$items['username']}</td>
+
+				<td>{if $row['pay_type']=='0'}云支付{/if}{if $row['pay_type']=='1'}支付宝{/if}</td>
+
+				<td>{$row['credit']}</td>
+                
+                <td>{if $row['status']=='0'}未付款{/if}{if $row['status']=='1'}已付款{/if}</td>
+
+				<td>{php echo date('Y-m-d H:i:s', $row['createtime'])}</td>
+
+			</tr>
+
+			{/loop}
+
+		</tbody>
+
+	</table>
+
+	</div>
+    
+</div>
+{/if}
+{$pager}
+
+{template 'common/footer'}

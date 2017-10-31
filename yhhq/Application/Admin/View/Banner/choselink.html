@@ -1,0 +1,493 @@
+<extend name="Public/hbase" />
+<block name="mains">
+<style type="text/css">
+/* 标签重定义 */
+img{border:none;}
+a{text-decoration:none;color:#444;}
+a:hover{color:#999;cursor:pointer}
+#title{width:600px;margin:20px auto;text-align:center;}
+/* 定义关键帧 */
+@-webkit-keyframes shade{
+	from{opacity:1;}
+	15%{opacity:0.4;}
+	to{opacity:1;}
+}
+@-moz-keyframes shade{
+	from{opacity:1;}
+	15%{opacity:0.4;}
+	to{opacity:1;}
+}
+@-ms-keyframes shade{
+	from{opacity:1;}
+	15%{opacity:0.4;}
+	to{opacity:1;}
+}
+@-o-keyframes shade{
+	from{opacity:1;}
+	15%{opacity:0.4;}
+	to{opacity:1;}
+}
+@keyframes shade{
+	from{opacity:1;} 
+	15%{opacity:0.4;}  
+	to{opacity:1;}
+}
+/* wrap */
+#wrap{width:auto;height:auto;margin:0 auto;position:relative;} 
+#wrap .box{width:200px;height:auto;padding:10px;border:none;float:left;}
+#wrap .box .info{position:relative;width:200px;height:auto;border-radius:8px;box-shadow:0 0 11px #666;}
+#wrap .box .info .pic{width:180px;height:auto;margin:0 auto;padding-top:10px;}
+#wrap .box .info .pic:hover{
+	-webkit-animation:shade 3s ease-in-out 1;
+	-moz-animation:shade 3s ease-in-out 1;
+	-ms-animation:shade 3s ease-in-out 1;
+	-o-animation:shade 3s ease-in-out 1;
+	animation:shade 3s ease-in-out 1;
+}
+#wrap .box .info .pic img{width:180px;border-radius:3px;}
+#wrap .box .info .title{width:180px;height:40px;margin:0 auto;line-height:40px;text-align:center;color:#666;font-size:18px;font-weight:bold;overflow:hidden;}
+
+.info a {
+    display: block;
+    position: absolute;
+    top: 0; 
+    opacity: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    color: inherit;
+} 
+.info:hover a {
+    opacity: 1;
+    top: 0; 
+    z-index: 500;
+}
+
+.info:hover a i {
+    top: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+</style>
+
+<script type="text/javascript">
+window.onload = function(){
+	//运行瀑布流主函数
+	PBL('wrap','box');
+	
+	//模拟数据
+	//var data = [{'src':'1.jpg','title':'This is a title.'},{'src':'2.jpg','title':'This is a title.'},{'src':'3.jpg','title':'This is a title.'},{'src':'4.jpg','title':'This is a title.'},{'src':'5.jpg','title':'This is a title.'},{'src':'6.jpg','title':'This is a title.'},{'src':'7.jpg','title':'This is a title.'},{'src':'8.jpg','title':'This is a title.'},{'src':'9.jpg','title':'This is a title.'},{'src':'10.jpg','title':'This is a title.'}];
+	
+	
+	//设置滚动加载
+	window.onscroll = function(){
+		//校验数据请求
+		if(getCheck()){			
+			$.ajax({  
+		          type : "post",  
+		          url : "{:U('index')}",  
+		          data : {page:"{$pageindex}"},  
+		          async : false,  
+		          success : function(s){
+		        	  var wrap = document.getElementById('wrap');
+		  			for(i in s.data){
+		  				//创建box
+		  				var box = document.createElement('div');
+		  				box.className = 'box';
+		  				wrap.appendChild(box);
+		  				//创建info
+		  				var info = document.createElement('div');
+		  				info.className = 'info';
+		  				box.appendChild(info);
+		  				//创建pic
+		  				var pic = document.createElement('div');
+		  				pic.className = 'pic';
+		  				info.appendChild(pic);
+		  				//创建img
+		  				var img = document.createElement('img');
+		  				img.src = 'images/'+s.data[i].src;
+		  				img.style.height = 'auto';
+		  				pic.appendChild(img);
+		  				//创建title
+		  				var title = document.createElement('div');
+		  				title.className = 'title';
+		  				info.appendChild(title);
+		  				//创建a标记
+		  				var a = document.createElement('a');
+		  				a.innerHTML = s.data[i].title;
+		  				title.appendChild(a);
+		  			}
+		  			PBL('wrap','box');
+		          }
+			});
+			
+		}
+	}
+}
+/**
+* 瀑布流主函数
+* @param  wrap	[Str] 外层元素的ID
+* @param  box 	[Str] 每一个box的类名
+*/
+function PBL(wrap,box){
+	//	1.获得外层以及每一个box
+	var wrap = document.getElementById(wrap);
+	var boxs  = getClass(wrap,box);
+	//	2.获得屏幕可显示的列数
+	var boxW = boxs[0].offsetWidth;
+	var colsNum = Math.floor(document.documentElement.clientWidth/boxW);
+	wrap.style.width = boxW*colsNum+'px';//为外层赋值宽度
+	//	3.循环出所有的box并按照瀑布流排列
+	var everyH = [];//定义一个数组存储每一列的高度
+	for (var i = 0; i < boxs.length; i++) {
+		if(i<colsNum){
+			everyH[i] = boxs[i].offsetHeight;
+		}else{
+			var minH = Math.min.apply(null,everyH);//获得最小的列的高度
+			var minIndex = getIndex(minH,everyH); //获得最小列的索引
+			getStyle(boxs[i],minH,boxs[minIndex].offsetLeft,i);
+			everyH[minIndex] += boxs[i].offsetHeight;//更新最小列的高度
+		}
+	}
+}
+/**
+* 获取类元素
+* @param  warp		[Obj] 外层
+* @param  className	[Str] 类名
+*/
+function getClass(wrap,className){
+	var obj = wrap.getElementsByTagName('*');
+	var arr = [];
+	for(var i=0;i<obj.length;i++){
+		if(obj[i].className == className){
+			arr.push(obj[i]);
+		}
+	}
+	return arr;
+}
+/**
+* 获取最小列的索引
+* @param  minH	 [Num] 最小高度
+* @param  everyH [Arr] 所有列高度的数组
+*/
+function getIndex(minH,everyH){
+	for(index in everyH){
+		if (everyH[index] == minH ) return index;
+	}
+}
+/**
+* 数据请求检验
+*/
+function getCheck(){
+	var documentH = document.documentElement.clientHeight;
+	var scrollH = document.documentElement.scrollTop || document.body.scrollTop;
+	return documentH+scrollH>=getLastH() ?true:false;
+}
+/**
+* 获得最后一个box所在列的高度
+*/
+function getLastH(){
+	var wrap = document.getElementById('wrap');
+	var boxs = getClass(wrap,'box');
+	return boxs[boxs.length-1].offsetTop+boxs[boxs.length-1].offsetHeight;
+}
+/**
+* 设置加载样式
+* @param  box 	[obj] 设置的Box
+* @param  top 	[Num] box的top值
+* @param  left 	[Num] box的left值
+* @param  index [Num] box的第几个
+*/
+var getStartNum = 0;//设置请求加载的条数的位置
+function getStyle(box,top,left,index){
+    if (getStartNum>=index) return;
+    $(box).css({
+    	'position':'absolute',
+        'top':top,
+        "left":left,
+        "opacity":"0"
+    });
+    $(box).stop().animate({
+        "opacity":"1"
+    },999);
+    getStartNum = index;//更新请求数据的条数位置
+}
+</script>
+    <div class="layui-field-box">
+        <form class="layui-form">
+		<blockquote class="layui-elem-quote news_search">
+		    <div class="layui-input-inline" style="width:100px">
+		      <input class="layui-input" placeholder="开始日" id="LAY_demorange_s">
+		    </div>
+		    <div class="layui-input-inline" style="width:100px">
+		      <input class="layui-input" placeholder="截止日" id="LAY_demorange_e">
+		    </div>
+	      <div class="layui-input-inline">
+          <select class="cate" name="parentid" lay-verify="" style="height:38px">
+              <option value="">全部分类</option>
+              <volist name="cates" id="vo">
+	              <if condition="$vo.res eq 0">
+	                  <option value="{$vo.pid}" {:($cat_id == $vo['pid']?'selected':'')}>{$vo['showName']}{$vo['title']}</option>
+	              <else />
+	              	  <optgroup label="{$vo['title']}"></optgroup>
+	              </if>
+              </volist>
+          </select>
+	      </div>
+	      <div class="layui-inline">
+		      <!--  <button class="layui-btn" lay-submit="" lay-filter="search">搜索</button>-->
+		      <button class="layui-btn"  id="search">搜索</button>
+		    </div>
+		    <div class="layui-inline">
+		      <a class="layui-btn">共有视频：<php> count($list)</php> 个</a>
+		    </div>
+		    <div class="layui-inline">
+    			<a class="layui-btn"  href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">ဂ</i></a>
+  			</div>
+		</blockquote>
+		<!--  <ul id="Images"></ul>-->
+				<!--瀑布流  start-->
+
+
+<!--瀑布流 end-->
+<!--  <div class="clear"></div>
+<div class="load_more">
+	<span class="load_more_text">加载更多...</span>
+</div>
+-->
+
+<!--大图弹出层 start-->
+<!--  <div class="container">
+	<div class="close_div">
+		<img src="images/closelabel.gif" class="close_pop" title="关闭" alt="关闭" style="cursor:pointer">　
+	</div>
+
+	<div class="content">
+		<span style="display:none"><img src="images/load.gif" /></span>
+		<div class="left"></div>
+		<div class="right"></div>
+		<img class="img" src="images/1.jpg">
+		<img class="img" src="images/2.jpg">
+		<img class="img" src="images/3.jpg">
+		<img class="img" src="images/4.jpg">
+		<img class="img" src="images/5.jpg">
+		<img class="img" src="images/6.jpg">
+		<img class="img" src="images/7.jpg">
+		<img class="img" src="images/8.jpg">
+		<img class="img" src="images/9.jpg">
+		<img class="img" src="images/10.jpg">
+		<img class="img" src="images/11.jpg">
+		<img class="img" src="images/12.jpg">
+		<img class="img" src="images/13.jpg">
+	</div>
+	<div class="bottom">共 <span id="img_count">x</span> 张 / 第 <span id="xz">x</span> 张</div>
+
+</div>	-->	
+	</form>
+	<div id="wrap">
+	<foreach name="list" item="v" key="k"> 
+        <div class="vo box" data-id="{$v.id}" data-url="{$v.url}">
+			<div class="info">
+				<div class="pic"><img  src="{$v['img']}"/></div>
+				<div class="title">{$v['title']}</div>
+				<!--<a class="img_del" data-id="{$v['v_id']}"><i class="fa fa-check-circle-o fa-3x" style="margin-right:10px;color: #FF5722"></i></a>-->
+				<a class="chose" data-id="{$v['v_id']}"><i class="fa fa-check-circle-o fa-3x" style="margin-right:10px;color: #FF5722"></i></a>
+				<!--<a class="a2"><i class="fa fa-pencil fa-3x" style="margin-left:10px;color: #fff"></i></a>-->
+			</div>
+		</div>
+	</foreach>
+	</div>
+
+
+
+<script>
+	/* $(document).ready(function(){
+	    	/*var imgNums = 15; 
+	    	// 点击加载更多
+	    	$('.load_more').click(function(){
+	    		var html = "";
+	    		var img = '';
+	    		$.get("{:('index')}",{cid:window.da},function(data){
+	    			var maxPage = imgNums*page < data.length ? imgNums*page : data.length;
+	    			for(var i=imgNums*(page-1); i<maxPage; i++){
+	    			html = html + "<div class='grid'>"+
+	    				"<div class='imgholder'>"+
+	    				"<img class='lazy thumb_photo' title='"+i+"' src='__PUBLIC__/images/pixel.gif' data-original='"+ data[i].image_url +"' width='225' onclick='seeBig(this)'/>"+
+	    				"</div>"+
+	    				"</div>";
+	    			img = img + "<img class='img' src='"+ data[i].image_url +"'>";
+	    		  }
+	    		});
+	    		$('#container').append(html);
+	    		$('.content').append(img);
+	    		$('#container').BlocksIt({
+	    			numOfCol:4,  //每行显示数
+	    			offsetX: 5,  //图片的间隔
+	    			offsetY: 5   //图片的间隔
+	    		});
+	    		$("img.lazy").lazyload();
+	    	});*/
+	layui.config({
+		base : "__PUBLIC__/js/lib/"
+	}).use(['laydate','flow','form','layer'],function(){
+	    var flow = layui.flow,
+	        form = layui.form(),
+            laydate = layui.laydate,//日期插件
+	        layer = parent.layer === undefined ? layui.layer : parent.layer,
+	        $ = layui.jquery;
+
+	    //流加载图片
+
+		    /*var imgNums = 15;  //单页显示图片数量
+		    flow.load({
+		        elem: '#container', //流加载容器
+		        done: function(page, next){ //加载下一页		        	
+		            $.get("{:('index')}",{cid:window.da},function(data){
+		                //模拟插入
+		                var imgList = [];
+		                var maxPage = imgNums*page < data.length ? imgNums*page : data.length;
+		                setTimeout(function(){
+		                    for(var i=imgNums*(page-1); i<maxPage; i++){
+		                        imgList.push('<li><img style="width:270px;height:280px;"src="'+ data[i].image_url +'"><div class="operate"><div class="check" style="width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><input style="margin-right:5px" type="checkbox" name="belle" lay-filter="choose" lay-skin="primary" title="'+data[i].image_desc+'"></div><i class="layui-icon img_del" data-name="'+data[i].image_url+'" data-id="'+data[i].img_id+'"">&#xe640;</i></div></li>')
+		                    //imgList.push('<div class="grid"><div class="imgholder"><img class="lazy thumb_photo" title="1" src="__PUBLIC__/images/pixel.gif" data-original="'+ data[i].image_url +'" width="225" /></div></div>')
+		                    }
+		                    next(imgList.join(''), page < (data.length/imgNums));
+		                    form.render();
+		                }, 500);
+		            }); 
+		        }
+		    });*/
+		    
+
+		  $('.vo').on('click', function () {
+            //alert(1313);
+            var id = $(this).attr("data-id");
+            var url = $(this).attr("data-url");
+            //parent.layer.close(index);
+            parent.layer.closeAll()
+            parent.video(url,id);
+        }); 
+
+	
+
+    	//form.on('submit(search)', function(data){
+    		$("#search").click(function(){
+    		var data = $(".cate").val();
+    		window.da=data;
+    		
+    	})	    	
+
+	    $('.imgadd').on('click', function () {
+           // alert(1313);
+            layer.open({
+                type: 2,
+                area: ['60%', '70%'],
+                maxmin: true,
+                content: '{:U("add")}'
+            });
+        });
+        
+        
+	    //删除单张图片
+	    $("body").on("click",".img_del",function(){
+	        var _this = $(this);
+	        var key = _this.attr("data-name");
+	        var id = _this.attr("data-id");
+	        console.log(key);
+	        console.log(id);
+	        layer.confirm('确定删除图片"'+_this.siblings().find("input").attr("title")+'"吗？',{icon:3, title:'提示信息'},function(index){
+	            _this.parents("li").hide(1000);
+	            $.get("{:('del')}",{file:key,id:id},function(data){
+	            	layer.msg(data.msg,{time:1800});
+	            	setTimeout(function(){_this.parents(".box").remove();},950);
+	                layer.close(index);
+	            }); 
+	            
+	        });
+	    })
+
+	    //全选
+	    form.on('checkbox(selectAll)', function(data){
+	        var child = $("#Images li input[type='checkbox']");
+	        child.each(function(index, item){
+	            item.checked = data.elem.checked;
+	        });
+	        form.render('checkbox');
+	    });
+
+	    //通过判断文章是否全部选中来确定全选按钮是否选中
+	    form.on("checkbox(choose)",function(data){
+	        var child = $(data.elem).parents('#Images').find('li input[type="checkbox"]');
+	        var childChecked = $(data.elem).parents('#Images').find('li input[type="checkbox"]:checked');
+	        if(childChecked.length == child.length){
+	            $(data.elem).parents('#Images').siblings("blockquote").find('input#selectAll').get(0).checked = true;
+	        }else{
+	            $(data.elem).parents('#Images').siblings("blockquote").find('input#selectAll').get(0).checked = false;
+	        }
+	        form.render('checkbox');
+	    })
+
+	    //批量删除
+	    $(".batchDel").click(function(){
+	        var $checkbox = $('#Images li input[type="checkbox"]');
+	        var $checked = $('#Images li input[type="checkbox"]:checked');
+	        if($checkbox.is(":checked")){
+	            layer.confirm('确定删除选中的图片？',{icon:3, title:'提示信息'},function(index){
+	                var index = layer.msg('删除中，请稍候',{icon: 16,time:false,shade:0.8});
+	                setTimeout(function(){
+	                    //删除数据
+	                    $checked.each(function(){
+	                        $(this).parents("li").hide(1000);
+	                        setTimeout(function(){$(this).parents("li").remove();},950);
+	                    })
+	                    $('#Images li input[type="checkbox"]').prop("checked",false);
+	                    form.render();
+	                    layer.close(index);
+	                    layer.msg("删除成功");
+	                },2000);
+	            })
+	        }else{
+	            layer.msg("请选择需要删除的图片");
+	        }
+	    })
+	    
+	    var start = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+              end.min = datas; //开始日选好后，重置结束日的最小日期
+              end.start = datas //将结束日的初始值设定为开始日
+            }
+          };
+          
+          var end = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+              start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+          };
+          
+          document.getElementById('LAY_demorange_s').onclick = function(){
+            start.elem = this;
+            laydate(start);
+          }
+          document.getElementById('LAY_demorange_e').onclick = function(){
+            end.elem = this
+            laydate(end);
+          }                 
+
+	})
+	
+	 
+
+            
+	
+	</script>
+	</block>

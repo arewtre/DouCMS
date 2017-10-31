@@ -1,0 +1,188 @@
+{template 'common/header'}
+{if $do=="display"}
+<link rel="stylesheet" type="text/css" href="./resource/businesscenter/template/themes/css/main.css?v=2" />
+<div class="main">
+<div class="panel panel-default">
+        <div class="panel-heading">
+        <a class="btn btn-success" href="{php echo url('activity/list', array('do' => 'post'))}"><i class="fa fa-plus"></i>添加活动</a>
+        <div class="panel-body">
+            <form action="./index.php" method="get" class="form-horizontal" role="form">
+                <input type="hidden" name="c" value="activity" />
+                <input type="hidden" name="a" value="list" />
+                <input type="hidden" name="do" value="display" />
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">关键字</label>
+                    <div class="col-sm-2 col-lg-2">
+                        <input class="form-control" name="keyword" id="" type="text" value="{$_GPC['keyword']}">
+                    </div>
+                    <div class="col-sm-3 col-lg-1">
+                    	<button class="btn btn-success">
+                    		<i class="fa fa-search"></i> 搜索
+                    	</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+ <div class="panel panel-default">
+        <form action="" method="post" class="form-horizontal form" onsubmit="return formcheck(this)">
+        <div class="table-responsive panel-body">
+                <table class="table table-hover">
+                    <thead class="navbar-inner">
+                    <tr>
+                        <th style="width:10%;">图片</th>
+                        <th style="width:15%;">标题</th>
+                        <th style="width:16%;">期限</th>
+                        <th style="width:16%;">简介</th>
+                        <th style="width:12%;">属性(点击可切换)</th>
+                        <th style="width:15%;text-align: right;">编辑</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {loop $list $item}
+                    <tr>
+                        <td style="width: 60px;">
+                            <img width="80px;" src="{php echo tomedia($item['pro_img']);}" onerror="this.src='./resource/businesscenter/template/themes/images/nopic.jpeg'" style="border-radius: 2px;border-style: solid;border-width: 1px;border-color: rgb(226, 226, 226);"/>
+                        </td>
+                        <td>
+                            {$item['promotion_name']}
+                        </td>
+                        <td>
+                            {php echo date('Y-m-d', $item['start_time'])} 至 {php echo date('Y-m-d', $item['end_time'])}
+                        </td>
+                        <td>
+                        	{$item['desc']}
+                        </td>
+                        <td>
+                            <label data='{$item['state']}' class='label label-default {if $item['state']==1}label-info{/if}' onclick="setProperty(this,{$item['promotion_id']},'state')">显示</label>
+                        </td>
+                        <td style="text-align: right;">
+                            <a class="btn btn-default btn-sm" href="{php echo url('activity/list', array('do' => 'post', 'id' => $item['promotion_id']))}" title="编辑"><i class="fa fa-pencil"></i></a>
+                        </td>
+                    </tr>
+                    {/loop}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="6">&nbsp;</td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </form>
+    </div>
+        {$pager}
+<script type="text/javascript">
+    function setProperty(obj,id,type){
+         $(obj).html($(obj).html() + "...");
+         $.post("{php echo url('activity/list/setProperty')}"
+                 ,{id:id,type:type, data: obj.getAttribute("data")}
+                 ,function(d){
+                     $(obj).html($(obj).html().replace("...",""));
+                     $(obj).attr("data",d.data)
+                     if(d.result==1){
+                         $(obj).toggleClass("label-info");
+                         $(obj).attr("data",d.data);
+                     }
+                 },"json"
+         );
+    }
+</script>
+
+
+</div>
+{elseif $do == 'post'}
+<style type="text/css">
+	.nameSpan{display: inline-block;width: 10%}
+	.leftW{margin-left: 10%}
+	#gbin1-list{margin-bottom: 10px}
+</style>
+<div class="main">
+	<form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+		<input type="hidden" name="id" value="{$item['promotion_id']}" />
+		<div class="panel panel-default">
+			<div class="panel-heading">
+               	 活动信息
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs" id="myTab">
+                    <li class="active"><a href="#tab_basic">基本信息</a></li>
+                </ul>
+                <div class="tab-content">
+                	<div class="tab-pane  active" id="tab_basic">
+                		<div class="form-group">
+                    		<label class="col-xs-12 col-sm-3 col-md-2 control-label">名称</label>
+                    		<div class="col-sm-9">
+                        		<input type="text" name="promotion_name" class="form-control" value="{$item['promotion_name']}" />
+                        		<div class="help-block">输入字数请不要超过12个</div>
+                    		</div>
+						</div>
+                		<div class="form-group">
+                    		<label class="col-xs-12 col-sm-3 col-md-2 control-label">简介</label>
+                    		<div class="col-sm-9">
+                        		<input type="text" name="desc" class="form-control" value="{$item['desc']}" />
+                    		</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-12 col-sm-3 col-md-2  control-label">商户</label>
+							<input type="hidden" class="form-control" name="store_id" id="storeid" value="" />
+							<div class="col-sm-9 ">{php echo tpl_form_field_link2('store_id', $item['store_id'], array('css' =>array('input' => ' input-sm', 'btn' => ' btn-sm')));}</div>
+						</div>
+                		<div class="form-group">
+                    		<label class="col-xs-12 col-sm-3 col-md-2 control-label">期限</label>
+                    		<div class="col-sm-9 col-xs-12">
+                        		{php echo tpl_form_field_daterange('datelimit', array('starttime'=>date('Y-m-d',$item['start_time']),'endtime'=>date('Y-m-d',$item['end_time'])), true)}
+                    		</div>
+                		</div>
+                		<div class="form-group">
+                    		<label class="col-xs-12 col-sm-3 col-md-2 control-label">图片</label>
+                    		<div class="col-sm-9">
+                        		{php echo tpl_form_field_image('logo', $logo, './resource/businesscenter/template/themes/images/nopic.jpeg', array('width' => 400, 'height' => 300))}
+                        		<span class="help-block" >建议尺寸(400*300)</span>
+                    		</div>
+                		</div>
+                		<div class="form-group">
+							<label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">内容</label>
+							<div class="col-sm-8 col-xs-12">
+								{php echo tpl_ueditor('content', $item['html']);}
+							</div>
+						</div>
+						<div class="form-group">
+                    		<label class="col-xs-12 col-sm-3 col-md-2 control-label">显示</label>
+                    		<div class="col-sm-9">
+                        		<label for="enable1" class="radio-inline"><input type="radio" name="enable" value="1" id="enable1" {if $item['state'] == 1}checked="true"{/if} /> 是</label>
+                        		<label for="enable2" class="radio-inline"><input type="radio" name="enable" value="0" id="enable2"  {if empty($item) || !empty($item) && $item['state'] == 0}checked="true"{/if} /> 否</label>
+                        		<span class="help-block"></span>
+                    		</div>
+                		</div>
+           			</div>
+        		</div>
+     		</div>
+		</div>
+		<div class="form-group col-sm-12">
+            <input type="submit" name="submit" value="保存" class="btn btn-primary col-lg-1" />
+            <input type="hidden" name="token" value="{$_W['token']}" />
+        </div>
+	</form>
+<script>
+		$(".attr").bind("click",function(){
+			var index = $(".attr").index(this);
+			if($(this).is(":checked")){
+				$(this).parent().siblings().find("input").prop("checked",false);
+			}
+		});
+		$(".CheckedSpan").bind("click",function(event){
+			var self = this;
+			if(event.target==self){
+				if($(self).find("input").is(":checked")){
+					$(self).find("input").prop("checked",false);
+				}else{
+					$(self).siblings().find("input").prop("checked",false);
+					$(self).find("input").prop("checked",true);
+				}
+	        }
+		});
+	</script>
+</div>
+{/if}
+{template 'common/footer'}

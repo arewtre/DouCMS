@@ -1,0 +1,1 @@
+[2017/10/11 10:51:00]用户ID:,用户名：,删除了数据,数据表:ims_user_collect,删除数据：a:1:{i:0;a:6:{s:2:"id";s:3:"207";s:6:"openid";s:28:"ou6vRwsidZOeYlAZeHIDMmJDkWho";s:8:"store_id";s:4:"1650";s:12:"promotion_id";N;s:4:"type";s:1:"1";s:8:"add_time";s:10:"1507690227";}}

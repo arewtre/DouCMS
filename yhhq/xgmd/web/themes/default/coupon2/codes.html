@@ -1,0 +1,111 @@
+{template 'common/header'}
+{if $do=="use"||$do=="post"}
+<ul class="nav nav-tabs">
+<li{if $do == 'use'} class="active"{/if}><a href="{php echo url('coupon/code/use');}">计划列表</a>
+</li>
+<li{if $do == 'post'} class="active"{/if}><a href="{php echo url('coupon/code/post');}">{if $id > 0}编辑优惠券{else}添加计划{/if}</a>
+</li>
+</ul>
+{/if}
+{if $do == 'post'}
+<div class="clearfix">
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+        <div class="panel panel-default" id="step1">
+            <div class="panel-heading">
+               	 发券计划
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <span class="text-danger">*</span>
+                       	计划名称
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="name"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	计划描述
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="plan_desc" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	发放时间
+                    </label>
+                    <div class="col-sm-9 col-xs-4 col-md-3" id="usetime_type_1">
+						{php echo tpl_form_field_date('issue_time', date('Y-m-d H:i', time()), true)}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+            <input name="submit" id="submit" type="submit" value="提交" class="btn btn-primary col-lg-1"><input type="hidden" name="add" value="1" />
+        </div>
+    </form>
+</div> {/if}
+{if $do == 'use'||$do=="check"}
+<div class="main">
+    <div class="main table-responsive">
+        <form method="post" class="form-horizontal" id="form2">
+            <div class="panel panel-default">
+                <div class="panel-body table-responsive">
+                    <table class="table table-hover">
+                        <thead class="navbar-inner">
+                            <tr>
+                                <th>
+                                   	 	优惠券ID
+                                </th>
+                                <th>
+                                    	优惠券名
+                                </th>
+                                <th>
+										用户ID
+                                </th>
+								{if $do=='check'}
+                                <th width="170" style="text-align:right">
+                                    	操作
+                                </th>
+								{/if}
+                            </tr>
+                        </thead>
+                        <tbody id="list">
+                            {loop $list $item}
+                            <tr>
+                                <td>
+                                    {$item['coupon_id']}
+                                </td>
+                                <td>
+                                    {$item['coupon_name']}
+                                </td>
+                                <td>
+                                    {$item['user_id']}
+                                </td>
+								{if $do=='check'}
+                                <td align="right">
+                                    <a href="{php echo url('coupn/issue/check',array('id' => $item['id'],'m' =>'pass','step'=>$step));}" title="删除" class="btn btn-default">删除</a>
+                                </td>
+								{/if}
+                            </tr>
+                            {/loop}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {$pager}
+        </form>
+    </div>
+</div>
+{/if}
+<script>
+    $('#form1').submit(function(){
+        if (!$.trim($(':text[name="name"]').val())) {
+            util.message('计划名');
+            return false;
+        }
+    });
+</script>
+{template 'common/footer'}

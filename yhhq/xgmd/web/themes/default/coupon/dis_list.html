@@ -1,0 +1,505 @@
+{template 'common/header'}
+{if $do=="display"||$do=="post"||$do=="view"}
+<ul class="nav nav-tabs">
+<li{if $do == 'display'} class="active"{/if}><a href="{php echo url('coupon/dis_list/display');}">抵用券列表</a>
+</li>
+<li{if $do == 'post' || $do=='view'} class="active"{/if}><a href="{php echo url('coupon/dis_list/post');}">{if $id > 0}抵用券详情{else}添加抵用券{/if}</a>
+</li>
+</ul>
+{/if}
+<style>
+.help-block{color:red}
+
+</style>
+{if $do == 'post'}
+<div class="clearfix">
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+        <div class="panel panel-default" id="step1">
+            <div class="panel-heading">
+               	 抵用券信息
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <span class="text-danger">*</span>
+                       	 抵用券名称
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="coupon_name" value="{$item['coupon_name']}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <span class="text-danger">*</span>
+                       	 关联商户
+                    </label>
+					<input type="hidden" class="form-control" name="storeid" id="storeid" value="" />
+					<div class="col-sm-8 col-xs-12 ">{php echo tpl_form_field_link2('store_id', $_GPC['store_id'], array('css' =>array('input' => ' input-sm', 'btn' => ' btn-sm')));}</div>
+				</div>
+                <!--  <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">                       
+                       	 抵用券数量
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="sum_total" value="{$item['sum_total']}"/>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <!--span class="text-danger">*</span>  -->
+                       	 抵用金额(元)
+                    </label>
+                     <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="dis_value" value="{$item['dis_value']}"/>
+                        <span class="help-block">请输入抵用金额 例: 10</span>
+                    </div>
+                    <!--<div class="col-sm-8 col-xs-12">
+                        <div class="row row-fix tpl-location-container">
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="padding-left:0px">
+                                <select name="discount" data-value="" id="discount" class="form-control" onchange="changeUseTimeType()">
+                                    <option value=1>满减</option>
+                                    <option value=2>满折</option>
+                                    <option value=3>限时打折</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <!--span class="text-danger">*</span>  -->
+                       	 使用最低金额(元)
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="min_amount" value="{$item['min_amount']}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	抵用券描述
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="coupon_desc" value="{$item['coupon_desc']}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	抵用券成本比例
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="ratio_pay" value="{$item['ratio_pay']}"/><span class="help-block">商户承担百分比 （如，12 表示商户承担 12%）</span>
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	发布有效期
+                    </label>
+                    <div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
+                        {php echo tpl_form_field_daterange('issue_time', array('starttime' => date('Y-m-d', time()), 'endtime' => date('Y-m-d', time()),));}
+                    </div>
+                </div>-->
+                <script>
+                    function changeUseTimeType(){
+                        $("#usetime_type_1").hide();
+                        $("#usetime_type_2").hide();
+                        $("#usetime_type_3").hide();
+                        var id = "#usetime_type_" + $("#usetime_type_sel").val();
+                        $(id).show();
+                    }
+                </script>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	使用有效期
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="row row-fix tpl-location-container">
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="padding-left:0px">
+                                <select name="use_time_type" data-value="" id="usetime_type_sel" class="form-control" onchange="changeUseTimeType()">
+                                    <option value=1>指定时间</option>
+                                    <option value=2>领取后时间</option>
+                                    <option value=3>领取当天</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	有效期至
+                    </label>
+                    <div class="col-sm-9 col-xs-4 col-md-3" id="usetime_type_1" >
+						{php echo tpl_form_field_date('use_time_end', date('Y-m-d H:i', time()), true)}
+						<span class="help-block">抵用券有效期</span>
+                    </div>
+                    <div class="col-sm-9 col-xs-4 col-md-3" id="usetime_type_2" style="display:none;">
+                        <input type="text" class="form-control col-md-2" name="use_time_hour" value=""/>
+						<span class="help-block">用户领取抵用券后，抵用券有效的小时数 </span>
+                    </div>
+                    <div class="col-sm-9 col-xs-4 col-md-3" id="usetime_type_3" style="display:none;">
+                        <input type="text" class="form-control col-md-2" name="" value="" readonly="readonly"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	图片列表
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        {if $_W['account']['level'] == ACCOUNT_SERVICE_VERIFY}
+                        {php echo tpl_form_field_image('photo_list', '', '', array('mode' => 'file_upload'));}
+                        {else}
+                        {php echo tpl_form_field_image('photo_list', $_GPC['photo_list'],'');}
+                        {/if}<span class="help-block">图片只支持jpg,png格式,大小不超过1M</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+            <input name="submit" id="submit" type="submit" value="提交" class="btn btn-primary col-lg-1"><input type="hidden" name="add" value="1" />
+        </div>
+    </form>
+</div> {/if}
+
+{if $do == 'view'}
+<div class="clearfix">
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+        <div class="panel panel-default" id="step1">
+            <div class="panel-heading">
+               	 抵用券信息
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <span class="text-danger">*</span>
+                       	 抵用券名称
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="coupon_name" value="{$item['name']}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <span class="text-danger">*</span>
+                       	 关联商家
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" readonly="readonly" class="form-control" name="store_name" value="{$store['store_name']}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <!--span class="text-danger">*</span>  -->
+                       	 抵用券数量
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" readonly="readonly"  class="form-control" name="sum_total" value="{$item['sum_total']}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <!--span class="text-danger">*</span>  -->
+                       	 抵用价格
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" readonly="readonly"  class="form-control" name="dis_value" value="{$item['dis_value']}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <!--span class="text-danger">*</span>  -->
+                       	 使用最低金额(元)
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" readonly="readonly"  class="form-control" name="min_amount" value="{$item['min_amount']}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	抵用券描述
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="coupon_desc" value="{$item['coupon_desc']}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	抵用券成本比例
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" readonly="readonly"  class="form-control" name="ratio_pay" value="{$item['ratio_pay']}"/><span class="help-block">商户承担百分比 （如，12 表示商户承担 12%）</span>
+                    </div>
+                </div>
+                <script>
+                    function changeUseTimeType(){
+                        $("#usetime_type_1").hide();
+                        $("#usetime_type_2").hide();
+                        $("#usetime_type_3").hide();
+                        var id = "#usetime_type_" + $("#usetime_type_sel").val();
+                        $(id).show();
+                    }
+                </script>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	使用有效期
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="row row-fix tpl-location-container">
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="padding-left:0">
+                                <select name="use_time_type" data-value="" id="usetime_type_sel" class="form-control" disabled onchange="changeUseTimeType()">
+                                    <option value=1  {if $item['use_time_type']==1} selected="selected" {/if}>指定时间</option>
+                                    <option value=2  {if $item['use_time_type']==2} selected="selected "{/if}>领取后时间</option>
+                                    <option value=3  {if $item['use_time_type']==3} selected="selected" {/if}>领取当天</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	有效期至
+                    </label>
+                    {if $item['use_time_type']==1}
+                    <div class="col-sm-9 col-xs-4 col-md-3" id="usetime_type_1">
+						<!-- {php echo tpl_form_field_date('use_time_end', date('Y-m-d H:i', time()), true)} -->
+						<input type="text" readonly="readonly"  class="form-control" name="use_time_end" value="{$item['use_time_end']}"/>
+						<span class="help-block">抵用券有效期</span>
+                    </div>
+                    {/if}
+                    {if $item['use_time_type']==2}
+                    <div class="col-sm-9 col-xs-4 col-md-3" id="usetime_type_2" >
+                        <input type="text" readonly="readonly" class="form-control col-md-2" name="use_time_hour" value=" {$item['use_time_hour']}"/>
+						<span class="help-block">用户领取抵用券后，抵用券有效的小时数 </span>
+                    </div>
+                     {/if}
+                     {if $item['use_time_type']==3}
+                    <div class="col-sm-9 col-xs-4 col-md-3" id="usetime_type_3" >
+                        <input type="text" class="form-control col-md-2" name="" value="" readonly="readonly"/>
+                    </div>
+                    {/if}
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <span class="text-danger">*</span>
+                        	图片列表
+                    </label>
+                    <div class="col-sm-8 col-xs-12">                                               
+                       {php echo tpl_form_field_multi_image('photo_list', $photo,'', array('extras' => array('text' => 'readonly')));}                      
+                        <!-- <span class="help-block">图片只支持jpg格式,大小不超过1M</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+            <input name="submit" id="submit" type="submit" value="提交" class="btn btn-primary col-lg-1"><input type="hidden" name="add" value="1" />
+        </div>
+    </form>
+</div>
+{/if}
+
+{if $do == 'display'||$do=="check"}
+<div class="main">
+<div class="panel panel-default">
+<form method="get" class="form-horizontal" role="form">
+<input type="hidden" name="keyword" value="{$keyword}" />
+<input type="hidden" name="c" value="coupon" />
+<input type="hidden" name="a" value="dis_list" />
+<input type="hidden" name="do" value="display" />
+<input type="hidden" name="sec" value="sec" />
+	<div class="form-group" style="width:100%;height:70px;padding:20px 0 20px 0;margin-right:0;margin-left:0;margin-bottom:10px;background-color:white">
+          <div class="col-sm-3 col-lg-3">
+              <input class="form-control" name="keyword" id="" type="text" placeholder="请输入名称/描述等关键字" value="{$_GPC['keyword']}">
+          </div>         
+          <div class="col-sm-2 col-lg-2">
+              <select class="form-control" style="margin-right:15px;" name="ischeck" autocomplete="on">
+                  <option value=""{if $_GPC['ischeck']==-1}selected=selected{/if}>--请选择审核状态--</option>
+                  <option value="0" {if $_GPC['ischeck']==0}selected=selected{/if} >未审核</option>
+                  <option value="1" {if $_GPC['ischeck']==1}selected=selected{/if} >已通过审核</option>
+                  <option value="2" {if $_GPC['ischeck']==2}selected=selected{/if} >未通过审核</option>
+              </select>
+          </div>
+          <input type="hidden" name="token" value="{$_W['token']}" />
+          <div class="col-sm-3 col-lg-1"><button  class="btn btn-success"><i class="fa fa-search"></i> 搜索
+          </button>
+          </div>
+          {if !empty($_GPC['sec'])}
+             {if !empty($total)}
+             <div class="col-sm-3 col-lg-1"><button class="btn btn-success">共查询到 {$total} 条记录!
+             </button>
+             </div>
+             {else}
+             <div class="col-sm-3 col-lg-1"><button class="btn btn-danger">抱歉未查到相关记录!
+             </button>
+             </div>
+             {/if}
+         {/if}
+         <div class="col-sm-3 col-lg-1 pull-right" ><button  class="btn btn-success"> 总数{if !empty($totalnum)}{$totalnum}{else}0{/if}
+          </button>
+          </div>
+      </div>
+   </form>
+   </div>
+    <div style="clear:both"></div>
+    <div class="main table-responsive">
+        <form method="post" class="form-horizontal" id="form2">
+            <div class="panel panel-default">
+                <div class="panel-body table-responsive">
+                    <table class="table table-hover">
+                        <thead class="navbar-inner">
+                            <tr>
+                                <th>
+                                   	 	抵用券名称
+                                </th>
+                                <th>
+                                    	抵用券描述
+                                </th>
+                                <th>
+                                    	商户比例
+                                </th>
+                                <th>
+                                    	抵用金额(元)
+                                </th>
+                                <th>
+                                    	使用期限
+                                </th>
+                                <th>
+                                    	剩余数量
+                                </th>
+                                <th>
+                                    	发送状态
+                                </th>
+                                <th>
+                                    	审核状态
+                                </th>
+                                <th>
+                                    	上/下架<br/>(点击切换)
+                                </th>
+                                <th>
+                                    	发券/查看
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="list">
+                            {loop $list $item}
+                            <tr>
+                                <td>
+                                    {$item['name']}
+                                </td>
+                                <td>
+                                    {$item['coupon_desc']}
+                                </td>
+                                <td>
+                                    {$item['ratio_pay']}%
+                                </td>
+                                <td>
+                                    {$item['dis_value']}
+                                </td>
+                                <td>
+                                    {$item['use_time']}
+                                </td>                               
+                                <td>
+                                    {$item['remain_total']}
+                                </td>
+                                <td>
+                                    {$item['send']}
+                                </td>
+                                <td>
+                                {if $item['check_state']==0}<a class="btn btn-default">未审核</a>{/if}
+                                {if $item['check_state']==1}<a class="btn btn-primary">已通过</a>{/if}
+                                {if $item['check_state']==2}<a class="btn btn-danger">未通过</a>{/if}
+                                </td>
+                                <td>
+                               <lable data="{$item['status']}" class="label label-default {if $item['status']==1} label-info{/if}" onclick="setProperty(this,{$item['coupon_id']},'status')">{if $item['status']==0}下架{else}上架{/if}</lable>
+                                </td>						
+								{if $do=="display"}
+								<td style="text-align:left">
+		                            <a class="btn btn-default btn-sm sendC "data-nnum="{$item['sendd']}"  data-num="{$item['remain_total']}" data-co="{$item['coupon_id']}" data-toggle="tooltip" data-placement="bottom" title="发券"><i class="fa fa-send"></i></a>
+		                            <a class="btn btn-default btn-sm" href="./index.php?c=coupon&a=dis_list&do=view&id={$item['coupon_id']}" title="查看"><i class="fa fa-eye"></i></a>
+		                            <!--  <a class="btn btn-default btn-sm" href="./index.php?c=coupon&a=dis_list&do=delete&id={$item['coupon_id']}" title="删除"><i class="fa fa-remove"></i></a>-->
+		                        </td>
+								{/if}
+                            </tr>
+                            {/loop}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {$pager}
+        </form>
+    </div>
+</div>
+{/if}
+<script>
+    $('#form1').submit(function(){
+        if (!$.trim($(':text[name="coupon_name"]').val())) {
+            util.message('抵用券名');
+            return false;
+        }
+    });
+    function setProperty(obj,id,type){
+        $(obj).html($(obj).html() + "...");
+        $.post("{php echo url('coupon/list/setProperty')}"
+                ,{id:id,type:type, data: obj.getAttribute("data")}
+                ,function(d){
+                    $(obj).html($(obj).html().replace("...",""));
+                    $(obj).attr("data",d.data)
+                    if(d.result==1){
+                        $(obj).toggleClass("label-info");
+                        $(obj).attr("data",d.data)
+                        if(d.data==1){
+                        	$(obj).html("上架");
+                        }else{
+                        	$(obj).html("下架");
+                        }
+                    }
+                },"json"
+        );
+   }
+    $(".sendC").click(function(){
+        var cid = $(this).attr("data-co");
+        var anum = $(this).attr("data-num");
+        var nnum = $(this).attr("data-nnum");
+        console.log(anum);
+        console.log(nnum);
+        var se = $(this);
+        x0p({
+     	    title: '请输入发券数量',
+     	    type: 'warning',
+     	    inputType: 'text',
+     	    inputPlaceholder: '只允许输入正整数!',
+     	    inputColor: '#45A9B5',
+     	    buttons: [{type: 'cancel',text: '取消'},{type: 'info',text: '确定'} ],
+     	    inputValidator: function(button, value) {
+     	        if(value == '' || isNaN(value) || value<=0)
+     	            return '不是正整数!';
+     	        return null;
+     	    }
+     	}, function(button, text) {
+     	    if(button == 'info') {
+     	    	$.getJSON("{php echo url('coupon/dis_list/send');}",{coupon_id:cid,num:text},function(d){
+                 	if(d.result==1){
+                 		x0p({
+                				title: d.msg,
+                				animationType: 'slideDown',
+                				icon: "ok",
+                				buttons: [],
+                				autoClose: 2000
+             		     });
+                 		var tnum = d.num*1+anum*1;
+                 		var snum = d.num*1+nnum*1;
+                 		se.parent().prev().prev().prev().prev().html(tnum);
+                 		se.parent().prev().prev().prev().html("已发送"+snum+"张");
+                 		se.attr("data-num",tnum);
+                 	}else{
+                 		x0p({
+                				title: d.msg,
+                				animationType: 'slideDown',
+                				icon: "info",
+                				buttons: [],
+                				autoClose: 2000
+             		     });
+                 	}
+                 })
+     	    }
+     	});
+    })
+</script>
+{template 'common/footer'}

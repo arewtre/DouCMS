@@ -1,0 +1,214 @@
+{template 'common/header-gw'}
+
+<ol class="breadcrumb">
+	<li><a href="./?refresh"><i class="fa fa-home"></i></a></li>
+	<li><a href="{url 'system/welcome'}">系统</a></li>
+</ol>
+<style type="text/css">
+    .panel-body > ul{list-style:none;margin: 0px;padding: 0px}
+    .panel-body > ul li{display: inline-block}
+</style>
+<div class="main">
+<ul class="nav nav-tabs">
+    <li><a href="{php echo url('member/member');}">充值续费</a></li>
+    <li class="active"><a href="{php echo url('member/buypackage');}">套餐购买</a></li>
+    
+</ul>
+    <div>
+        
+        {loop $usergroups $item}
+        
+       
+        <aside style="margin: 10px">
+            <section>
+                <div class="panel panel-{if $_W['user']['account']['groupid'] == $item['id']}info{else}default{/if}">
+                    <div class="panel-heading">
+                        套餐：{$item["name"]}
+                        {if $user['groupid'] == $item['id']}
+                            <span class="label label-success">正在使用</span>
+                        {/if}
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>套餐价格: {$item['price']}元/年</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        可享受充值倍率优惠：<span style="color: red;font-weight: bold">{$item['discount']}</span>
+                        
+                        {if $user['groupid'] == $item['id']}
+                                
+                            到期时间: {php echo date("Y-m-d H:i:s",$_W["user"]['endtime'])}&nbsp;&nbsp;
+						
+                           <a href="{php echo url('member/buypackage', array('groupid' =>$item['id']))}" class="btn btn-warning ChangePackage"  style="float:right; margin-top:-5px;">续费套餐</a>                                                       
+                        {else}                           
+                            <a href="{php echo url('member/buypackage', array('groupid' =>$item['id']))}" class="btn btn-warning ChangePackage"  style="float:right; margin-top:-5px;">升级套餐</a>
+                        
+                        {/if}
+                    </div>
+                    
+
+                    
+    <!--                    <ul class="list-group">
+                            {loop $item[modules] $module}
+                            <li class="list-group-item" style="margin: 5px"><a href="{php echo url('home/welcome/ext',array('m'=>$module[name]))}">{$module["title"]}</a> </li>
+                            {/loop}
+                        </ul>
+                    
+                    <div class="panel panel-default">
+			<div class="panel-heading">可使用的公众服务套餐</div>
+			<div class="panel-body table-responsive">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th style="width:50px;" class="row-first">选择</th>
+							<th style="width:120px;">公众服务套餐</th>
+							<th style="width:400px;">模块权限</th>
+							<th style="width:400px;">模板权限</th>
+						</tr>
+					</thead>
+					<tbody>
+						{loop $package $item1}
+                        {php $group=group($item['id'])}
+						<tr>
+							<td class="row-first"><input class="modules" type="checkbox" value="{$item1['id']}" name="package[]" {if !empty($group['package']) && in_array($item1['id'], $group['package'])}checked{/if} /></td>
+							<td>{$item1['name']}</td>
+							<td style="line-height:25px; white-space:normal;">
+								<span class="label label-success">系统模块</span>
+								{loop $item1['modules'] $module}
+								<span class="label label-info">{$module['title']}</span>
+								{/loop}
+							</td>
+							<td style="line-height:25px; white-space:normal;">
+								<span class="label label-success">微站默认模板</span>
+								{loop $item1['templates'] $template}
+								<span class="label label-info">{$template['title']}</span>
+								{/loop}
+							</td>
+						</tr>
+						{/loop}
+						<tr>
+							<td class="row-first"><input class="modules" type="checkbox" value="-1" name="package[]" {if !empty($group['package']) && in_array(-1, $group['package'])}checked{/if} /></td>
+							<td>所有服务</td>
+							<td style="line-height:25px; white-space:normal;">
+								<span class="label label-danger">系统所有模块</span>
+							</td>
+							<td style="line-height:25px; white-space:normal;">
+								<span class="label label-danger">系统所有模板</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>-->
+		        </div>
+                   
+    
+            </section>
+        </aside>
+    
+        {/loop}
+    </div>
+</div>
+<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top: 25%">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">套餐操作</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body" style="margin: 15px">
+                    <form action="" class="form-horizontal form" id="form_1" method="post" enctype="multipart/form-data">
+                        <!--<div class="form-group">-->
+                            <!--<label class="col-sm-2"></label>-->
+                            <!--<div class="col-sm-8">-->
+                                <!--<div class="input-group" >-->
+                                    <!--<span class="input-group-addon">份数</span>-->
+                                    <!--<input data-reg="^[1-9][0-9]{0,2}$" class="total form-control" name="total" type="text" placeholder="份数必须大于0" value="" >-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<label class="col-sm-2"></label>-->
+                            <!---->
+                        <!--</div>-->
+ <!--                       <input type="hidden" name="pid" id="pid" value=""/>
+                        <input type="hidden" name="total" value="1"/>
+                         <input type="hidden" name="money" id="money" value=""/>
+                         <input type="hidden" name="day" id="day" value=""/>
+                          <input type="hidden" name="name" id="name" value=""/>
+                        <div class="form-group">
+                            <label class="col-sm-1"></label>
+                            <div class="col-sm-10" style="text-align: center;font-size: 18px">
+                                购买 <span class="name" style="font-weight: bold;color: red;font-size: 25px"></span> 套餐 <span class="day" style="font-weight: bold;color: red;font-size: 25px"></span> 天，需要消费
+                                <span class="money" style="font-weight: bold;color: red;font-size: 25px"></span> 元
+                            </div>
+                            <label class="col-sm-1"></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning btn-submit">提交</button>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!--<script language='javascript'>
+    require(['jquery', 'util'], function($, u){
+        $('#myModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var package_id = button.data('pid'); // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var price = button.data('price');
+            var name = button.data('name');
+            var day = button.data('day');
+			var pid = button.data('pid');
+            var modal = $(this);
+            modal.find('input[name=pid]').val(package_id);
+            $('span.money').html((Number(price)).toFixed(2));
+            $('span.name').html(name);
+            $('span.day').html(day);
+			$('#money').val(price);
+			$('#day').val(day);
+			$('#name').val(name);
+			$('#pid').val(pid);
+            modal.find('input[name=total]').on('blur', function(){
+                if(!submit_check()){
+                    return;
+                }
+                //计算价格
+                var package_price = (Number(price * $(this).val())).toFixed(2);//总价
+                $('span.money').html(package_price);
+                $('span.number').html($(this).val());
+            });
+        }).on('hidden.bs.modal', function (event) {
+            //$(this).find('input[name=total]').unbind().val('');
+        });
+        $('#myModal').find('button.btn-submit').on("click",function(){
+            $(this).attr("disabled","true");
+            $.ajax({
+                'url':"{php echo url('member/buypackage')}",
+                'data':$("form").serialize(),
+                'type':'POST',
+                'async':'true',
+                'dataType':'json',
+                'complete':function(XMLHttpRequest, textStatus){
+                    $("button.btn-submit").removeAttr("disabled");
+                },
+                'success':function(data){
+                    console.debug(data);
+                    alert(data.message);
+                    if(data.code>0){
+                        location.reload();
+                    }
+                }
+            });
+        });
+        function submit_check(){
+            var reg = new RegExp($("input.total").attr("data-reg"));
+            $("input.total").parent().parent().parent().removeClass("has-error");
+            if(!reg.test($("input.total").val())) {
+                $("input.total").parent().parent().parent().addClass("has-error");
+                return false;
+            }
+            return true;
+        }
+    });
+</script>-->
+{template 'member/common/footer'}

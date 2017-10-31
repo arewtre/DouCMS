@@ -1,0 +1,309 @@
+<extend name="Public/base" />
+<block name="main">
+    <link rel="stylesheet" href="__PUBLIC__/css/user.css?{TIMESTAMP}">
+	<fieldset class="layui-elem-field">
+        <legend>会员管理 - {:(isset($list['id'])?'编辑':'新增')}会员</legend>       
+        <div class="layui-field-box">
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+			  <ul class="layui-tab-title">
+			    <li class="layui-this">基本信息</li>
+			    <li>用户头像</li>
+			    <li>修改密码</li>
+			  </ul>
+			  <div class="layui-tab-content">
+			    <div class="layui-tab-item layui-show">
+		    		<form class="layui-form">
+		    		 <if condition="$list['id'] neq ''"><input type="hidden" name="id" value="{$list['id']}"></if>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">用户名</label>
+						    <div class="layui-input-block">
+						    	<input type="text" name="username" value="{$list['username']}" lay-verify="required" class="layui-input">
+						    </div>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">昵称</label>
+						    <div class="layui-input-block">
+						    	<input type="text" name="nickname" value="{$list['nickname']}" lay-verify="required" class="layui-input">
+						    </div>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">真实姓名</label>
+						    <div class="layui-input-block">
+						    	<input type="text" name="realname" value="{$list['realname']}"  class="layui-input">
+						    </div>
+						</div>
+						<div class="layui-form-item" pane="">
+						    <label class="layui-form-label">性别</label>
+						    <div class="layui-input-block">
+						    	<input type="radio" name="sex" value="1" title="男" <if condition="$list['sex'] eq 1">checked=""</if>>
+				     			<input type="radio" name="sex" value="0" title="女" <if condition="$list['sex'] eq 0">checked=""</if>>
+				     			<input type="radio" name="sex" value="-1" title="保密" <if condition="$list['sex'] eq -1">checked=""</if>>
+						    </div>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">手机号码</label>
+						    <div class="layui-input-block">
+						    	<input type="tel" name="mobile" value="{$list['mobile']}" placeholder="请输入手机号码" lay-verify="required|phone" class="layui-input">
+						    </div>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">出生年月</label>
+						    <div class="layui-input-block">
+						    	<input class="layui-input" name="birthday" value="{$list['birthday']}" placeholder="自定义日期格式" onclick="layui.laydate({elem: this, festival: true})">
+						    </div>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">家庭住址</label>
+							    <if condition="$list['address'] neq '' ">
+								    <div class="layui-input-inline" style="width:200px">
+						                <select name="province" lay-filter="province">
+						                    <option value="">{$list['province']}</option>
+						                </select>
+						            </div>
+						            <div class="layui-input-inline" style="width:200px">
+						                <select name="city" lay-filter="city">
+						                    <option  value="">{$list['city']}</option>
+						                </select>
+						            </div>
+						            <div class="layui-input-inline" style="width:200px">
+						                <select name="area" lay-filter="area">
+						                    <option  value="">{$list['area']}</option>
+						                </select>
+						            </div>
+						       <else/>
+						       		<div class="layui-input-inline" style="width:200px">
+						                <select name="province" lay-filter="province">
+						                    <option value=""></option>
+						                </select>
+						            </div>
+						            <div class="layui-input-inline" style="width:200px">
+						                <select name="city" lay-filter="city">
+						                    <option value=""></option>
+						                </select>
+						            </div>
+						            <div class="layui-input-inline" style="width:200px">
+						                <select name="area" lay-filter="area">
+						                    <option value=""></option>
+						                </select>
+						            </div>
+						       </if>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">兴趣爱好</label>
+						    <div class="layui-input-block">
+							    <foreach name="hobby" item="v">
+							    	<input type="checkbox" value="{$v['id']}" name="hobby[{$v['hobby']}]" title="{$v['hobby']}" <if condition="$v['mk'] eq 1">checked="checked"</if>>
+							    </foreach>
+						    </div>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">邮箱</label>
+						    <div class="layui-input-block">
+						    	<input type="text" name="email" value="{$list['email']}" placeholder="请输入邮箱" lay-verify="required|email" class="layui-input">
+						    </div>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">签名</label>
+						    <div class="layui-input-block">
+						    	<textarea name="sign" placeholder="{$list['sign']}" class="layui-textarea"></textarea>
+						    </div>
+						</div>
+						<div class="layui-form-item">
+						    <div class="layui-input-block">
+						    	<button class="layui-btn" lay-submit="" lay-filter="edit-form">立即修改</button>
+								<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						    </div>
+						</div>
+					</form>
+			    </div>
+			    <div class="layui-tab-item">
+			    	<form class="layui-form">
+		    			<div class="user_right">
+							<input type="file" name="dddd" class="layui-upload-file" lay-title="掐指一算，我要换一个头像了">
+							<!-- <p>由于是纯静态页面，所以只能显示一张随机的图片</p>-->
+							<img src="" class="layui-circle" id="userFace">
+						</div>
+						<div class="layui-form-item" style="margin-left: 5%;">
+						    <div class="layui-input-block">
+						    	<button class="layui-btn" lay-submit="" lay-filter="changeUser">立即提交</button>
+								<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						    </div>
+						</div>
+					</form>
+			    </div>
+			    <div class="layui-tab-item">
+		    		<form class="layui-form changePwd">
+						<div style="margin:0 0 15px 110px;color:#f00;">旧密码请输入“123456”，新密码必须两次输入一致才能提交</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">用户名</label>
+						    <div class="layui-input-block">
+						    	<input type="text" value="请叫我马哥" disabled class="layui-input layui-disabled">
+						    </div>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">旧密码</label>
+						    <div class="layui-input-block">
+						    	<input type="password" value="" placeholder="请输入旧密码" lay-verify="required|oldPwd" class="layui-input pwd">
+						    </div>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">新密码</label>
+						    <div class="layui-input-block">
+						    	<input type="password" value="" placeholder="请输入新密码" lay-verify="required|newPwd" id="oldPwd" class="layui-input pwd">
+						    </div>
+						</div>
+						<div class="layui-form-item">
+						    <label class="layui-form-label">确认密码</label>
+						    <div class="layui-input-block">
+						    	<input type="password" value="" placeholder="请确认密码" lay-verify="required|confirmPwd" class="layui-input pwd">
+						    </div>
+						</div>
+						<div class="layui-form-item">
+						    <div class="layui-input-block">
+						    	<button class="layui-btn" lay-submit="" lay-filter="changePwd">立即修改</button>
+								<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						    </div>
+						</div>
+					</form>
+			    </div>
+			  </div>
+			</div>			
+		</div>
+	</fieldset>
+	<script src="__PUBLIC__/js/area.js"></script>
+	<script>
+        //初始数据
+        var areaData = Area;
+        var $form;
+        var form;
+        var $;
+        layui.use(['jquery', 'form'], function() {
+            $ = layui.jquery;
+            form = layui.form();
+            $form = $('form');
+            loadProvince();
+        });
+         //加载省数据
+        function loadProvince() {
+            var proHtml = '';
+            for (var i = 0; i < areaData.length; i++) {
+                proHtml += '<option value="' + areaData[i].provinceName + '_' + areaData[i].mallCityList.length + '_' + i + '">' + areaData[i].provinceName + '</option>';
+            }
+            //初始化省数据
+            $form.find('select[name=province]').append(proHtml);
+            form.render();
+            form.on('select(province)', function(data) {
+                $form.find('select[name=area]').html('<option value="">请选择县/区</option>').parent().hide();
+                var value = data.value;
+                var d = value.split('_');
+                var Name = d[0];
+                var count = d[1];
+                var index = d[2];
+                if (count > 0) {
+                    loadCity(areaData[index].mallCityList);
+                } else {
+                    $form.find('select[name=city]').parent().hide();
+                }
+            });
+        }
+         //加载市数据
+        function loadCity(citys) {
+            var cityHtml = '';
+            for (var i = 0; i < citys.length; i++) {
+                cityHtml += '<option value="' + citys[i].cityName + '_' + citys[i].mallAreaList.length + '_' + i + '">' + citys[i].cityName + '</option>';
+            }
+            $form.find('select[name=city]').html(cityHtml).parent().show();
+            form.render();
+            form.on('select(city)', function(data) {
+                var value = data.value;
+                var d = value.split('_');
+                var Name = d[0];
+                var count = d[1];
+                var index = d[2];
+                if (count > 0) {
+                    loadArea(citys[index].mallAreaList);
+                } else {
+                    $form.find('select[name=area]').parent().hide();
+                }
+            });
+        }
+         //加载县/区数据
+        function loadArea(areas) {
+            var areaHtml = '';
+            for (var i = 0; i < areas.length; i++) {
+                areaHtml += '<option value="' + areas[i].areaName + '">' + areas[i].areaName + '</option>';
+            }
+            $form.find('select[name=area]').html(areaHtml).parent().show();
+            form.render();
+            form.on('select(area)', function(data) {
+                //console.log(data);
+            });
+        }
+    </script>
+	<script>
+	layui.use(['element','laydate','form'], function(){
+	  var $ = layui.jquery
+	  ,element = layui.element(); //Tab的切换功能，切换事件监听等，需要依赖element模块
+	  var laydate = layui.laydate;
+	  var form = layui.form();
+	  
+	  //触发事件
+	  var active = {
+	    tabAdd: function(){
+	      //新增一个Tab项
+	      element.tabAdd('demo', {
+	        title: '新选项'+ (Math.random()*1000|0) //用于演示
+	        ,content: '内容'+ (Math.random()*1000|0)
+	        ,id: new Date().getTime() //实际使用一般是规定好的id，这里以时间戳模拟下
+	      })
+	    }
+	    ,tabDelete: function(othis){
+	      //删除指定Tab项
+	      element.tabDelete('demo', '44'); //删除：“商品管理”
+	      
+	      
+	      othis.addClass('layui-btn-disabled');
+	    }
+	    ,tabChange: function(){
+	      //切换到指定Tab项
+	      element.tabChange('demo', '22'); //切换到：用户管理
+	    }
+	  };
+	  
+	  $('.site-demo-active').on('click', function(){
+	    var othis = $(this), type = othis.data('type');
+	    active[type] ? active[type].call(this, othis) : '';
+	  });
+	  
+	  //Hash地址的定位
+	  var layid = location.hash.replace(/^#test=/, '');
+	  element.tabChange('test', layid);
+	  
+	  element.on('tab(test)', function(elem){
+	    location.hash = 'test='+ $(this).attr('lay-id');
+	  });
+	  
+	
+	  form.on('submit(edit-form)', function(data){
+	      $.ajax({
+	          type: "POST",
+	          url: '{:U("edit")}',
+	          data: data.field,
+	          success: function(msg){
+	              if( msg.Code == 1 ){
+	                  location.reload();
+	              }else{
+	                  layer.msg(msg.msg, {
+	                      icon: 5,
+	                      shade: [0.6, '#393D49'],
+	                      time:1500
+	                  });
+	              }
+	          }
+	      });
+	      return false;
+	  });
+	  
+	});
+</script>
+</block>

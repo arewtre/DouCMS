@@ -1,0 +1,641 @@
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `lin_site_menu` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE ( parentid=0 ) ORDER BY displayorder desc  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 129  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 130  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 131  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 132  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 133  [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_article` [ RunTime:0.0320s ]
+SQL: SELECT * FROM lin_article as a INNER JOIN lin_article_category  as ac   on ac.pid = a.art_pid   WHERE ( a.art_publish=1 AND art_isdel=0 ) ORDER BY a.art_addtime desc  [ RunTime:0.0990s ]
+SQL: SHOW COLUMNS FROM `lin_video` [ RunTime:0.0310s ]
+SQL: SELECT * FROM lin_video as v INNER JOIN lin_video_category  as vc   on vc.pid = v.v_cid   WHERE ( is_top = 1 ) ORDER BY v.v_create_time desc LIMIT 1   [ RunTime:0.0330s ]
+SQL: SHOW COLUMNS FROM `lin_banner` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_banner` WHERE `state` = 1 ORDER BY displayorder desc  [ RunTime:0.0320s ]
+SQL: SELECT * FROM lin_video as v INNER JOIN lin_video_category  as vc on vc.pid = v.v_cid   WHERE ( is_top = 1 ) ORDER BY v.v_create_time desc LIMIT 0,2   [ RunTime:0.0320s ]
+SQL: SELECT * FROM lin_video as v INNER JOIN lin_video_category  as vc on vc.pid = v.v_cid   WHERE ( is_top = 1 ) ORDER BY v.v_create_time desc LIMIT 0,2   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_msg` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_msg` ORDER BY addtime desc  [ RunTime:0.0330s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: children D:\wwwroot\htdocs\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 57 行.
+NOTIC: [8] Undefined index: children D:\wwwroot\htdocs\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 57 行.
+NOTIC: [8] Undefined index: children D:\wwwroot\htdocs\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 57 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/css/bootstrap-datetimepicker.min.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/slide-2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/slide-1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/slide-3.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/banner.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/fonts/fontawesome-webfont.woff2?v=4.3.0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/5.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/3.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/11.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/10.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/12.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/13.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/ava-1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/ava-2.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/ava-4.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/ava-3.jpeg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:18:01+08:00 ] ::1 /htdocs/Public/Home/images/banner-2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T16:18:17+08:00 ] ::1 /htdocs/Public/images/group.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:17+08:00 ] ::1 /htdocs/Public/images/lockscreenbg.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T16:18:17+08:00 ] ::1 /htdocs/Public/images/user.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T16:18:18+08:00 ] ::1 /htdocs/Public/fonts/fontawesome-webfont.woff2?v=4.3.0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:33:52+08:00 ] ::1 /htdocs/Public/js/user.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:33:52+08:00 ] ::1 /htdocs/Public/js/user.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:34:01+08:00 ] ::1 /htdocs/Public/css/images.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:34:01+08:00 ] ::1 /htdocs/Public/Home/js/bootstrap.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:34:02+08:00 ] ::1 /htdocs/Public/Home/js/bootstrap.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:34:02+08:00 ] ::1 /htdocs/Public/fonts/fontawesome-webfont.woff2?v=4.3.0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:34:12+08:00 ] ::1 /htdocs/Public/Home/js/bootstrap.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:34:12+08:00 ] ::1 /htdocs/Public/css/images.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:34:13+08:00 ] ::1 /htdocs/Public/Home/js/bootstrap.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:34:18+08:00 ] ::1 /htdocs/Public/css/images.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:34:18+08:00 ] ::1 /htdocs/Public/Home/js/bootstrap.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:34:52+08:00 ] ::1 /htdocs/Public/fonts/fontawesome-webfont.woff2?v=4.3.0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:35:12+08:00 ] ::1 /htdocs/Public/fonts/fontawesome-webfont.woff2?v=4.3.0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:35:27+08:00 ] ::1 /htdocs/Public/fonts/fontawesome-webfont.woff2?v=4.3.0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:35:27+08:00 ] ::1 /htdocs/Public/js/jquery.smooth-scroll.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:35:27+08:00 ] ::1 /htdocs/Public/js/bootstrap.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:35:27+08:00 ] ::1 /htdocs/Public/js/jquery.smooth-scroll.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:35:27+08:00 ] ::1 /htdocs/Public/js/bootstrap.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T16:36:32+08:00 ] ::1 /htdocs/Public/fonts/fontawesome-webfont.woff2?v=4.3.0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `lin_site_menu` [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE ( parentid=0 ) ORDER BY displayorder desc  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 129  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 130  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 131  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 132  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 133  [ RunTime:0.0300s ]
+SQL: SHOW COLUMNS FROM `lin_article` [ RunTime:0.0300s ]
+SQL: SELECT * FROM lin_article as a INNER JOIN lin_article_category  as ac   on ac.pid = a.art_pid   WHERE ( a.art_publish=1 AND art_isdel=0 ) ORDER BY a.art_addtime desc  [ RunTime:0.0890s ]
+SQL: SHOW COLUMNS FROM `lin_video` [ RunTime:0.0300s ]
+SQL: SELECT * FROM lin_video as v INNER JOIN lin_video_category  as vc   on vc.pid = v.v_cid   WHERE ( is_top = 1 ) ORDER BY v.v_create_time desc LIMIT 1   [ RunTime:0.0300s ]
+SQL: SHOW COLUMNS FROM `lin_banner` [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_banner` WHERE `state` = 1 ORDER BY displayorder desc  [ RunTime:0.0300s ]
+SQL: SELECT * FROM lin_video as v INNER JOIN lin_video_category  as vc on vc.pid = v.v_cid   WHERE ( is_top = 1 ) ORDER BY v.v_create_time desc LIMIT 0,2   [ RunTime:0.0310s ]
+SQL: SELECT * FROM lin_video as v INNER JOIN lin_video_category  as vc on vc.pid = v.v_cid   WHERE ( is_top = 1 ) ORDER BY v.v_create_time desc LIMIT 0,2   [ RunTime:0.0280s ]
+SQL: SHOW COLUMNS FROM `lin_msg` [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_msg` ORDER BY addtime desc  [ RunTime:0.0290s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\yhhq\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.054003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.054003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/title_line.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/case_2.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/title_line_white.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/homepage_service_planning.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/homepage_service_clothes.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/homepage_service_chat.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/case_1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/case_4.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/case_3.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/homepage_team.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/homepage_cp.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/homepage_cooperation.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/prodimg/201705/prod_240061s.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/comm/tabImg.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/prodimg/201705/prod_240062s.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/prodimg/201705/prod_240063s.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/prodimg/201705/prod_240069s.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/prodimg/201705/prod_240070s.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/prodimg/201705/prod_240066s.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/prodimg/201705/prod_240064s.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/prodimg/201705/prod_240067s.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/homepage_project.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/homepage_product.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/flower_right.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/news_1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/news_7.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/news_9.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/news_4.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/flower_left.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/title_line.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/pkgimg/pkgimg/title_line_white.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T17:04:03+08:00 ] ::1 /yhhq/img/upimages/pkgimg/prodimg/201705/prod_240061s.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:04:04+08:00 ] ::1 /yhhq/Public/Home/img/upimages/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:04:32+08:00 ] ::1 /yhhq/contactUs.html-pageid=64194.htm
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+ERR: 无法加载控制器:ContactUs.html-pageid=64194.htm
+
+[ 2017-10-13T17:06:48+08:00 ] ::1 /yhhq/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `lin_site_menu` [ RunTime:0.0340s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE ( parentid=0 ) ORDER BY displayorder desc  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 129  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 130  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 131  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 132  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 133  [ RunTime:0.0320s ]
+SQL: SHOW COLUMNS FROM `lin_article` [ RunTime:0.0330s ]
+SQL: SELECT * FROM lin_article as a INNER JOIN lin_article_category  as ac   on ac.pid = a.art_pid   WHERE ( a.art_publish=1 AND art_isdel=0 ) ORDER BY a.art_addtime desc  [ RunTime:0.0950s ]
+SQL: SHOW COLUMNS FROM `lin_video` [ RunTime:0.0330s ]
+SQL: SELECT * FROM lin_video as v INNER JOIN lin_video_category  as vc   on vc.pid = v.v_cid   WHERE ( is_top = 1 ) ORDER BY v.v_create_time desc LIMIT 1   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_banner` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_banner` WHERE `state` = 1 ORDER BY displayorder desc  [ RunTime:0.0340s ]
+SQL: SELECT * FROM lin_video as v INNER JOIN lin_video_category  as vc on vc.pid = v.v_cid   WHERE ( is_top = 1 ) ORDER BY v.v_create_time desc LIMIT 0,2   [ RunTime:0.0330s ]
+SQL: SELECT * FROM lin_video as v INNER JOIN lin_video_category  as vc on vc.pid = v.v_cid   WHERE ( is_top = 1 ) ORDER BY v.v_create_time desc LIMIT 0,2   [ RunTime:0.0330s ]
+SQL: SHOW COLUMNS FROM `lin_msg` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_msg` ORDER BY addtime desc  [ RunTime:0.0320s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\yhhq\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.057003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.057003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T17:12:20+08:00 ] ::1 /yhhq/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `lin_site_menu` [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE ( parentid=0 ) ORDER BY displayorder desc  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 129  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 130  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 131  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 132  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_site_menu` WHERE `parentid` = 133  [ RunTime:0.0290s ]
+SQL: SHOW COLUMNS FROM `lin_article` [ RunTime:0.0290s ]
+SQL: SELECT * FROM lin_article as a INNER JOIN lin_article_category  as ac   on ac.pid = a.art_pid   WHERE ( a.art_publish=1 AND art_isdel=0 ) ORDER BY a.art_addtime desc  [ RunTime:0.0880s ]
+SQL: SHOW COLUMNS FROM `lin_video` [ RunTime:0.0290s ]
+SQL: SELECT * FROM lin_video as v INNER JOIN lin_video_category  as vc   on vc.pid = v.v_cid   WHERE ( is_top = 1 ) ORDER BY v.v_create_time desc LIMIT 1   [ RunTime:0.0300s ]
+SQL: SHOW COLUMNS FROM `lin_banner` [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_banner` WHERE `state` = 1 ORDER BY displayorder desc  [ RunTime:0.0290s ]
+SQL: SELECT * FROM lin_video as v INNER JOIN lin_video_category  as vc on vc.pid = v.v_cid   WHERE ( is_top = 1 ) ORDER BY v.v_create_time desc LIMIT 0,2   [ RunTime:0.0290s ]
+SQL: SELECT * FROM lin_video as v INNER JOIN lin_video_category  as vc on vc.pid = v.v_cid   WHERE ( is_top = 1 ) ORDER BY v.v_create_time desc LIMIT 0,2   [ RunTime:0.0280s ]
+SQL: SHOW COLUMNS FROM `lin_msg` [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_msg` ORDER BY addtime desc  [ RunTime:0.0290s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\yhhq\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

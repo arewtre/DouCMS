@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta id="viewport" name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,target- densitydpi = high-dpi" />
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<title></title>
+	
+	</head>
+
+<style>
+	html,body{
+		font-family:"微软雅黑";
+		width: 100%;
+		height: 100%;
+		background-color:#fff;
+		margin: 0;
+		padding: 0;
+		color: snow;
+	}
+	.kefu_main{
+		width: 100%;
+		margin:0 auto;
+		overflow: hidden;
+	}
+	.info{
+		color:green;
+		text-align:center;
+		width:100%;
+		margin-top:50%;
+	}
+</style>
+<body onunload="checkLeave()">
+<div class="kefu_main">
+	<div class="info">CRM系统出错,请重试!</div>
+</div>
+<script>
+window.onbeforeunload=function (){
+	//alert("===onbeforeunload===");
+	if(event.clientX>document.body.clientWidth && event.clientY < 0 || event.altKey){
+	//alert("你关闭了浏览器");
+	}else{
+	//alert("你正在刷新页面");
+		window.location.href = "http://www.xiaooo.club/mlgc/app/index.php?i=0&j=&c=user&a=login&do=display&"
+	}
+}
+
+function checkLeave(){
+	window.location.href = "http://www.xiaooo.club/mlgc/app/index.php?i=0&j=&c=user&a=login&do=display&"
+}
+</script>
+</body>
+</html>

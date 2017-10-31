@@ -1,0 +1,1 @@
+[2017/10/17 09:33:20]用户ID:1,用户名：admin,添加了数据,数据表:ims_stat_fans,添加数据：a:5:{s:7:"uniacid";i:40;s:3:"new";i:9;s:6:"cancel";i:0;s:8:"cumulate";i:2679;s:4:"date";s:8:"20171016";}

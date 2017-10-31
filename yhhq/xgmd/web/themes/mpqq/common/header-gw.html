@@ -1,0 +1,60 @@
+﻿{template 'common/header-base'}
+<style type="text/css">
+    .table {
+    table-layout: fixed !important;
+}
+.nav-width li.active {
+    margin-right: 00px;}
+.nav-width li.normal {
+    margin-right: 0px}
+</style>
+<div class="main">
+
+    <!-- 主内容 -->
+    <section>
+        <div class="section_main">
+            <div class="section_auto">
+               <div class="ui_tab_contents">
+                 <div class="notice_body">
+
+            	{if defined('IN_MESSAGE')}
+		<div>
+			<div class="jumbotron clearfix alert alert-{$label}">
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+						<i class="fa fa-5x fa-{if $label=='success'}check-circle{/if}{if $label=='danger'}times-circle{/if}{if $label=='info'}info-circle{/if}{if $label=='warning'}exclamation-triangle{/if}"></i>
+					</div>
+					<div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
+						{if is_array($msg)}
+							<h2>MYSQL 错误：</h2>
+							<p>{php echo cutstr($msg['sql'], 300, 1);}</p>
+							<p><b>{$msg['error'][0]} {$msg['error'][1]}：</b>{$msg['error'][2]}</p>
+						{else}
+						<h2>{$caption}</h2>
+						<p>{$msg}</p>
+						{/if}
+						{if $redirect}
+						<p><a href="{$redirect}" class="alert-link">如果你的浏览器没有自动跳转，请点击此链接</a></p>
+						<script type="text/javascript">
+							setTimeout(function () {
+								location.href = "{$redirect}";
+							}, 3000);
+						</script>
+						{else}
+							<p>[<a href="javascript:history.go(-1);" class="alert-link">点击这里返回上一页</a>] &nbsp; [<a href="./?refresh" class="alert-link">首页</a>]</p>
+						{/if}
+					</div>
+				</div>
+			</div>
+		{else}
+		<div class="well">
+		{/if}
+		<script>
+	require(['jquery'],function($){
+		var h = document.documentElement.clientHeight;
+		$(".gw-container").css('min-height',h);
+	});
+</script>
+
+
+  

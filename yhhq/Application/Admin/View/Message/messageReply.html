@@ -1,0 +1,18 @@
+<extend name="Public/hbase"/>
+
+<block name="mains">
+	<form class="layui-form">
+		<div class="replay_edit">
+			<textarea class="layui-textarea" id="msgReply"></textarea>
+			<a class="layui-btn send_msg">发送</a>
+		</div>
+		<table class="layui-table msg_box" lay-skin="line">
+			<colgroup>
+				<col width="50%">
+				<col width="30%">
+				<col>
+			</colgroup>
+			<tbody class="msgReplyHtml"></tbody>
+		</table>
+	</form>
+</block>

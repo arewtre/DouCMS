@@ -1,0 +1,16 @@
+#idBox{position:fixed; background:#fff; z-index:2147583630; width:90%; left:50%; top:50%;}
+#boxTopTitle{width:100%; height:45px; background: #3333ff; line-height:45px; font-size:16px; color:#fff; font-family:microsoft yahei; padding:0 15px; box-sizing:border-box; }
+#boxClose{position: absolute; right: 0; top: 0; z-index: 2; display: block; width: 45px; height: 45px; line-height: 45px; text-align: center; font-size:24px; font-family:'黑体'; color:#fff;cursor: pointer; -webkit-transition: all linear .1s; -moz-transition: all linear .1s; -o-transition: all linear .1s; transition: all linear .1s;}
+#boxClose:hover{background: rgba(0,0,0,.2);}
+
+
+
+
+
+
+
+
+
+
+
+

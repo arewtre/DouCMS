@@ -1,0 +1,59 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+	<li class="active"><a href="{php echo url('fournet/msg/')}">短信通知</a></li>
+</ul>
+<script type="text/javascript">
+	{if $notify['mail']['smtp']['type'] == 'custom'}
+		$("#smtp").show();
+	{/if}
+</script>
+<div class="main">
+	<form id="payform" action="{php echo url('fournet/msg')}" method="post" class="form-horizontal form">
+	
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				短信通知选项
+			</div>
+            <div class="panel-body">
+				<div class="form-group" id="account">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">使用的短信平台</label>
+					<div class="col-sm-9 col-xs-12">
+						<select name="pingtai" class="form-control">
+							<option value="阿里大鱼" {if $msg['pingtai']==阿里大鱼}selected{/if}>阿里大鱼</option>
+						</select>
+					 <div class="help-block">目前只支持阿里大鱼，推荐使用，要便宜，智能些</div>
+					</div>
+				</div>
+
+                    <div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">短信Appkey</label>
+						<div class="col-sm-9 col-xs-12">
+							<input type="text" name="appkey" class="form-control" value="{$msg['appkey']}" />
+                            <div class="help-block">此项填写Appkey</div>
+						</div>
+					</div>
+                    <div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">短信secret</label>
+						<div class="col-sm-9 col-xs-12">
+							<input type="text" name="secret" class="form-control" value="{$msg['secret']}" />
+							
+						</div>
+					</div>
+                    <div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">短信签名</label>
+					<div class="col-sm-9 col-xs-12">
+						<input type="text" name="qianming" class="form-control" value="{$msg['qianming']}" />
+						<div class="help-block">用于发送短信的签名，例如：乐基广场</div>
+					</div>
+				</div>
+                
+				</div>
+			</div>
+		<div class="form-group col-sm-12">
+			<button type="submit" class="btn btn-primary col-lg-1" name="submit" value="提交">提交</button>
+			<input type="hidden" name="token" value="{$_W['token']}" />
+		</div>
+
+	</form>
+</div>
+{template 'common/footer'}

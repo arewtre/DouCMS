@@ -1,0 +1,200 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+	<li {if $do == 'display'}class="active"{/if}>
+	<a href="{php echo url('banner/'.$action.'/display',array());}">管理</a></li>
+	<li {if $do == 'post' && empty($id)}class="active"{/if}><a href="{php echo url('banner/'.$action.'/post',array());}">添加</a></li>
+	{if $do == 'post' && $id}
+	<li {if $do == 'post' && !empty($id)}class="active"{/if}><a href="{php echo url('banner/'.$action.'/post',array());}">编辑</a></li>
+	{/if}
+</ul>
+<style>
+.table td span{display:inline-block;margin-top:4px;}
+.table td input{margin-bottom:0;}
+table,table td,table th{border-collapse:collapse;}
+</style>
+{if $do == 'display'}
+<div class="main">
+	<div class="panel panel-info">
+		<div class="panel-heading">筛选</div>
+		<div class="panel-body">
+			<form action="./index.php" method="get" class="form-horizontal" role="form">
+			<input type="hidden" name="c" value="banner">
+			<input type="hidden" name="a" value="{$action}">
+			<input type="hidden" name="do" value="display"/>
+			<div class="form-group clearfix">
+				<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">关键字</label>
+				<div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+					<input class="form-control" name="keyword" id="" type="text" value="{$_GPC['keyword']}">
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-2 col-lg-1">
+					<button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+	<form class="form-horizontal" action="" method="post">
+		<div class="panel panel-default">
+			<div class="panel-body table-responsive">
+				<table class="table table-hover" style="border-collapse: collapse;table-layout:fixed;word-break:break-all;">
+					<thead class="navbar-inner">
+					<tr>
+						<th style="width:10%;">排序</th>
+						<th style="width:200">缩略图</th>
+						<th style="width:200">标题</th>
+						<th style="width:250">说明</th>
+						<th style="width:150">状态(点击可切换)</th>
+						<th>操作</th>
+					</tr>
+					</thead>
+					<tbody>
+					{loop $list $item}
+					<tr>
+						<td style="width:10%">
+						<input type="text" class="form-control"  name="displayorder[{$item['banner_id']}]" value="{$item['sort']}" /></td>
+						<td style="width:200"><img src="{php echo tomedia($item['pic_name'])}" width="150" /></td>
+						<td style="width:200">{$item['text']}</td>
+						<td style="width:250;word-wrap:break-word;">{$item['banner_desc']}</td>
+						<!-- <td style="width:150">{if $item['enable']==0}<a href="{php echo url('banner/'.$action.'/view', array('id' => $item['banner_id'],'op'=>'view'))}" class="btn btn-success noview">不显示</a>{/if}
+                                 {if $item['enable']==1}<a href="{php echo url('banner/'.$action.'/view', array('id' => $item['banner_id'],'op'=>'noview'))}" class="btn btn-primary view">显示</a>{/if}</td> -->
+						<td><label data="{$item['enable']}" class="label label-default {if $item['enable']==1}label-info{/if}" onclick="setProperty(this,{$item['banner_id']},'enable')">显示</label></td>
+						<td>
+							<!-- <a class="btn btn-info btn-sm"  title="编辑"  href="{php echo url('banner/'.$action.'/post', array('id' => $item['banner_id']))}">编辑</a>
+							<a class="btn btn-danger btn-sm" title="删除"  onclick="return confirm('此操作不可恢复，确认吗？'); return false;" href="{php echo url('banner/'.$action.'/delete', array('id' => $item['banner_id']))}">删除</a> -->
+							<a class="btn btn-default btn-sm" href="{php echo url('banner/'.$action.'/post', array('id' => $item['banner_id']))}" title="查看"><i class="fa fa-pencil"></i></a>
+		                    <a class="btn btn-default btn-sm" title="删除" onclick="return confirm('此操作不可恢复，确认吗？'); return false;" href="{php echo url('banner/'.$action.'/delete', array('id' => $item['banner_id']))}"><i class="fa fa-remove"></i></a>
+						</td>
+					</tr>
+					{/loop}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-12">
+				<input name="token" type="hidden" value="{$_W['token']}" />				
+				<input type="submit" class="btn btn-primary col-lg-1" name="submit" value="批量更新排序" />
+			</div>
+		</div>
+		{$pager}
+	</form>
+</div>
+<script type="text/javascript">
+    function setProperty(obj,id,type){
+         $(obj).html($(obj).html() + "...");
+         $.post("{php echo url('banner/indextop/setProperty')}"
+                 ,{id:id,type:type, data: obj.getAttribute("data")}
+                 ,function(d){
+                     $(obj).html($(obj).html().replace("...",""));
+                     $(obj).attr("data",d.data)
+                     if(d.result==1){
+                         $(obj).toggleClass("label-info");
+                         $(obj).attr("data",d.data);
+                     }
+                 },"json"
+         );
+    }
+</script>
+{elseif $do == 'post'}
+<script type="text/javascript">
+
+</script>
+<div class="main">
+	<form class="form-horizontal form" action="" method="post" enctype="multipart/form-data" onsubmit="return formcheck(this)">
+		<input type="hidden" name="id" value="{$item[banner_id]}">
+		<input type="hidden" name="type" value="{$type}" />
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				广告管理
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">标题</label>
+					<div class="col-sm-10 col-xs-12">
+						<input type="text" class="form-control" placeholder="" name="text" value="{$item['text']}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">说明</label>
+					<div class="col-sm-10 col-xs-12">
+						<input type="text" class="form-control" placeholder="" name="banner_desc" value="{$item['banner_desc']}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">缩略图</label>
+					<div class="col-sm-10 col-xs-12">
+						{php echo tpl_form_field_image('logo', $item['pic_name'])}
+						<span class="help-block"  style="color:#f00">
+						{if $type==1}
+						      建议尺寸(660*372)
+						{elseif $type==2}
+						      建议尺寸(660*168)
+						{elseif $type==3}
+						      建议尺寸(660*372)
+						{elseif $type==4}
+						      建议尺寸(660*372)
+						{/if}
+						</span>
+					</div>
+				</div>
+<!-- 				<div class="form-group"> -->
+<!-- 					<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">链接</label> -->
+<!-- 					<div class="col-sm-10 col-xs-12"> -->
+<!-- 						{php echo tpl_form_field_link_url_type('link_url', $item['link_url'], 'link_type', $item['link_type'], 'link_id', $item['link_id'], array('css' => array('input' => ' input-sm', 'btn' => ' btn-sm')));	} -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">排序</label>
+					<div class="col-sm-10 col-xs-12">
+						<input type="text" class="form-control" placeholder="" name="displayorder" value="{$item['sort']}">
+						<span class="help-block">请用大于等于0的整数填写,数值越大排序越靠前</span>
+					</div>
+				</div>
+				<div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 col-lg-1 control-label">
+                        	显示
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="row row-fix tpl-location-container">
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="padding-left:0px">
+                                <select name="enable" data-value="" class="form-control enable">
+                                	<option value="-1">请选择是否立即显示</option>
+                                    <option value="1" {if $item['enable']===1} selected="selected" {/if}>立即显示</option>
+                                    <option value="0" {if $item['enable']===0} selected="selected" {/if}>不显示</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">内容</label>
+                   <div class="col-sm-10 col-xs-12">
+                        {php echo tpl_ueditor('content', $item['content']);}
+                    </div>
+                </div>				
+			</div>
+		</div>
+		<div class="form-group col-sm-12">
+			<button type="submit" class="btn btn-primary col-lg-1" name="submit" value="提交">提交</button>
+			<input type="hidden" name="token" value="{$_W['token']}" />
+		</div>
+		<div>
+			<br/>
+			<br/>
+		</div>
+	</form>
+</div>
+<script type="text/javascript">
+$('.form').submit(function(){
+    if (!$.trim($(':text[name="text"]').val())) {
+        util.message('请填写广告标题!');
+        return false;
+    }
+    if (!$.trim($('.enable').val())) {
+        util.message('请选择是否立即显示!');
+        return false;
+    }
+});
+</script>
+{/if}
+{template 'common/footer'}

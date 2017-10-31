@@ -1,0 +1,90 @@
+[ 2017-10-20T17:14:03+08:00 ] ::1 /yhhq/index.php/admin?
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0060s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Index/index' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT VERSION() AS ver [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `lin_message` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `lin_message` ORDER BY asktime desc LIMIT 4   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\yhhq\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: top D:\wwwroot\yhhq\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 72 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.006000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.007001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007001s ]
+
+[ 2017-10-20T17:14:04+08:00 ] ::1 /yhhq/index.php?s=/Admin/Index/index/main/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0030s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Index/index' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0270s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0110s ]
+SQL: SELECT VERSION() AS ver [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `lin_message` [ RunTime:0.0560s ]
+SQL: SELECT * FROM `lin_message` ORDER BY asktime desc LIMIT 4   [ RunTime:0.0300s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\yhhq\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: userface D:\wwwroot\yhhq\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 196 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\yhhq\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 197 行.
+NOTIC: [8] Undefined index: userface D:\wwwroot\yhhq\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 196 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\yhhq\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 197 行.
+NOTIC: [8] Undefined index: userface D:\wwwroot\yhhq\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 196 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\yhhq\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 197 行.
+NOTIC: [8] Undefined index: userface D:\wwwroot\yhhq\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 196 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\yhhq\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 197 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-20T17:14:04+08:00 ] ::1 /yhhq/index.php?s=/Admin/Index/index.html&Param=index_menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0040s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Index/index' LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `lin_menu` WHERE ( parentid=0 AND is_display=1 ) ORDER BY displayorder desc  [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `lin_menu` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `lin_menu` WHERE ( parentid=154 AND is_display=1 ) ORDER BY displayorder desc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 155 AND `is_display` = 1 ORDER BY displayorder desc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 6 AND `is_display` = 1 ORDER BY displayorder desc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 10 AND `is_display` = 1 ORDER BY displayorder desc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 1 AND `is_display` = 1 ORDER BY displayorder desc  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 14 AND `is_display` = 1  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 147 AND `is_display` = 1  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 158 AND `is_display` = 1  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

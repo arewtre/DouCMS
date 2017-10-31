@@ -1,0 +1,5 @@
+[2017/09/22 02:09:54]用户ID:1,用户名：admin,更新了数据,数据表:ims_floor,旧数据：a:1:{i:0;a:4:{s:8:"floor_id";s:1:"1";s:10:"floor_name";s:4:"A区";s:4:"type";s:1:"1";s:4:"sort";s:1:"0";}},更新数据：a:1:{s:4:"sort";s:1:"1";}
+[2017/09/22 02:10:13]用户ID:1,用户名：admin,更新了数据,数据表:ims_floor,旧数据：a:1:{i:0;a:4:{s:8:"floor_id";s:1:"1";s:10:"floor_name";s:4:"A区";s:4:"type";s:1:"1";s:4:"sort";s:1:"1";}},更新数据：a:2:{s:10:"floor_name";s:5:"A区2";s:4:"sort";i:0;}
+[2017/09/22 02:10:34]用户ID:1,用户名：admin,更新了数据,数据表:ims_floor,旧数据：a:1:{i:0;a:4:{s:8:"floor_id";s:1:"1";s:10:"floor_name";s:5:"A区2";s:4:"type";s:1:"1";s:4:"sort";s:1:"0";}},更新数据：a:2:{s:10:"floor_name";s:4:"A区";s:4:"sort";i:0;}
+[2017/09/22 02:10:44]用户ID:1,用户名：admin,更新了数据,数据表:ims_floor,旧数据：a:1:{i:0;a:4:{s:8:"floor_id";s:1:"1";s:10:"floor_name";s:4:"A区";s:4:"type";s:1:"1";s:4:"sort";s:1:"0";}},更新数据：a:1:{s:4:"type";i:0;}
+[2017/09/22 02:10:53]用户ID:1,用户名：admin,更新了数据,数据表:ims_floor,旧数据：a:1:{i:0;a:4:{s:8:"floor_id";s:1:"1";s:10:"floor_name";s:4:"A区";s:4:"type";s:1:"0";s:4:"sort";s:1:"0";}},更新数据：a:1:{s:4:"type";i:1;}

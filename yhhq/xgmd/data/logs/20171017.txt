@@ -1,0 +1,1 @@
+[2017/10/17 02:48:28]用户ID:1,用户名：admin,添加了数据,数据表:ims_core_cache,添加数据：a:2:{s:3:"key";s:14:"accesstoken:18";s:5:"value";s:191:"a:2:{s:5:"token";s:138:"Cc3g9eazI46mDx3_VUSqtWuYV6F6uCLJmReTjqTr3gEv2mDFonXlSQT6RyIvUwMN8rkcAdaeCIScZC6j4YHK5mftUM7wjKtwGEEqty1bRCEMW7-McNzSgy2_kXC3BFk5AEIcABANRV";s:6:"expire";i:1508229943;}";}

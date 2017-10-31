@@ -1,0 +1,105 @@
+{template 'common/header'}
+{if $do=="display"}
+<link rel="stylesheet" type="text/css" href="./resource/businesscenter/template/themes/css/main.css?v=2" />
+<div class="main">
+        <div class="panel-heading">
+        <div class="panel-body">
+            <form action="./index.php" method="get" class="form-horizontal" role="form">
+                <input type="hidden" name="c" value="activity" />
+                <input type="hidden" name="a" value="apply" />
+                <input type="hidden" name="do" value="display" />
+                <input type="hidden" name="id" value="{$id}" />
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">关键字</label>
+                    <div class="col-sm-2 col-lg-2">
+                    <select class="form-control" style="margin-right:15px;" name="key_attr" autocomplete="off">
+                            <option value="0">请选择</option>
+                            {loop $attr_keys $attr_key}
+                            	<option value="{$attr_key['attr_id']}" {if $attr_key['attr_id'] == $key_attr} selected="selected"{/if}>{$attr_key['name']}</option>
+                            {/loop}
+                        </select>
+                    
+                    </div>
+                      <div class="col-sm-2 col-lg-2">
+						<input class="form-control" name="keyword" id="" type="text"
+							value="{$_GPC['keyword']}">
+					</div>
+                    <div class="col-sm-3 col-lg-1">
+                    	<button class="btn btn-success">
+                    		<i class="fa fa-search"></i> 搜索
+                    	</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+	<ul class="page-nav page-nav-tabs" style="background:none;float: left;margin-left: 0px;padding-left: 0px;border-bottom:1px #c5d0dc solid;">
+        <li{if empty($type)} class="active"{/if}>
+        	<a href="{php echo url('activity/apply/display', array('id'=>$id, 'type' => 0))}">全部预订</a>
+        </li>
+        <li{if $type==1} class="active"{/if}>
+        	<a href="{php echo url('activity/apply/display', array('id'=>$id, 'type' => 1))}">已处理</a>
+        </li>
+       	<li{if $type==2} class="active"{/if}>
+        	<a href="{php echo url('activity/apply/display', array('id'=>$id, 'type' => 2))}">未处理</a>
+        </li>
+    </ul>
+ <div class="panel panel-default">
+        <div class="table-responsive panel-body">
+            <form action="" method="post" class="form-horizontal form">
+                <table class="table table-hover">
+                    <thead class="navbar-inner">
+                    <tr>
+                        <th>用户ID</th>
+                        <th>预订时间</th>
+                        {loop $attr_keys $attr_key}
+	                        <th>{$attr_key['name']}</th>
+                        {/loop}
+                        <th style="width:15%;text-align: right;">状态</th>
+                    </tr>
+                    </thead>
+                    <tbody id="level-list">
+                    {loop $list $row}
+                    <tr>
+                    	<td>
+                    		{$row['user_id']}
+                        </td>
+                        <td>
+                            {$row['reg_time']}
+                        </td>
+                        {loop $attr_keys $attr_key}
+	                        <td>{$row['attr_val'][$attr_key['attr_id']]}</td>
+                        {/loop}
+                        <td style="text-align: right;">
+                        	<label data='{$row['handle']}' class='label label-default {if $row['handle']==0}label-info{/if}' onclick="dohandle(this,{$row['id']})">处理</label>
+                        </td>
+                    </tr>
+                    {/loop}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+    {$pager}
+</div>
+<script type="text/javascript">
+	function dohandle(obj,id){
+		var data=obj.getAttribute("data");
+		if(data==1){
+			return ;
+		}
+        $(obj).html($(obj).html() + "...");
+        $.post("{php echo url('activity/apply/setProperty')}"
+                ,{id:id}
+                ,function(d){
+                    $(obj).html($(obj).html().replace("...",""));
+                    $(obj).attr("data",1)
+                    if(d.result==1){
+                        $(obj).toggleClass("label-info");
+                    }
+                },"json"
+        );
+	}
+</script>
+{/if}
+{template 'common/footer'}

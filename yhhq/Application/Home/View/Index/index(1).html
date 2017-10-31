@@ -1,0 +1,468 @@
+<extend name="Public/base" />
+<block name="main">
+	<!--  <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>	-->
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/shutter.css?ver=1.0">
+	<style>
+		
+		.wrap-vid:hover, .wrap-vid:active {
+		    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+		    -webkit-transform: scale(1.15, 1.15);
+		    transform: scale(1.15, 1.15);
+		}
+
+		.wrap-vid {
+			padding: 15px;
+		    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+		    -webkit-transition: all .6s cubic-bezier(0.165, 0.84, 0.44, 1);
+		    transition: all .6s cubic-bezier(0.165, 0.84, 0.44, 1);
+		}
+
+		.aa:hover, .aa:active {
+		    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+		    -webkit-transform: scale(1.1, 1.1);
+		    transform: scale(1.1, 1.1);
+		}
+
+		.aa {
+			padding: 10px;
+		    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+		    -webkit-transition: all .3s cubic-bezier(0.08, 0.42, 0.22, 1);
+		    transition: all .3s cubic-bezier(0.08, 0.42, 0.22, 1);
+		}
+		.remark{	
+			text-overflow: -o-ellipsis-lastline;
+			overflow:hidden; 
+			text-overflow:ellipsis;
+			display:-webkit-box; 
+			-webkit-box-orient:vertical;
+			-webkit-line-clamp:3; 
+		}
+	</style>
+	<div class="featured container">
+		<div class="row">
+			<div class="col-sm-8">
+				<!-- Carousel -->
+				<!--<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+					<ol class="carousel-indicators">
+					    <foreach name="banner" item="v" key="k">
+                           <if condition="$v['banner_type'] eq 1"> 
+						        <li data-target="#carousel-example-generic" data-slide-to="{$k}" class="<if condition='$k eq 0'>active</if>"></li>
+						    </if>
+                        </foreach>
+					</ol>
+
+					<div class="carousel-inner">
+						<foreach name="banner" item="v" key="k">
+                           <if condition="$v['banner_type'] eq 1">  
+    						<div class="item <if condition='$k eq 0'>active</if> ">
+    							<img src="__PUBLIC__/upload/{$v['thumb']}" alt="{$v['text']}">
+    							<div class="header-text hidden-xs">
+    								<div class="col-md-12 text-center">
+    									<br>
+    									<br><br><br><br>
+    									<h3>{$v['text']}</h3>
+    									<br>
+    								</div>
+    							</div>
+    						</div>
+    						</if>
+                        </foreach>
+					</div>
+					<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+				</div>-->
+				
+				<div class="shutter col-sm-6">
+                    <div class="shutter-img col-sm-8">
+                        <foreach name="banner" item="v">
+                           <if condition="$v['banner_type'] eq 1">  
+                              <a href="{:U('Banner/toWhere',array('link_type'=>$v['link_type'],'link_url'=>$v['link_url'],'link_id'=>$v['link_id']))}" data-shutter-title="{$v['text']}"><img class="col-sm-10" src="__PUBLIC__/upload/{$v['thumb']}" alt="#"></a>
+                           </if>
+                       </foreach>
+                    </div>
+                    <ul class="shutter-btn">
+                      <li class="prev"></li>
+                      <li class="next"></li>
+                    </ul>
+                    <div class="shutter-desc"> 
+                      <p></p>
+                    </div>
+                </div>
+			</div>
+			<!--<div class="col-sm-4" >
+				<div id="owl-demo-1" class="owl-carousel">
+					<img src="__PUBLIC__/Home/images/slide-2.jpg" />
+					<img src="__PUBLIC__/Home/images/slide-1.jpg" />
+					<img src="__PUBLIC__/Home/images/slide-3.jpg" />
+				</div>
+				<img src="__PUBLIC__/Home/images/banner.jpg" />
+			</div>-->
+		</div>
+	</div>
+	
+	<!-- /////////////////////////////////////////Content -->
+	<div id="page-content" class="index-page container">
+		<div class="row">
+			<div id="main-content"><!-- background not working -->
+				<div class="col-md-9">
+					<!-- 视频banner -->
+					<!--  <div class="box wrap-vid">
+						<div class="zoom-container">
+							<div class="zoom-caption">
+								<span class="youtube">{$video['title']}</span>
+								<a href="{:U('video/detail',array('id'=>$video['v_id']))}">
+									<i class="fa fa-play icon-play" style="color: #fff"></i>
+								</a>
+								<p>{$video['v_name']}</p>
+							</div>
+							<img src="{$video['v_pic']}" />
+						</div>
+						<h3 class="vid-name"><a href="#">{$video['v_name']}</a></h3><h5>By <a href="#">{$video['v_author']}</a></h5>
+						<div class="info">
+							
+							<span><i class="fa fa-calendar"></i>{:date('Y-m-d H:i:s',$video['v_create_time'])}</span> 
+							<span><i class="fa fa-heart"></i>{$video['v_view_num']}</span>
+						</div>
+						<p class="more">{$video['v_desc']}</p>
+					</div>
+					<div class="box">
+						<div class="box-header header-natural">
+							<h2>文章</h2>
+						</div>
+						<div class="box-content">
+							<div class="row">
+							<foreach name="list" item="v" key="k">
+								<div class="vi col-md-5">
+									<if condition="$v.art_img eq ''">
+											<img src="__PUBLIC__/Home/images/22.jpg"alt="{$v.art_title}" />
+									<else/>
+											<img src="{$v.art_img} "alt="{$v.art_title}" />
+									</if>
+									<h3><a href="#">{$v.art_title}</a></h3>
+									<span><i class="fa fa-calendar"></i> {:date('Y-m-d H:i:s',$v['art_addtime'])}<i class="fa fa-comment-o"> / </i>{$v.art_com_num} <i class="fa fa-eye"></i>{$v.art_hit}</span>
+									<p class="remark">{$v.art_remark}</p>
+									<div class="box6_corner_lf"></div>
+       								<div class="box6_corner_rt"></div>
+								</div>
+							</foreach>
+							</div>
+						</div>
+					</div>-->
+					
+					<div class="box">
+						<div  class="box-header header-natural">							
+							<h2>最新文章</h2>											
+						</div>
+						<div class="box-content">
+							<div class="row" style="padding:5vw;padding-top:0">
+							<foreach name="list" item="v">									
+								<div class="aa col-md-12" style="margin-top:20px;">
+										<if condition="$v.art_img eq ''">
+												<img class="col-md-4"  src="__PUBLIC__/Home/images/6.jpg"alt="{$v.art_title}" />
+										<else/>
+												<img class="col-md-4"  src="__PUBLIC__/upload/{$v.art_img} "alt="{$v.art_title}" />
+										</if>									
+									<div class="col-md-8">
+									<h3><a href="{:U('article/detail',array('art_id'=>$v['art_id']))}">{$v['art_title']}</a></h3>
+									<span><i class="fa fa-heart"></i> 1,200 / <i class="fa fa-calendar"></i> {:date('Y-m-d',$v['art_addtime'])} <i class="fa fa-comment-o"> / </i>{$v['art_com_num']} <i class="fa fa-eye"></i>{$v['art_hit']}</span>
+									<p class="remark">{$v.art_remark}</p>
+									</div>
+								</div>
+							</foreach>
+							</div>
+						</div>
+					</div>
+					
+					<div class="box">
+						<div class="box-header header-vimeo">
+							<h2>最新视频</h2>
+						</div>
+						<div class="box-content">
+							<div class="row">
+							<foreach name="vlist" item="vv">
+								<div class="vi col-md-6" style="margin-top:25px;position:relative">
+									<div class="wrap-vid" style="padding:20px">
+										<div class="zoom-container">
+											<div class="zoom-caption">
+												<span class="vimeo">推荐</span>
+												<a href="{:U('video/detail',array('id'=>$vv['v_id']))}">
+													<i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
+												</a>
+												<p>{$vv['v_name']}</p>
+											</div>
+											<img  src="{$vv['v_pic']}" />
+										</div>
+										<h3 class="vid-name"><a href="#">{$vv['v_name']}</a></h3>
+										<div class="info">
+											<span>By <i class="fa fa-user"></i><a href="#">{$vv['v_author']}</a></span>
+											<span><i class="fa fa-calendar"></i>{:date('Y-m-d H:i:s',$vv['v_create_time'])}</span> 
+											<span><i class="fa fa-eye"></i>{$vv['v_view_num']}</span>
+											<span><i class="fa fa-comment"></i>{$vv['v_com_num']}</span>
+											
+										</div>
+									</div>
+									<!--  <p class="more">Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan.</p>-->
+								</div>
+								</foreach>
+							</div>
+						</div>
+					</div>
+					<div class="box">
+						<div class="box-header header-photo">
+							<h2>照片</h2>
+						</div>
+						<div class="box-content">
+							<div id="owl-demo-2" class="owl-carousel">
+								<div class="item">
+									<img src="__PUBLIC__/Home/images/1.jpg" />
+									<img src="__PUBLIC__/Home/images/2.jpg" />
+								</div>
+								<div class="item">
+									<img src="__PUBLIC__/Home/images/3.jpg" />
+									<img src="__PUBLIC__/Home/images/5.jpg" />
+								</div>
+								<div class="item">
+									<img src="__PUBLIC__/Home/images/8.jpg" />
+									<img src="__PUBLIC__/Home/images/9.jpg" />
+								</div>
+								<div class="item">
+									<img src="__PUBLIC__/Home/images/10.jpg" />
+									<img src="__PUBLIC__/Home/images/11.jpg" />
+								</div>
+								<div class="item">
+									<img src="__PUBLIC__/Home/images/12.jpg" />
+									<img src="__PUBLIC__/Home/images/13.jpg" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="sidebar">
+				<div class="col-md-3">
+					<!---- Start Widget ---->
+					<div class="widget wid-tags">
+						<div class="heading"><h4>搜索</h4></div>
+						<div class="content">
+							<form role="form" class="form-horizontal" method="post" action="">
+								<input type="text" placeholder="Enter Search Keywords" value="" name="v_search" id="v_search" class="form-control">
+							</form>
+						</div>
+					</div>
+					<!---- Start Widget ---->
+					<div class="widget wid-tags">
+						<div class="heading"><h4>标签</h4></div>
+						<div class="content">
+							<a href="#">animals</a>
+							<a href="#">cooking</a>
+							<a href="#">countries</a>
+							<a href="#">home</a>
+							<a href="#">likes</a>
+							<a href="#">photo</a>
+							<a href="#">link</a>
+							<a href="#">video</a>
+							<a href="#">travel</a>
+							<a href="#">images</a>
+							<a href="#">love</a>
+							<a href="#">lists</a>
+							<a href="#">makeup</a>
+							<a href="#">media</a>
+							<a href="#">password</a>
+							<a href="#">pagination</a>
+							<a href="#">pictures</a>
+						</div>
+					</div>
+					<!---- Start Widget ---->
+					<div class="widget wid-comment">
+						<div class="heading"><h4>Top 评论</h4></div>
+						<div class="content">
+							<div class="post">
+								<a href="single.html">
+									<img src="__PUBLIC__/Home/images/ava-1.jpg" class="img-circle"/>
+								</a>
+								<div class="wrapper">
+									<a href="#"><h5>Curabitur tincidunt porta lorem.</h5></a>
+									<ul class="list-inline">
+										<li><i class="fa fa-calendar"></i>25/3/2015</li> 
+										<li><i class="fa fa-thumbs-up"></i>1,200</li>
+									</ul>
+								</div>
+							</div>
+							<div class="post">
+								<a href="single.html">
+									<img src="__PUBLIC__/Home/images/ava-2.png" class="img-circle"/>
+								</a>
+								<div class="wrapper">
+									<a href="#"><h5>Curabitur tincidunt porta lorem.</h5></a>
+									<ul class="list-inline">
+										<li><i class="fa fa-calendar"></i>25/3/2015</li> 
+										<li><i class="fa fa-thumbs-up"></i>1,200</li>
+									</ul>
+								</div>
+							</div>
+							<div class="post">
+								<a href="single.html">
+									<img src="__PUBLIC__/Home/images/ava-3.jpeg" class="img-circle"/>
+								</a>
+								<div class="wrapper">
+									<a href="#"><h5>Curabitur tincidunt porta lorem.</h5></a>
+									<ul class="list-inline">
+										<li><i class="fa fa-calendar"></i>25/3/2015</li> 
+										<li><i class="fa fa-thumbs-up"></i>1,200</li>
+									</ul>
+								</div>
+							</div>
+							<div class="post">
+								<a href="single.html">
+									<img src="__PUBLIC__/Home/images/ava-4.jpg" class="img-circle"/>
+								</a>
+								<div class="wrapper">
+									<a href="#"><h5>Curabitur tincidunt porta lorem.</h5></a>
+									<ul class="list-inline">
+										<li><i class="fa fa-calendar"></i>25/3/2015</li> 
+										<li><i class="fa fa-thumbs-up"></i>1,200</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!---- Start Widget ---->
+					<div class="widget wid-banner">
+						<div class="content">
+							<img src="__PUBLIC__/Home/images/banner-2.jpg" class="img-responsive"/>
+						</div>
+					</div>
+					<!---- Start Widget ---->
+					<div class="widget wid-categoty">
+						<div class="heading"><h4>Category</h4></div>
+						<div class="content">
+							<select class="col-md-12">
+								<option>Mustard</option>
+								<option>Ketchup</option>
+								<option>Relish</option>
+							</select>
+						</div>
+					</div>
+					<!---- Start Widget ---->
+					<div class="widget wid-calendar">
+						<div class="heading"><h4>Calendar</h4></div>
+						<div class="content">
+							<center><form action="" role="form">        
+								<div class="">
+									<div class="input-group date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">                </div>
+									<input type="hidden" id="dtp_input2" value="" /><br/>
+								</div>
+							</form></center>
+						</div>
+					</div>
+					<!---- Start Widget ---->
+					<div class="widget wid-tweet">
+						<div class="heading"><h4>Tweet</h4></div>
+						<div class="content">
+							<div class="tweet-item">
+								<p><i class="fa fa-twitter"></i> TLAS - Coming Soon PSD Mockup</p>
+								<a>https://t.co/dLsNZYGVbJ</a>
+								<a>#psd</a>
+								<a>#freebie</a>
+								<a>#freebie</a>
+								<a>#dribbble</a>
+								<span>July 15th, 2015</span>
+							</div>
+							<div class="tweet-item">
+								<p><i class="fa fa-twitter"></i> Little Dude Character With Multiple Hairs</p>
+								<a>https://t.co/dLsNZYGVbJ</a>
+								<a>#freebie</a>
+								<a>#design</a>
+								<a>#illustrator</a>
+								<a>#dribbble</a>
+								<span>June 23rd, 2015</span>
+							</div>
+							<div class="tweet-item">
+								<p><i class="fa fa-twitter"></i> Newsletter Subscription Form Mockup</p>
+								<a>https://t.co/dLsNZYGVbJ</a>
+								<a>#psd</a>
+								<a>#freebie</a>
+								<a>#freebie</a>
+								<a>#dribbble</a>
+								<span>June 22nd, 2015</span>
+							</div>
+							<p>Marshall, Will, and Holly on a routine expedition, met the greatest earthquake ever known. High on the rapids, it struck their tiny raft...</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	
+	<!-- JS -->
+    <script>
+    $(document).ready(function() {
+      $("#owl-demo-1").owlCarousel({
+        autoPlay: 3000,
+        items : 1,
+        itemsDesktop : [1199,1],
+        itemsDesktopSmall : [400,1]
+      });
+	  $("#owl-demo-2").owlCarousel({
+        autoPlay: 3000,
+        items : 3,        
+      });
+    });
+    </script>
+    <script src="__PUBLIC__/Home/js/velocity.js"></script>
+    <script src="__PUBLIC__/Home/js/shutter.js"></script>
+    <script>
+    $(function () {
+      $('.shutter').shutter({
+    	shutterW: 1000, // 容器宽度
+    	shutterH: 358, // 容器高度
+    	isAutoPlay: true, // 是否自动播放
+    	playInterval: 3000, // 自动播放时间
+    	curDisplay: 3, // 当前显示页
+    	fullPage: false // 是否全屏展示
+      });
+    });
+    </script>
+	<script type="text/javascript">
+    $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+        showMeridian: 1
+    });
+	$('.form_date').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+	$('.form_time').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 1,
+		minView: 0,
+		maxView: 1,
+		forceParse: 0
+    });
+</script> 
+</block>
+

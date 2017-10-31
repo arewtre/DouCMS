@@ -1,0 +1,253 @@
+<extend name="Public/uibase"/>
+<block name="content">
+<div class="larry-grid larry-wrapper">
+    <div class="row" id="infoSwitch"> 
+        <blockquote class="layui-elem-quote col-md-12 head-con">
+            <div>尊敬的admin<span id="weather"></span></div>
+			<i class="larry-icon larry-guanbi close" id="closeInfo"></i>
+	    </blockquote>
+    </div>
+    <div class="row shortcut" id="shortcut">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 ">
+        	<section class="panel clearfix">
+        		<div class="symbol shortcut-bg1"> <i class="layui-icon">&#xe611;</i></div>
+        		<div class="value">
+        			<a data-href="{:U('News/Index')}">
+						<h1 id="count1">10</h1>
+					</a>
+					<p>待审的文章</p>
+        		</div>
+        	</section>
+        </div> 
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 ">
+        	<section class="panel">
+        		<div class="symbol shortcut-bg2"> <i class="layui-icon">&#xe60a;</i></div>
+        		<div class="value">
+        			<a data-href="{:U('Article/index')}">
+						<h1 id="count2">26</h1>
+					</a>
+					<p>我发布的文章</p>
+        		</div>
+        	</section>
+        </div> 
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 ">
+        	<section class="panel">
+        		<div class="symbol shortcut-bg3"> <i class="layui-icon">&#xe64a;</i></div>
+        		<div class="value">
+        			<a data-href="{:U('Images/index')}">
+						<h1 id="count3">15</h1>
+					</a>
+					<p>我上传的照片</p>
+        		</div>
+        	</section>
+        </div> 
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 ">
+        	<section class="panel">
+        		<div class="symbol shortcut-bg4"> <i class="layui-icon">&#xe613;</i></div>
+        		<div class="value">
+        			<a data-href="{:U('Member/index')}">
+						<h1 id="count4">60</h1>
+					</a>
+					<p>会员最新注册</p>
+        		</div>
+        	</section>
+        </div> 
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 ">
+        	<section class="panel">
+        		<div class="symbol shortcut-bg5"> <i class="layui-icon">&#xe611;</i></div>
+        		<div class="value">
+        			<a data-href="{:U('Message/index')}">
+						<h1 id="count4">105</h1>
+					</a>
+					<p>会员最新留言</p>
+        		</div>
+        	</section>
+        </div> 
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 ">
+        	<section class="panel">
+        		<div class="symbol shortcut-bg6"> <i class="layui-icon">&#xe6ed;</i></div>
+        		<div class="value">
+        			<a data-href="{:U('Video/index')}">
+						<h1 id="count4">10</h1>
+					</a>
+					<p>我上传的视频</p>
+        		</div>
+        	</section>
+        </div> 
+    </div>
+    <!-- 首页信息 -->
+    <div class="row system">
+    	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <section class="panel">
+                <header class="panel-heading bm0">
+                    <span class='span-title'>系统概览</span>
+                    <span class="tools pull-right"><a href="javascript:;" class="iconpx-chevron-down"></a></span>
+                </header>
+                <div class="panel-body">
+                    <div class="larry-table">
+                        <table class="layui-table larry-table-info">
+                            <colgroup>                
+                                <col width="150">                
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td><span class="tit">网站域名:</span></td>
+                                    <td><a href="http://www.linxinran.cn" title="DouCMS官网" class="tit" target="_blank"><span class="info">{$config.url}</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="tit">版本信息:</span></td>
+                                    <td><span class="info iframe"> DouCMS_1.0</span><span class="info">  [作者:  九月一十八]</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="tit">服务器操作系统</span></td>
+                                    <td>{$config.server_os}</td>
+                                </tr>
+                                <tr>
+					                <td><span class="tit">服务器端口</span></td>
+					                <td>{$config.server_port}</td>
+					            </tr>
+					            <tr>
+					                <td><span class="tit">服务器IP</span></td>
+					                <td>{$config.server_ip}</td>
+					            </tr>
+					            <tr>
+					                <td><span class="tit">WEB运行环境</span></td>
+					                <td>{$config.server_soft}</td>
+					            </tr>
+					            <tr>
+					                <td><span class="tit">MySQL版本</span></td>
+					                <td>{$config.mysql_version}</td>
+					            </tr>
+					            <tr>
+					                <td><span class="tit">运行PHP版本</span></td>
+					                <td>{$config.php_version}</td>
+					            </tr>
+					
+					            <tr>
+					                <td><span class="tit">最大上传限制</span></td>
+					                <td>{$config.max_upload_size}</td>
+					            </tr>
+                                <!-- 
+                                <tr>
+                                    <td><span class="tit">网站域名:</span></td>
+                                    <td>www.linxinran.cn</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="tit">当前登陆用户:</span></td>
+                                    <td>admin</td>
+                                </tr>-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+                        <section class="panel">
+                <header class="panel-heading bm0">
+                    <span class='span-title'>最新留言</span>
+                    <span class="tools pull-right"><a href="javascript:;" class="iconpx-chevron-down"></a></span>
+                </header>
+                <div class="panel-body">
+                    <form class="layui-form larry-document" action="" method="post">
+                        <table class="layui-table">
+                            <colgroup>                
+                                <col>
+                                <col width="100">
+                                <col width="120">
+                                <col width="100">
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th>头像</th>
+                                <th>用户名</th>
+                                <th>时间</th>
+                                <th>状态</th>
+                              </tr> 
+                            </thead>
+                            <tbody>
+                            <foreach name="re" item="v">
+                                <tr>
+                                   <td><a href="#">{$v.userface}</a></td> 
+                                   <td>{$v.username}</td>
+                                   <td>{$v.asktime}</td>
+                                   <td class="layui-form-item">
+                                        
+                                   </td>
+                                </tr>
+                             </foreach>
+                            </tbody>                        
+                        </table>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> 
+            <!-- <section class="panel">
+                <header class="panel-heading bm0">
+                    <span class='span-title'>系统公告</span>
+                    <span class="tools pull-right"><a href="javascript:;" class="iconpx-chevron-down"></a></span>
+                </header>
+                <div class="panel-body">
+                    <table class="table table-hover personal-task">
+                            <tr>
+                              <td class="top-top">
+                                <p class="larry_github">
+                                  
+                                </p>
+                              </td>
+                            </tr>
+                    </table>
+                </div>
+            </section> -->
+                      
+            <section class="panel">
+                <header class="panel-heading bm0">
+                    <span class='span-title'>数据统计</span>
+                    <span class="tools pull-right"><a href="javascript:;" class="iconpx-chevron-down"></a></span>
+                </header>
+                <div class="panel-body larry-seo-box">
+                    <div class="larry-seo-stats" id="larry-seo-stats"></div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <header class="panel-heading bm0">
+                    <span class='span-title'>最新文章</span>
+                    <span class="tools pull-right"><a href="javascript:;" class="iconpx-chevron-down"></a></span>
+                </header>
+                <div class="panel-body">
+                    <form class="layui-form larry-document" action="" method="post">
+                        <table class="layui-table">
+                            <colgroup>                
+                                <col>
+                                <col width="100">
+                                <col width="120">
+                                <col width="100">
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th>文章标题</th>
+                                <th>作者</th>
+                                <th>发布时间</th>
+                                <th>状态</th>
+                              </tr> 
+                            </thead>
+                            <tbody>
+                                <tr>
+                                   <td><a href="#">网站优化需要分析哪些数据</a></td> 
+                                   <td>larry</td>
+                                   <td>2017-03-25</td>
+                                   <td class="layui-form-item">
+                                        <input type="checkbox" name="close" lay-skin="switch" lay-text="ON|OFF">
+                                   </td>
+                                </tr>
+                            </tbody>                        
+                        </table>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+</block>

@@ -1,0 +1,10 @@
+#popup_container{font-family:Arial,sans-serif;font-size:12px; color:#000; background:#FFF;border-radius:6px;box-shadow: 0 0 20px rgba(0,0,0,0.2); position: fixed; z-index: 99999; padding: 0; margin:0; width: 290px; top: 50% !important; left: 50% !important; -webkit-transform: translate(-50%,-50%); -moz-transform: translate(-50%,-50%); -o-transform: translate(-50%,-50%); transform: translate(-50%,-50%);}
+#popup_title{font-family: 'Microsoft YaHei';font-size:14px;font-weight:normal;text-align:center;line-height:40px;color:#666;cursor:default;padding:0em;margin:0em; display: none;}
+#popup_content{/*background: 10px 14px no-repeat url(/images/i.gif);height: 90px*/; padding: 0 20px 20px; margin:0em; padding-top: 90px; background: url("../../../exusers/images/170317/warning.png")/*tpa=http://demo.nicebox.cn/exusers/images/170317/warning.png*/ no-repeat 50% 20px; background-size: 60px;}
+#popup_message{color: #666; line-height: 180%; width: 100%; text-align: center;}
+#popup_panel{text-align:center;margin: 20px 0 5px 0;}
+#popup_prompt{margin:.5em 0em;}
+#popup_panel #popup_ok{  display: inline-block;background: #fff; border: 1px solid #ddd;padding: 8px 12px;color: #666;border-radius: 2px; cursor: pointer; outline: none;}
+#popup_panel #popup_cancel{  display: inline-block;background: #eee;border:  1px solid #ddd;padding: 8px 12px;color: #333;border-radius: 2px; cursor: pointer; outline: none;}
+#popup_panel input:hover{opacity: .7;}
+#popup_panel input:nth-child(2){margin-left: 10px;}

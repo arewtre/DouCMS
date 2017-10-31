@@ -1,0 +1,79 @@
+{template 'common/header'}
+<script type="text/javascript">
+	require(['bootstrap.switch'], function($){
+		$(function(){
+			$(':checkbox').bootstrapSwitch();
+			$('.port_check').on('switchChange.bootstrapSwitch', function(){
+				var id = this.value;
+				var status = this.checked ? 1 : 0;
+				$.post(location.href, {'status':status,'id':id,'check_type':1}, function(resp){
+					if(resp != 'success') {
+						util.message('操作失败, 请稍后重试.')
+					} else {
+						util.message('操作成功', location.href, 'success');
+					}
+				});
+			});
+			$('.fun_check').on('switchChange.bootstrapSwitch', function(){
+				var id = this.value;
+				var status = this.checked ? 1 : 0;
+				$.post(location.href, {'status':status,'id':id,'check_type':2}, function(resp){
+					if(resp != 'success') {
+						util.message('操作失败, 请稍后重试.')
+					} else {
+						util.message('操作成功', location.href, 'success');
+					}
+				});
+			});
+		});
+	});
+</script>
+<ul class="nav nav-tabs port">
+	<li class="active"><a href="javaScript:void(0);">接口路径</a></li>
+</ul>
+<div class="form-group port-form-group">
+	<label class="col-xs-12 col-sm-3 col-md-2 control-label">URL:</label>
+	<div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
+		<input type="text" class="form-control" name="port_url" value="{$port['url']}" disabled="disabled" />
+	</div>
+	<div class="port_checkbox">
+		{if $port['is_open'] == 1}
+			<input type="checkbox" class="port_check" value="{$port['id']}" checked="checked"/>
+		{else}
+			<input type="checkbox" class="port_check" value="{$port['id']}"/>
+		{/if}
+	</div>
+</div>
+<div style="clear:both"></div>
+<ul class="nav nav-tabs">
+	<li class="active"><a href="javaScript:void(0);">接口列表</a></li>
+</ul>
+<div class="panel panel-default">
+	<div class="table-responsive panel-body">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th style="width:100px;">接口名称</th>
+					<th style="width:200px;">功能说明</th>
+					<th style="width:120px;">状态</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $port_list $row}
+				<tr>
+					<td>{$row['value']}</td>
+					<td>{$row['name']}</td>
+					<td>
+					{if $row['is_open'] == 1}
+						<input type="checkbox" class="fun_check" value="{$row['id']}" checked="checked"/>
+					{else}
+						<input type="checkbox" class="fun_check" value="{$row['id']}"/>
+					{/if}
+					</td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+	</div>
+</div>
+{template 'common/footer'}

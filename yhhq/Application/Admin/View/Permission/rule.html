@@ -1,0 +1,90 @@
+<extend name="Public/base" />
+<block name="main">
+    <fieldset class="layui-elem-field">
+        <legend>权限管理 - 权限组细节配置</legend>
+        <div class="layui-field-box">
+            <form class="layui-form" action="">
+                <input type="hidden" name="groupId" value="{:I('get.group_id')}">
+                <volist name="list" id="vo">
+                    <div class="layui-form-item">
+                        <input lay-skin="primary" type="checkbox" lay-filter="admin-check" name="rule[{$vo['pid']}]" value="{$vo['href']}" title="{$vo['title']}" {:(in_array($vo['href'], $hasRule)?'checked':'')}>
+                    </div>
+                    <if condition="count($vo['_child'])">
+                       <volist name="vo['_child']" id="child">
+                        <div class="layui-form-item">
+                            <div style="margin-left: 50px;">
+                                <input  lay-skin="primary" type="checkbox" lay-filter="admin-check" fid="{$vo['href']}" name="rule[{$child['pid']}]" value="{$child['href']}" title="{$child['title']}" {:(in_array($child['href'], $hasRule)?'checked':'')}>                                                         
+                            </div>
+                        </div>
+                       <if condition="count($child['_child'])">
+                        <volist name="child['_child']" id="_child">
+	                        <div class="layui-form-item">
+	                            <div style="margin-left: 100px;">
+	                                <input  lay-skin="primary" type="checkbox" lay-filter="admin-check" pid="{$vo['href']}" fid="{$child['href']}" name="rule[{$_child['pid']}]" value="{$_child['href']}" title="{$_child['title']}" {:(in_array($_child['href'], $hasRule)?'checked':'')}>                                                         
+	                            </div>
+	                        </div>
+	                         <if condition="count($_child['_child'])">
+		                        <div class="layui-form-item">
+		                            <div style="margin-left: 150px;">
+	                            		<foreach  name="_child['_child']" item="_child2">
+	                                		<input  lay-skin="primary" type="checkbox" lay-filter="admin-check" mid="{$vo['href']}" pid="{$child['href']}" fid="{$_child['href']}" name="rule[{$_child2['pid']}]" value="{$_child2['href']}" title="{$_child2['title']}" {:(in_array($_child2['href'], $hasRule)?'checked':'')}>                                                         
+	                            		</foreach>
+		                            </div>
+		                        </div>
+							</if>
+                        </volist>
+						</if>
+                       </volist>
+                    </if>
+                </volist>
+                <div class="layui-form-item">
+                    <button class="layui-btn" lay-submit lay-filter="admin-form">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </form>
+        </div>
+    </fieldset>
+</block>
+<block name="myScript">
+    <script>
+        layui.use('form', function(){
+            var form = layui.form();
+            form.on('checkbox(admin-check)', function(data){
+                var $el = data.elem;
+                if( $el.checked ){
+                    $('input[fid="'+$el.value+'"]').prop('checked','checked');
+                    $('input[pid="'+$el.value+'"]').prop('checked','checked');
+                    $('input[mid="'+$el.value+'"]').prop('checked','checked');
+                }else{
+                    $('input[fid="'+$el.value+'"]').prop('checked', false);
+                    $('input[pid="'+$el.value+'"]').prop('checked', false);
+                    $('input[mid="'+$el.value+'"]').prop('checked', false);
+                }
+                form.render();
+            });
+            
+            function checkAll(obj){
+        	    $(obj).parents('.b-group').eq(0).find("input[type='checkbox']").prop('checked', $(obj).prop('checked'));
+        	}
+            form.on('submit(admin-form)', function(data){
+                $.ajax({
+                    type: "POST",
+                    url: '{:U("rule")}',
+                    data: data.field,
+                    success: function(msg){
+                        if( msg.code == 1 ){
+                            parent.location.reload();
+                        }else{
+                            parent.layer.msg(msg.msg, {
+                                icon: 5,
+                                shade: [0.6, '#393D49'],
+                                time:1500
+                            });
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+</block>

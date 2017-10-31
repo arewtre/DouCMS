@@ -1,0 +1,15 @@
+[2017/10/11 10:50:27]用户ID:,用户名：,添加了数据,数据表:ims_user_collect,添加数据：a:4:{s:6:"openid";s:28:"ou6vRwsidZOeYlAZeHIDMmJDkWho";s:8:"store_id";s:4:"1650";s:4:"type";i:1;s:8:"add_time";i:1507690227;}
+[2017/10/11 11:45:58]用户ID:,用户名：,添加了数据,数据表:ims_user_collect,添加数据：a:4:{s:6:"openid";s:28:"ou6vRwsidZOeYlAZeHIDMmJDkWho";s:8:"store_id";s:4:"1650";s:4:"type";i:1;s:8:"add_time";i:1507693558;}
+[2017/10/11 03:29:30]用户ID:,用户名：,添加了数据,数据表:ims_user_collect,添加数据：a:4:{s:6:"openid";i:1111;s:12:"promotion_id";s:2:"13";s:4:"type";i:2;s:8:"add_time";i:1507706970;}
+[2017/10/11 03:31:21]用户ID:,用户名：,删除了数据,数据表:ims_user_collect,删除数据：a:1:{i:0;a:6:{s:2:"id";s:3:"209";s:6:"openid";s:4:"1111";s:8:"store_id";N;s:12:"promotion_id";s:2:"13";s:4:"type";s:1:"2";s:8:"add_time";s:10:"1507706970";}}
+[2017/10/11 03:31:30]用户ID:,用户名：,添加了数据,数据表:ims_user_collect,添加数据：a:4:{s:6:"openid";i:1111;s:12:"promotion_id";s:2:"13";s:4:"type";i:2;s:8:"add_time";i:1507707090;}
+[2017/10/11 03:32:11]用户ID:,用户名：,删除了数据,数据表:ims_user_collect,删除数据：a:1:{i:0;a:6:{s:2:"id";s:3:"210";s:6:"openid";s:4:"1111";s:8:"store_id";N;s:12:"promotion_id";s:2:"13";s:4:"type";s:1:"2";s:8:"add_time";s:10:"1507707090";}}
+[2017/10/11 03:32:15]用户ID:,用户名：,添加了数据,数据表:ims_user_collect,添加数据：a:4:{s:6:"openid";i:1111;s:12:"promotion_id";s:2:"13";s:4:"type";i:2;s:8:"add_time";i:1507707135;}
+[2017/10/11 03:32:28]用户ID:,用户名：,删除了数据,数据表:ims_user_collect,删除数据：a:1:{i:0;a:6:{s:2:"id";s:3:"211";s:6:"openid";s:4:"1111";s:8:"store_id";N;s:12:"promotion_id";s:2:"13";s:4:"type";s:1:"2";s:8:"add_time";s:10:"1507707135";}}
+[2017/10/11 03:32:32]用户ID:,用户名：,添加了数据,数据表:ims_user_collect,添加数据：a:4:{s:6:"openid";i:1111;s:12:"promotion_id";s:2:"13";s:4:"type";i:2;s:8:"add_time";i:1507707152;}
+[2017/10/11 03:32:41]用户ID:,用户名：,删除了数据,数据表:ims_user_collect,删除数据：a:1:{i:0;a:6:{s:2:"id";s:3:"212";s:6:"openid";s:4:"1111";s:8:"store_id";N;s:12:"promotion_id";s:2:"13";s:4:"type";s:1:"2";s:8:"add_time";s:10:"1507707152";}}
+[2017/10/11 03:33:07]用户ID:,用户名：,添加了数据,数据表:ims_user_collect,添加数据：a:4:{s:6:"openid";i:1111;s:12:"promotion_id";s:2:"13";s:4:"type";i:2;s:8:"add_time";i:1507707187;}
+[2017/10/11 04:07:21]用户ID:,用户名：,删除了数据,数据表:ims_user_collect,删除数据：a:1:{i:0;a:6:{s:2:"id";s:3:"213";s:6:"openid";s:28:"ou6vRwsidZOeYlAZeHIDMmJDkWho";s:8:"store_id";N;s:12:"promotion_id";s:2:"13";s:4:"type";s:1:"2";s:8:"add_time";s:10:"1507707187";}}
+[2017/10/11 04:20:39]用户ID:,用户名：,添加了数据,数据表:ims_user_collect,添加数据：a:4:{s:6:"openid";s:28:"ou6vRwsidZOeYlAZeHIDMmJDkWho";s:12:"promotion_id";s:2:"13";s:4:"type";i:2;s:8:"add_time";i:1507710039;}
+[2017/10/11 04:21:01]用户ID:,用户名：,添加了数据,数据表:ims_user_collect,添加数据：a:4:{s:6:"openid";s:28:"ou6vRwsidZOeYlAZeHIDMmJDkWho";s:8:"store_id";s:4:"1620";s:4:"type";i:1;s:8:"add_time";i:1507710061;}
+[2017/10/11 04:43:06]用户ID:,用户名：,添加了数据,数据表:ims_user_collect,添加数据：a:4:{s:6:"openid";s:28:"ou6vRwsidZOeYlAZeHIDMmJDkWho";s:8:"store_id";s:4:"1649";s:4:"type";i:1;s:8:"add_time";i:1507711386;}

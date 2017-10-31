@@ -1,0 +1,137 @@
+{template 'common/header-cms'}
+<style>
+/* about */
+/* content */
+.content{ margin:30px 0;}
+.content h5{ font-weight:bold; font-size:16px; line-height:50px;}
+.content p{ line-height:26px; color:#666; margin-bottom:10px;}
+.about_content{ overflow:hidden;zoom:1; margin-top:20px;}
+.about_content .left{ width:200px; float:left; margin-right:20px; border:1px solid #ddd;}
+.about_content .left a{ display:block; padding:10px 20px; border-bottom:1px solid #ddd;}
+.about_content .right{ float:left; padding:0 20px 20px; width:900px;}
+</style>
+<link href="./resource/weidongli/css/cms.css" rel="stylesheet" type="text/css" />
+<div class="neirong">
+{if $do == 'list'}
+<div class="breadcrumbs margin-bottom-40 cl">
+<div class="xiaoyu_container cl">
+        <h1 class="color-green z"><a href="{php echo url('website/wenda-show/list');}">产品问答</a></h1>
+        <ul class="y breadcrumb">
+        <li><a href="./" title="首页">首页</a> <span class="divider">/</span></li>
+		<li><a href="{php echo url('website/wenda-show/list');}">问题列表</a><span class="divider">/</span></li>
+		<li class="active">{if !$cateid}所有问题{else}{$categroys[$cateid]['title']}{/if}</li>
+        </ul>
+</div>
+</div>
+<div class="xiaoyu_container cl">
+<div class="Public-content clearfix">
+  <div class="Public" id="authing">
+    <div class="Public-box1 clearfix" style="padding:0;">
+      <div class="reg-wrapper3" style="padding:0;">
+        <div class="qa-nav-cat">
+          <ul class="qa-nav-cat-list">
+            <li class="qa-nav-cat-list-title">按分类查看</li>
+            <li {if $_W['page']['title'] == '所有问题'}class="qa-nav-cat-item-selected" {/if}>
+              <a href="{php echo url('website/wenda-show/list');}">
+                <span>所有分类</span>
+              </a>
+            </li>
+                {loop $categroys $categroy}	
+            <li {if $_W['page']['title'] == $categroy['title']}class="qa-nav-cat-item-selected" {/if} >
+              <a href="{php echo url('website/wenda-show/list', array('cateid' => $categroy['id']));}">
+                <span>{$categroy['title']}</span>
+              </a>
+            </li>
+            {/loop}
+          </ul>
+        </div>
+        <div class="qa-q-list">
+          <div class="qa-nav-main">
+            <ul class="qa-nav-main-list">
+              <li class="qa-nav-main-item qa-nav-main-item-selected qa-nav-main-questions">
+                <a class="qa-nav-main-link qa-nav-main-selected" href="">最近问题</a>
+              </li>
+
+            </ul>
+            <div class="qa-nav-main-clear"></div>
+          </div>
+            {loop $data $da}
+          <div class="qa-q-list-item">
+            <h3>
+              <span class="qa-ask">问</span>{$da['title']}</h3>
+            <p>
+              <span class="qa-answer">答</span>{php echo cutstr_num($da['content'],'298');}
+			  <a href="{php echo url('website/wenda-show/detail', array('id' => $da['id']));}" target="_blank" class="qa-answer2">查看更多 </a>
+			  </p>
+          </div>
+		  {/loop}
+ 	{$pager}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+{/if}
+{if $do == 'detail'}
+<div class="breadcrumbs margin-bottom-40 cl">
+<div class="xiaoyu_container cl">
+        <h1 class="color-green z"><a href="{php echo url('website/wenda-show/list');}">产品问答</a></h1>
+        <ul class="y breadcrumb">
+        <li><a href="./" title="首页">首页</a> <span class="divider">/</span></li>
+		<li><a href="{php echo url('website/wenda-show/list');}">问题列表</a><span class="divider">/</span></li>
+		<li class="active">{$wenda['title']}</li>
+        </ul>
+</div>
+</div>
+<div class="xiaoyu_container cl">
+<div class="Public-content clearfix">
+  <div class="Public" id="authing">
+    <div class="Public-box1 clearfix" style="padding:0;">
+      <div class="reg-wrapper3" style="padding:0;">
+        <div class="qa-nav-cat">
+          <ul class="qa-nav-cat-list">
+            <li class="qa-nav-cat-list-title">按分类查看</li>
+            <li {if $_W['page']['title'] == '所有问题'}class="qa-nav-cat-item-selected" {/if}>
+              <a href="{php echo url('website/wenda-show/list');}">
+                <span>所有分类</span>
+              </a>
+            </li>
+            {loop $categroys $categroy}	
+            <li {if $_W['page']['title'] == $categroy['title']}class="qa-nav-cat-item-selected" {/if} >
+              <a href="{php echo url('website/wenda-show/list', array('cateid' => $categroy['id']));}">
+                <span>{$categroy['title']}</span>
+              </a>
+            </li>
+            {/loop}
+          </ul>
+        </div>
+        <div class="qa-q-list">
+          <div class="qa-nav-main">
+            <ul class="qa-nav-main-list">
+              <li class="qa-nav-main-item qa-nav-main-item-selected qa-nav-main-questions">
+                <a class="qa-nav-main-link qa-nav-main-selected" href="">问题详情</a>
+              </li>
+
+            </ul>
+            <div class="qa-nav-main-clear"></div>
+          </div>
+          <div class="qa-q-list-item">
+            <h3>
+              <span class="qa-ask">问</span>{$wenda['title']}</h3>
+            <p>
+              <span class="qa-answer">答</span>{$wenda['content']}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+{/if}
+</div>
+
+{template 'common/footer-cms'}

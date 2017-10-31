@@ -1,0 +1,112 @@
+{template 'common/header'}
+<style>
+	.label{line-height: 1.8}
+</style>
+{if $do=='display'}
+<div class="panel panel-info">
+	<div class="panel-heading">筛选</div>
+	<div class="panel-body">
+		<form action="./index.php" method="get" class="form-horizontal" role="form">
+		<input type="hidden" name="c" value="car">
+		<input type="hidden" name="a" value="parklist">
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">选择查询类型</label>
+				<div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
+					<select name="typeid" class="form-control">
+						<option value="1" {if empty($_GPC['typeid']) || $_GPC['typeid'] == 1}selected="selected"{/if}>订单号</option>
+						<option value="2" {if $_GPC['typeid'] == 2}selected = "selected"{/if}>车牌号</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">订单号/车牌号</label>
+				<div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
+					<input type="text" class="form-control" name="order_sn" value="{$_GPC['order_sn']}" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">下单时间</label>
+				<div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
+					{php echo tpl_form_field_daterange('pay_time', array('starttime' => date('Y-m-d',$starttime), 'endtime' => date('Y-m-d', $endtime),));}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">收费方式</label>
+				<div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
+					<select name="paytype" class="form-control">
+						<option value="" selected="selected">不限</option>
+						<option value="1" {if $_GPC['paytype'] == 1}selected="selected"{/if}>支付宝窗口支付</option>
+						<option value="2" {if $_GPC['paytype'] == 2}selected = "selected"{/if}>微信支付</option>
+						<option value="3" {if $_GPC['paytype'] == 2}selected = "selected"{/if}>喵街支付</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">订单状态</label>
+				<div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
+					<select name="orderstate" class="form-control">
+						<option value="" selected="selected">不限</option>
+						<option value="1" {if $_GPC['orderstate'] == 1}selected="selected"{/if}>支付成功</option>
+						<option value="2" {if $_GPC['orderstate'] == 2}selected = "selected"{/if}>已取消</option>
+					</select>
+				</div>
+				<div class="pull-right col-xs-12 col-sm-3 col-md-2 col-lg-2">
+					<button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+					<input type="hidden" name="token" value="{$_W['token']}"/>
+					<input class="btn btn-primary" type="submit" name="export_submit" id="export_submit" value="导出">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="alert alert-info">
+	<i class="fa fa-info-circle"></i> 当前总纪录条数:<strong class="text-danger">{$total}</strong> 条,共实付:<strong class="text-danger">{$countFee}</strong> 元。<br>
+<!-- 	<strong class="text-danger"> -->
+<!-- 		<i class="fa fa-info-circle"></i> 会员的总积分 = 账户积分 + 账户贡献. 会员所在的会员组是根据 "总积分的多少" 和 "会员组的变更规则" (<根据总积分多少自动升价> 或 <根据总积分多少只升不降>) 自动匹配.<br> -->
+<!-- 	</strong> -->
+</div>
+<form method="post" class="form-horizontal" id="form1">
+<div class="panel panel-default ">
+	<div class="table-responsive panel-body">
+	<table class="table table-hover">
+		<thead class="navbar-inner">
+			<tr>
+				<th style="width:44px;">订单号</th>
+				<th style="width:80px;">流水号</th>
+				<th style="width:150px;">车牌号</th>
+				<th style="min-width:100px;">停车时间</th>
+				<th style="min-width:100px;">收费方式</th>
+				<th>订单总价</th>
+				<th style="min-width:90px;">支付方式</th>
+				<th style="min-width:90px;">折扣</th>
+				<th style="min-width:90px;">支付时间</th>
+				<th style="min-width:90px;">实付</th>
+				<th style="min-width:90px;">优惠金额</th>
+				<th style="min-width:90px;">订单状态</th>
+			</tr>
+		</thead>
+		<tbody>
+		{loop $list $li}
+			<tr>
+				<td>{$li['order_sn']}</td>
+				<td>{$li['out_trade_no']}</td>
+				<td>{$li['plate_number']}</td>
+				<td>{$li['in_time']}-<br>-{$li['end_time']}</td>
+				<td>{if $li['buyer_type'] == 1}支付宝服务窗{elseif $li['buyer_type'] == 2}微信{elseif $li['buyer_type'] == 4}喵街{else}--{/if}</td>
+				<td>¥{$li['amount']}</td>
+				<td>{$li['payment_name']}</td>
+				<td>{$li['pro_name']}</td>
+				<td>{$li['pay_time']}</td>
+				<td>¥{$li['fee']}</td>
+				<td>¥{$li['subFee']}</td>
+				<td>{if $li['status'] == 0}已取消{else if $li['status']==1}支付成功{else}--{/if}</td>
+			</tr>
+		{/loop}
+		</tbody>
+	</table>
+</div>
+</div>
+	{$pager}
+</form>
+{/if}
+{template 'common/footer'}

@@ -1,0 +1,1 @@
+[2017/10/11 10:48:16]用户ID:,用户名：,更新了数据,数据表:ims_user_ver_code,旧数据：a:1:{i:0;a:5:{s:2:"id";s:1:"4";s:6:"openid";s:28:"ou6vRwsidZOeYlAZeHIDMmJDkWho";s:8:"ver_code";s:6:"390233";s:10:"user_phone";s:11:"18602509343";s:18:"ver_code_send_time";s:10:"1507536104";}},更新数据：a:3:{s:8:"ver_code";s:6:"267584";s:10:"user_phone";s:11:"18602509343";s:18:"ver_code_send_time";i:1507690096;}

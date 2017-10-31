@@ -1,0 +1,351 @@
+<extend name="Public/base" />
+<block name="main">
+    <fieldset class="layui-elem-field">
+        <legend>轮播管理 - {:(isset($detail['id'])?'编辑':'新增')}banner</legend>
+        <div class="layui-field-box">
+            <form class="layui-form" action="">
+                <if condition="isset($detail['id'])">
+                    <input type="hidden" name="id" value="{$detail['id']}">
+                </if>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>轮播名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="text" required value="{:(isset($detail['text'])?$detail['text']:'')}" lay-verify="required" placeholder="请输入banner名称" class="layui-input">
+                    </div>
+                </div>
+                <!--<div class="layui-form-item">
+                    <label class="layui-form-label"><span style="color:red">*</span>banner类别</label>
+                    <div class="layui-input-block">
+                        <select name="art_pid" lay-verify="">
+                            <option value="0">请选择文章分类</option>
+                            <volist name="cate" id="vo">
+                                <option value="{$vo.pid}" {:($detail['art_pid'] == $vo['pid']?'selected':'')}>{$vo['showName']}{$vo['title']}</option>
+                            </volist>
+                        </select>
+                    </div>
+                </div>-->
+                 <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">缩略图</label>
+                    <div class="layui-input-block">
+                         <div class="layui-inline">
+                    		<div class="layui-input-inline" style="width:550px;">
+								<input type="text" readonly="readonly" value="{$detail['thumb']}" name="thumb" id="upload-image-url" class="layui-input" style="width:550px" autocomplete="off">
+								<input type="hidden" class="layui-input" value="{$detail['thumb']}" name="thumb" id="upload-image-url">
+							</div>
+						</div>
+						<div class="layui-inline">
+                    		<div class="layui-input-inline">
+								<input class="layui-btn layui-btn-primary"  id="upload-image" value="选择图片">
+							</div>
+						</div>
+						<div id="upload-image-preview" style="margin-top:10px;">
+							<if condition="isset($detail['thumb'])">
+	                    		<img src="__PUBLIC__/upload/{$detail['thumb']}" style="width:124px;height:94px">
+	                		</if>
+                		</div>     
+                    </div>
+                </div>
+                <div class="layui-form-item" pane="">
+				    <label class="layui-form-label">显示位置</label>
+				    <div class="layui-input-block">
+				    	<input type="radio" name="banner_type" value="1" title="顶部大图" {:((isset($detail['banner_type']) && $detail['banner_type']==1)?'checked':'')}>
+		     			<input type="radio" name="banner_type" value="2" title="右侧小图" {:((isset($detail['banner_type']) && $detail['banner_type']==2)?'checked':'')}>
+		     			<input type="radio" name="banner_type" value="3" title="中间轮播" {:((isset($detail['banner_type']) && $detail['banner_type']==3)?'checked':'')}>
+				    </div>
+				</div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label"><span style="color:red">*</span> 是否发表</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="state" lay-skin="switch" lay-text="发表|暂不" {:((!isset($detail['state']) || $detail['state']==1)?'checked':'')}>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label"> 会员可见</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="isshow" lay-skin="switch" lay-text="是|否" {:((isset($detail['isshow']) && $detail['isshow']==1)?'checked':'')}>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">是否置顶</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="istop" lay-skin="switch" lay-text="是|否" {:((isset($detail['istop']) && $detail['istop']==1)?'checked':'')}>
+                        </div>
+                    </div>
+                </div>               
+
+               
+                <!--<div class="layui-form-item">
+                    <label class="layui-form-label">文章描述</label>
+                    <div class="layui-input-block">
+                        <textarea name="remark" style="height:300"class="layui-input">{$detail['art_remark']}</textarea>
+                    </div>
+                </div>-->
+                <div class="layui-form-item" pane="">
+				    <label class="layui-form-label">链接类型</label>
+				    <div class="layui-input-block">
+				    	<input type="radio" lay-filter="link" name="link_type" value="1" title="文章" {:((isset($detail['link_type']) && $detail['link_type']==1)?'checked':'')}>
+		     			<input type="radio" lay-filter="link" name="link_type" value="2" title="照片" {:((isset($detail['link_type']) && $detail['link_type']==2)?'checked':'')}>
+		     			<input type="radio" lay-filter="link" name="link_type" value="3" title="视频" {:((isset($detail['link_type']) && $detail['link_type']==3)?'checked':'')}>
+		     			<input type="radio" lay-filter="link" name="link_type" value="4" title="网页" {:((isset($detail['link_type']) && $detail['link_type']==4)?'checked':'')}>
+		     			<input type="radio" lay-filter="link" name="link_type" value="5" title="文本" {:((isset($detail['link_type']) && $detail['link_type']==5)?'checked':'')}>
+				    </div>
+				</div>
+				<div class="link link1 layui-form-item layui-form-text">
+                    <label class="layui-form-label">文章</label>
+                    <div class="layui-input-block">
+                         <div class="layui-inline">
+                    		<div class="layui-input-inline" style="width:550px;">
+								<input type="text" readonly="readonly" value="{$detail['link_url']}" name="link_url1" id="upload-article-url" class="a layui-input" style="width:550px" autocomplete="off">
+								<input type="hidden" class="b layui-input" value="{$detail['link_id']}" name="link_id1" id="upload-article-id">
+							</div>
+						</div>
+						<div class="layui-inline">
+                    		<div class="layui-input-inline">
+								<input data-id="1" class="choselink layui-btn" value="选择文章">
+							</div>
+						</div>
+						<!--<div id="upload-image-preview" style="margin-top:10px;">
+							<if condition="isset($detail['link_type']) && $detail['link_type'] eq 1">
+	                    		<img src="__PUBLIC__/upload/{$detail['thumb']}" style="width:112px;height:80px">
+	                		</if>
+                		</div>-->     
+                    </div>
+                </div>
+                <div class="link link2 layui-form-item layui-form-text">
+                    <label class="layui-form-label">照片</label>
+                    <div class="layui-input-block">
+                         <div class="layui-inline">
+                    		<div class="layui-input-inline" style="width:550px;">
+								<input type="text" readonly="readonly" value="{$detail['link_url']}" class="a layui-input" name="link_url2" id="upload-img-url" style="width:550px" autocomplete="off">
+								<input type="hidden"  class="b layui-input" value="{$detail['link_id']}" name="link_id2" id="upload-img-id">
+							</div>
+						</div>
+						<div class="layui-inline">
+                    		<div class="layui-input-inline">
+								<input data-id="2" class="choselink layui-btn" value="选择照片">
+							</div>
+						</div>
+                    </div>
+                </div>
+                <div class="link link3 layui-form-item layui-form-text">
+                    <label class="layui-form-label">视频</label>
+                    <div class="layui-input-block">
+                         <div class="layui-inline">
+                    		<div class="layui-input-inline" style="width:550px;">
+								<input type="text" readonly="readonly" value="{$detail['link_url']}" name="link_url3" id="upload-video-url" class="a layui-input" style="width:550px" autocomplete="off">
+								<input type="hidden" class="b layui-input" value="{$detail['link_id']}" name="link_id3" id="upload-video-id">
+							</div>
+						</div>
+						<div class="layui-inline">
+                    		<div class="layui-input-inline">
+								<input  data-id="3" class="choselink layui-btn" value="选择视频">
+							</div>
+						</div>
+                    </div>
+                </div>
+                <div class="link link4 layui-form-item layui-form-text">
+                    <label class="layui-form-label">网页</label>
+                    <div class="layui-input-block">
+                         <div class="layui-inline">
+                    		<div class="layui-input-inline" style="width:550px;">
+								<input type="text"  value="{$detail['link_url']}" name="link_url4" id="upload-article-url" class="a layui-input" style="width:550px" autocomplete="off">
+								<input type="hidden" class="b layui-input" value="{$detail['link_id']}" name="link_id4" id="upload-article-id">
+							</div>
+						</div>
+                    </div>
+                </div>
+                <div class="link link5 layui-form-item layui-form-text">
+                    <label class="layui-form-label">文本</label> 
+                    <div class="layui-input-block">
+                       <textarea style="height:500px;width:100%;" id="editor_id" class="a span7 richtext-clone layui-input" name="content" cols="70">{$detail['content']}</textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="admin-form">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </fieldset>
+</block>
+<block name="myScript">
+<script>
+$(function(){		
+	KindEditor.ready(function(K) {
+        window.editor = K.create('#editor_id', {
+        	uploadJson : "{:U('Upload/upload')}",
+	        fileManagerJson : "{:U('Upload/manager')}",
+			allowFileManager : true,
+			afterBlur: function () { this.sync()},
+		});
+	});
+	$(".link").hide();
+	var id = $("input[name='link_type']:checked").val();
+	$(".link"+id).show();  
+	
+});
+
+
+</script>
+<script type="text/javascript">
+	function thumb(obj) {
+		if (obj.height > obj.width) { obj.style.height = "100px"; obj.style.width = "auto"}
+	}
+	
+	function video(url,id){
+    $(".a").val(url);
+    $(".b").val(id);
+}
+
+
+	
+    $(function(){		
+		var editor = KindEditor.editor({
+			uploadJson : "{:U('Upload/upload')}",
+	        fileManagerJson : "{:U('Upload/manager')}",
+			allowFileManager : true,
+			afterUpload : function(url, data) {
+			}
+		});
+		
+		function deletepic(obj){
+			if (confirm("确认要删除？")) {
+				var $thisob=$(obj);
+				var $liobj=$thisob.parent();
+				var picurl=$liobj.children('input').val();
+				$.post("{:U('Upload/del')}",{pic:picurl},function(m){
+					if(m=='1') {
+						$liobj.remove();
+						$("#upload-image-url").val("");
+					} else {
+						alert("删除失败");
+					}
+				},"html");	
+			}
+		}
+		
+		$("#upload-image").click(function() {
+			editor.loadPlugin("image", function() {
+				editor.plugin.imageDialog({
+					tabIndex : 1,
+					imageUrl : $("#upload-image-url").val(),
+					clickFn : function(url) {
+						editor.hideDialog();
+						var val = url;
+						console.log(url);
+						if(url.toLowerCase().indexOf("http://") == -1 && url.toLowerCase().indexOf("https://") == -1) {
+							var filename = /images(.*)/.exec(url);
+							if(filename && filename[0]) {
+								val = filename[0];
+							}
+						}
+						$("#upload-image-url").val($("#upload-image-url").val());
+						$("#upload-image-url").val(val);
+						$("#upload-image-preview").html('<li class="imgbox" style="list-type:none">'+
+								'<a class="item_close" href="javascript:;" onclick="deletepic(this);" title="删除"></a>'+
+								'<span class="item_box"> <img src="'+url+'" style="width:124px;height:94px"></span>'+
+								'<input type="hidden" name="thumb" value="'+val+'" />'+
+								'</li>');
+						}
+					});
+				});
+			});
+			
+		});
+
+	</script>
+	<script>
+	layui.use(['upload','layer'],function(){
+	  
+	  $('.choselink').each(function () {
+	      $(this).click(function () {
+            var type = $(this).attr("data-id");
+            layer.open({
+                type: 2,
+                area: ['100%', '100%'],
+                maxmin: true,
+                content: "{:U('Admin/Banner/choselink/type/" + type + "')}",
+                zIndex: layer.zIndex, //重点1
+                success: function(layero){
+                    layer.setTop(layero); //重点2
+                }
+            });
+	      });
+        }); 
+        layui.upload({
+          url: ''
+          ,success: function(res){
+            //console.log(res); //上传成功返回值，必须为json格式
+          }
+        });
+	});
+	</script>
+    <if condition="isset($detail['id'])">
+        <script>
+            layui.use('form', function(){
+                var form = layui.form();
+                form.on('radio(link)', function(data){
+                    $(".link").hide();
+                    $(".link"+data.value).show();
+                    $(".a").val("");
+                    $(".b").val("");
+                })
+                form.on('submit(admin-form)', function(data){
+                	//console.log(data);return;
+                    $.ajax({
+                        type: "POST",
+                        url: '{:U("edit")}',
+                        data: data.field,
+                        success: function(msg){
+                            if( msg.code == 1 ){
+                                parent.location.reload();
+                            }else{
+                                parent.layer.msg(msg.msg, {
+                                    icon: 5,
+                                    shade: [0.6, '#393D49'],
+                                    time:1500
+                                });
+                            }
+                        }
+                    });
+                    return false;
+                });
+
+            });
+        </script>
+        <else />
+        <script>
+            layui.use('form', function(){
+                var form = layui.form();
+                form.on('radio(link)', function(data){
+                    $(".link").hide();
+                    $(".link"+data.value).show();
+                })
+                form.on('submit(admin-form)', function(data){
+                	//console.log(data.field);//return;
+                	$.ajax({
+                        type: "POST",
+                        url: '{:U("add")}',
+                        data: data.field,
+                        success: function(msg){
+                            if( msg.code == 1 ){
+                                parent.location.reload();
+                            }else{
+                                parent.layer.msg(msg.msg, {
+                                    icon: 5,
+                                    shade: [0.6, '#393D49'],
+                                    time:1500
+                                });
+                            }
+                        }
+                    });
+                    return false;
+                });
+
+            });
+        </script>
+    </if>
+</block>

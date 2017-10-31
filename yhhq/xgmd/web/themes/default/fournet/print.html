@@ -1,0 +1,83 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+	<li class="active"><a href="{php echo url('fournet/print/')}">打印机设置</a></li>
+</ul>
+<script type="text/javascript">
+	{if $notify['mail']['smtp']['type'] == 'custom'}
+		$("#smtp").show();
+	{/if}
+</script>
+<div class="main">
+	<form id="payform" action="{php echo url('fournet/print')}" method="post" class="form-horizontal form">
+	
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				打印机设置选项
+			</div>
+			<div class="panel-body">
+                    <div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">打印机名称</label>
+						<div class="col-sm-9 col-xs-12">
+							<input type="text" name="name" class="form-control" value="{$print['name']}" />
+							<div class="help-block">打印机名称，用于区别云平台处理</div>
+						</div>
+					</div>
+					<div class="form-group" id="account">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">打印机类型</label>
+					<div class="col-sm-9 col-xs-12">
+						<select name="type" class="form-control">
+                            <option value="兄弟联打印机" {if $print['type']=='兄弟联打印机'}selected{/if}>兄弟联打印机</option>
+						</select>
+					<div class="help-block">目前只支持兄弟联打印机</div>
+					</div>
+				</div>
+
+				<div class="form-group" id="account">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">是否使用</label>
+					<div class="col-sm-9 col-xs-12">
+						<select name="use" class="form-control">
+							<option value="0" {if $print['use']==0}selected{/if}>使用中</option>
+                            <option value="1" {if $print['use']==1}selected{/if}>不使用</option>
+						</select>
+						<div class="help-block">是否开启打印机！</div>
+					</div>
+				</div>
+
+                <div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">商户代码</label>
+					<div class="col-sm-9 col-xs-12">
+						<input type="text" name="daima" class="form-control" value="{$print['daima']}" />
+						<div class="help-block">打印机的商户代码</div>
+					</div>
+				</div>
+                <div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">商户ID</label>
+					<div class="col-sm-9 col-xs-12">
+						<input type="text" name="num" class="form-control" value="{$print['num']}" />
+						<div class="help-block">打印机的商户ID</div>
+					</div>
+				</div>
+                <div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">API密钥</label>
+						<div class="col-sm-9 col-xs-12">
+							<input type="text" name="secret" class="form-control" value="{$print['secret']}" />
+						<div class="help-block">打印机的API密匙</div>
+						</div>
+				</div>
+                <div class="form-group">
+						<label class="col-xs-12 col-sm-3 col-md-2 control-label">描述</label>
+						<div class="col-sm-9 col-xs-12">
+							<input type="text" name="dis" class="form-control" value="{$print['dis']}" />
+							
+						</div>
+				</div>
+			</div>
+			</div>
+		<div class="form-group col-sm-12">
+			<button type="submit" class="btn btn-primary col-lg-1" name="submit" value="提交">提交</button>
+			<input type="hidden" name="token" value="{$_W['token']}" />
+		</div>
+
+	</form>
+</div>
+{template 'common/footer'}

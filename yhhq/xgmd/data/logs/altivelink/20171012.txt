@@ -1,0 +1,1 @@
+[2017/10/12 03:12:23]用户ID:1,用户名：admin,添加了数据,数据表:ims_core_cache,添加数据：a:2:{s:3:"key";s:23:"unimodulesappbinding:40";s:5:"value";s:6:"a:0:{}";}

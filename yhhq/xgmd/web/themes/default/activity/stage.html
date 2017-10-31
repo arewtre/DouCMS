@@ -1,0 +1,224 @@
+{template 'common/header'}
+{if $do=="display"}
+<link rel="stylesheet" type="text/css" href="./resource/businesscenter/template/themes/css/main.css?v=2" />
+<div class="main">
+<div class="panel panel-default">
+        <div class="panel-heading">
+        <a class="btn btn-success" href="{php echo url('activity/stage', array('do' => 'post'))}"><i class="fa fa-plus"></i>添加活动</a>
+        <div class="panel-body">
+            <form action="./index.php" method="get" class="form-horizontal" role="form">
+                <input type="hidden" name="c" value="activity" />
+                <input type="hidden" name="a" value="stage" />
+                <input type="hidden" name="do" value="display" />
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">关键字</label>
+                    <div class="col-sm-2 col-lg-2">
+                        <input class="form-control" name="keyword" id="" type="text" value="{$_GPC['keyword']}">
+                    </div>
+                    <div class="col-sm-3 col-lg-1">
+                    	<button class="btn btn-success">
+                    		<i class="fa fa-search"></i> 搜索
+                    	</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+	<ul class="page-nav page-nav-tabs" style="background:none;float: left;margin-left: 0px;padding-left: 0px;border-bottom:1px #c5d0dc solid;">
+        <li{if empty($type)} class="active"{/if}>
+        	<a href="{php echo url('activity/stage/display')}">全部活动</a>
+        </li>
+        <li{if $type==1} class="active"{/if}>
+        	<a href="{php echo url('activity/stage/display', array( 'type' => 1))}">显示活动</a>
+        </li>
+       	<li{if $type==2} class="active"{/if}>
+        	<a href="{php echo url('activity/stage/display', array( 'type' => 2))}">未开始</a>
+        </li>
+        <li{if $type==3} class="active"{/if}>
+        	<a href="{php echo url('activity/stage/display', array( 'type' => 3))}">已过期</a>
+        </li>
+    </ul>
+	
+ <div class="panel panel-default">
+        <form action="" method="post" class="form-horizontal form" onsubmit="return formcheck(this)">
+        <div class="table-responsive panel-body">
+                <table class="table table-hover">
+                    <thead class="navbar-inner">
+                    <tr>
+                        <th style="width:10%;">显示顺序</th>
+                        <th style="width:10%;">图片</th>
+                        <th style="width:15%;">名称</th>
+                        <th style="width:15%;">标题</th>
+                        <th style="width:16%;">期限</th>
+                        <th style="width:16%;">详情</th>
+                        <th style="width:12%;">属性(点击可切换)</th>
+                        <th style="width:15%;text-align: right;">编辑</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {loop $list $item}
+                    <tr>
+                        <td>
+                        	<input type="text" class="form-control" name="displayorder[{$item['id']}]" value="{$item['sort']}">
+                        </td>
+                        <td style="width: 60px;">
+                            <img width="80px;" src="{php echo tomedia($item['logo']);}" onerror="this.src='./resource/businesscenter/template/themes/images/nopic.jpeg'" style="border-radius: 2px;border-style: solid;border-width: 1px;border-color: rgb(226, 226, 226);"/>
+                        </td>
+                        <td>
+							{$item['name']}
+                        </td>
+                        <td>
+                            {$item['title']}
+                        </td>
+                        <td>
+                            {if $item['time_limit']==0}
+                           		 无限制
+                            {else}
+                            {if TIMESTAMP>$item['time_limit']}
+                            <font color="#f00">已过期</font>
+                            {else}
+                            {php echo date('Y-m-d H:i', $item['vip_start'])}~{php echo date('Y-m-d H:i', $item['vip_end'])}
+                            {/if}
+                            {/if}
+                        </td>
+                        <td>
+                        	<a href="#" >详情页面</a>
+                        </td>
+                        <td>
+                            <label data='{$item['enable']}' class='label label-default {if $item['enable']==1}label-info{/if}' onclick="setProperty(this,{$item['id']},'enable')">显示</label>
+                        </td>
+                        <td style="text-align: right;">
+                            <a class="btn btn-default btn-sm" href="{php echo url('activity/stage', array('do' => 'post', 'id' => $item['id']))}" title="编辑"><i class="fa fa-pencil"></i></a>
+                        </td>
+                    </tr>
+                    {/loop}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="8">
+                            <input name="submit" type="submit" class="btn btn-primary" value="批量更新排序">
+                            <input type="hidden" name="token" value="{$_W['token']}" />
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </form>
+    </div>
+        {$pager}
+<script type="text/javascript">
+    function setProperty(obj,id,type){
+         $(obj).html($(obj).html() + "...");
+         $.post("{php echo url('activity/stage/setProperty')}"
+                 ,{id:id,type:type, data: obj.getAttribute("data")}
+                 ,function(d){
+                     $(obj).html($(obj).html().replace("...",""));
+                     $(obj).attr("data",d.data)
+                     if(d.result==1){
+                         $(obj).toggleClass("label-info");
+                     }
+                 },"json"
+         );
+    }
+</script>
+
+
+</div>
+{elseif $do == 'post'}
+<style type="text/css">
+	.nameSpan{display: inline-block;width: 10%}
+	.leftW{margin-left: 10%}
+	#gbin1-list{margin-bottom: 10px}
+</style>
+<div class="main">
+	<form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+		<input type="hidden" name="id" value="{$item['id']}" />
+		<div class="panel panel-default">
+			<div class="panel-heading">
+               	 活动信息
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs" id="myTab">
+                    <li class="active"><a href="#tab_basic">基本信息</a></li>
+                </ul>
+                <div class="tab-content">
+                	<div class="tab-pane  active" id="tab_basic">
+                		<div class="form-group">
+                    		<label class="col-xs-12 col-sm-3 col-md-2 control-label">活动名称</label>
+                    		<div class="col-sm-9">
+                        		<input type="text" name="name" class="form-control" value="{$item['name']}" />
+                        		<div class="help-block" style="color:#f00">输入字数请不要超过12个</div>
+                    		</div>
+						</div>
+                		<div class="form-group">
+                    		<label class="col-xs-12 col-sm-3 col-md-2 control-label">标题 </label>
+                    		<div class="col-sm-9">
+                        		<input type="text" name="title" class="form-control" value="{$item['title']}" />
+                    		</div>
+						</div>
+                		<div class="form-group">
+                    		<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span> 期限</label>
+                    		<div class="col-sm-9 col-xs-12">
+                        		<label for="time_limit1" class="radio-inline"><input type="radio" name="time_limit" value="1" id="time_limit1"  {if empty($item) || $item['time_limit'] == 1}checked="true"{/if} /> 开启</label>
+                        		<label for="time_limit0" class="radio-inline"><input type="radio" name="time_limit" value="0" id="time_limit0"  {if !empty($item) && $item['time_limit'] == 0}checked="true"{/if} /> 关闭</label>
+                        		{php echo tpl_form_field_daterange('datelimit', array('starttime'=>date('Y-m-d H:i',$item['start_time']),'endtime'=>date('Y-m-d H:i',$item['end_time'])), true)}
+                    		</div>
+                		</div>
+                		<div class="form-group">
+                    		<label class="col-xs-12 col-sm-3 col-md-2 control-label">封面</label>
+                    		<div class="col-sm-9">
+                        		{php echo tpl_form_field_image('logo', $logo, './resource/businesscenter/template/themes/images/nopic.jpeg', array('width' => 300, 'height' => 150))}
+                        		<span class="help-block" style="color:#f00">建议尺寸(300*150)</span>
+                    		</div>
+                		</div>
+                		<div class="form-group">
+							<label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">内容</label>
+							<div class="col-sm-8 col-xs-12">
+								{php echo tpl_ueditor('content', $item['content']);}
+							</div>
+						</div>
+                		<div class="form-group">
+                    		<label class="col-xs-12 col-sm-3 col-md-2 control-label">排序 </label>
+                    		<div class="col-sm-9">
+                        		<input type="text" name="sort" class="form-control" value="{$item['sort']}" />
+                    		</div>
+						</div>
+						<div class="form-group">
+                    		<label class="col-xs-12 col-sm-3 col-md-2 control-label">显示</label>
+                    		<div class="col-sm-9">
+                        		<label for="enable1" class="radio-inline"><input type="radio" name="enable" value="1" id="enable1" {if $item['enable'] == 1}checked="true"{/if} /> 是</label>
+                        		<label for="enable2" class="radio-inline"><input type="radio" name="enable" value="0" id="enable2"  {if empty($item) || !empty($item) && $item['enable'] == 0}checked="true"{/if} /> 否</label>
+                        		<span class="help-block"></span>
+                    		</div>
+                		</div>
+           			</div>
+        		</div>
+     		</div>
+		</div>
+		<div class="form-group col-sm-12">
+            <input type="submit" name="submit" value="保存设置" class="btn btn-primary col-lg-1" />
+            <input type="hidden" name="token" value="{$_W['token']}" />
+        </div>
+	</form>
+<script>
+		$(".attr").bind("click",function(){
+			var index = $(".attr").index(this);
+			if($(this).is(":checked")){
+				$(this).parent().siblings().find("input").prop("checked",false);
+			}
+		});
+		$(".CheckedSpan").bind("click",function(event){
+			var self = this;
+			if(event.target==self){
+				if($(self).find("input").is(":checked")){
+					$(self).find("input").prop("checked",false);
+				}else{
+					$(self).siblings().find("input").prop("checked",false);
+					$(self).find("input").prop("checked",true);
+				}
+	        }
+		});
+	</script>
+</div>
+{/if}
+{template 'common/footer'}

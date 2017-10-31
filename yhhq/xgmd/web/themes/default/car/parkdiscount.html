@@ -1,0 +1,227 @@
+{template 'common/header'}
+<style>
+	.label{line-height: 1.8}
+table {
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
+    width: 100%;   
+	margin: 0 auto; 
+}
+
+.bordered {
+    border: solid #ccc 1px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 1px 1px #ccc; 
+    -moz-box-shadow: 0 1px 1px #ccc; 
+    box-shadow: 0 1px 1px #ccc;
+	margin-bottom:10px;  
+	 
+}
+
+.bordered tr:hover {
+    background: #fbf8e9;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;     
+}    
+    
+.bordered td{
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;    
+}
+
+
+.bordered td:first-child, .bordered th:first-child {
+    border-left: none;
+}
+
+.bordered tr:last-child td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+.bordered tr:last-child td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+}
+input{
+	transition:all 0.30s ease-in-out;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	
+	border:#eee 1px solid;
+	border-radius:3px;
+	outline:none;
+	font-family:Arial;
+	b
+	
+}
+input:focus{
+	box-shadow:0 0 5px rgba(81, 203, 238, 1);
+	-webkit-box-shadow:0 0 5px rgba(81, 203, 238, 1);
+	-moz-box-shadow:0 0 5px rgba(81, 203, 238, 1);
+}
+</style>
+{if $do=='display'}
+<div class="panel panel-info">
+	<div class="panel-heading">APP 停车支付功能 折扣管理</div>
+	<div class="panel-body">
+		<form action="./index.php" method="get" class="form-horizontal" role="form">
+		<input type="hidden" name="c" value="car">
+		<input type="hidden" name="a" value="parkdiscount">
+			<table id="qerjcvk" width="100%" border="0" cellspacing="0" cellpadding="0" class="bordered">
+			   <tr style="font-weight: bold;">
+			    <td width="20%">时间安排</td>
+			    <td width="12%">周一</td>
+			    <td width="12%">周二</td>
+			    <td width="12%">周三</td>
+			    <td width="12%">周四</td>
+			    <td width="12%">周五</td>
+			    <td width="12%">周六</td>
+			    <td width="12%">周日</td>
+			  </tr>
+			  <tr>
+			    <td style="font-weight: bold;">折扣设置<br />（0-10）</td>
+			    <td><input name="discounts[1][1][0]" type="text" size="2" maxlength="3" value="{$discounts[1][1][0]}" /></td>
+			    <td><input name="discounts[1][2][0]" type="text" size="2" maxlength="3" value="{$discounts[1][2][0]}"/></td>
+			    <td><input name="discounts[1][3][0]" type="text" size="2" maxlength="3" value="{$discounts[1][3][0]}"/></td>
+			    <td><input name="discounts[1][4][0]" type="text" size="2" maxlength="3" value="{$discounts[1][4][0]}"/></td>
+			    <td><input name="discounts[1][5][0]" type="text" size="2" maxlength="3" value="{$discounts[1][5][0]}"/></td>
+			    <td><input name="discounts[1][6][0]" type="text" size="2" maxlength="3" value="{$discounts[1][6][0]}"/></td>
+			    <td><input name="discounts[1][0][0]" type="text" size="2" maxlength="3" value="{$discounts[1][0][0]}"/></td>
+			  </tr>
+			  <tr>
+			    <td style="font-weight: bold;">减价设置<br />（任意金额）</td>
+			    <td><input name="discounts[1][1][1]" type="text" size="2" maxlength="3" value="{$discounts[1][1][1]}"/></td>
+			    <td><input name="discounts[1][2][1]" type="text" size="2" maxlength="3" value="{$discounts[1][2][1]}"/></td>
+			    <td><input name="discounts[1][3][1]" type="text" size="2" maxlength="3" value="{$discounts[1][3][1]}"/></td>
+			    <td><input name="discounts[1][4][1]" type="text" size="2" maxlength="3" value="{$discounts[1][4][1]}"/></td>
+			    <td><input name="discounts[1][5][1]" type="text" size="2" maxlength="3" value="{$discounts[1][5][1]}"/></td>
+			    <td><input name="discounts[1][6][1]" type="text" size="2" maxlength="3" value="{$discounts[1][6][1]}"/></td>
+			    <td><input name="discounts[1][0][1]" type="text" size="2" maxlength="3" value="{$discounts[1][0][1]}"/></td>
+			  </tr>
+			</table>
+			<div style="text-align: center;">
+			    <input class="btn btn-primary" type="submit" name="end_submit" id="end_submit" value="提交" class="tijiao">
+			</div>
+		</form>
+	</div>
+</div>
+<div class="panel panel-info">
+	<div class="panel-heading">微信停车支付功能 折扣管理</div>
+	<div class="panel-body">
+		<form action="./index.php" method="get" class="form-horizontal" role="form">
+		<input type="hidden" name="c" value="car">
+		<input type="hidden" name="a" value="parkdiscount">
+			<table id="qerjcvk" width="100%" border="0" cellspacing="0" cellpadding="0" class="bordered">
+			   <tr style="font-weight: bold;">
+			    <td width="20%">时间安排</td>
+			    <td width="12%">周一</td>
+			    <td width="12%">周二</td>
+			    <td width="12%">周三</td>
+			    <td width="12%">周四</td>
+			    <td width="12%">周五</td>
+			    <td width="12%">周六</td>
+			    <td width="12%">周日</td>
+			  </tr>
+			  <tr>
+			    <td style="font-weight: bold;">折扣设置<br />（0-10）</td>
+			    <td><input name="discounts[2][1][0]" type="text" size="2" maxlength="3" value="{$discounts[2][1][0]}" /></td>
+			    <td><input name="discounts[2][2][0]" type="text" size="2" maxlength="3" value="{$discounts[2][2][0]}"/></td>
+			    <td><input name="discounts[2][3][0]" type="text" size="2" maxlength="3" value="{$discounts[2][3][0]}"/></td>
+			    <td><input name="discounts[2][4][0]" type="text" size="2" maxlength="3" value="{$discounts[2][4][0]}"/></td>
+			    <td><input name="discounts[2][5][0]" type="text" size="2" maxlength="3" value="{$discounts[2][5][0]}"/></td>
+			    <td><input name="discounts[2][6][0]" type="text" size="2" maxlength="3" value="{$discounts[2][6][0]}"/></td>
+			    <td><input name="discounts[2][0][0]" type="text" size="2" maxlength="3" value="{$discounts[2][0][0]}"/></td>
+			  </tr>
+			  <tr>
+			    <td style="font-weight: bold;">减价设置<br />（任意金额）</td>
+			    <td><input name="discounts[2][1][1]" type="text" size="2" maxlength="3" value="{$discounts[2][1][1]}"/></td>
+			    <td><input name="discounts[2][2][1]" type="text" size="2" maxlength="3" value="{$discounts[2][2][1]}"/></td>
+			    <td><input name="discounts[2][3][1]" type="text" size="2" maxlength="3" value="{$discounts[2][3][1]}"/></td>
+			    <td><input name="discounts[2][4][1]" type="text" size="2" maxlength="3" value="{$discounts[2][4][1]}"/></td>
+			    <td><input name="discounts[2][5][1]" type="text" size="2" maxlength="3" value="{$discounts[2][5][1]}"/></td>
+			    <td><input name="discounts[2][6][1]" type="text" size="2" maxlength="3" value="{$discounts[2][6][1]}"/></td>
+			    <td><input name="discounts[2][0][1]" type="text" size="2" maxlength="3" value="{$discounts[2][0][1]}"/></td>
+			  </tr>
+			</table>
+			<div style="text-align: center;">
+			    <input class="btn btn-primary" type="submit" name="end_submit" id="end_submit" value="提交" class="tijiao">
+			</div>
+		</form>
+	</div>
+</div>
+<div class="panel panel-info">
+	<div class="panel-heading">喵街&服务窗 停车支付功能 折扣管理</div>
+	<div class="panel-body">
+		<form action="./index.php" method="get" class="form-horizontal" role="form">
+		<input type="hidden" name="c" value="car">
+		<input type="hidden" name="a" value="parkdiscount">
+			<table id="qerjcvk" width="100%" border="0" cellspacing="0" cellpadding="0" class="bordered">
+			   <tr style="font-weight: bold;">
+			    <td width="20%">时间安排</td>
+			    <td width="12%">周一</td>
+			    <td width="12%">周二</td>
+			    <td width="12%">周三</td>
+			    <td width="12%">周四</td>
+			    <td width="12%">周五</td>
+			    <td width="12%">周六</td>
+			    <td width="12%">周日</td>
+			  </tr>
+			  <tr>
+			    <td style="font-weight: bold;">折扣设置<br />（0-10）</td>
+			    <td><input name="discounts[3][1][0]" type="text" size="2" maxlength="3" value="{$discounts[3][1][0]}" /></td>
+			    <td><input name="discounts[3][2][0]" type="text" size="2" maxlength="3" value="{$discounts[3][2][0]}"/></td>
+			    <td><input name="discounts[3][3][0]" type="text" size="2" maxlength="3" value="{$discounts[3][3][0]}"/></td>
+			    <td><input name="discounts[3][4][0]" type="text" size="2" maxlength="3" value="{$discounts[3][4][0]}"/></td>
+			    <td><input name="discounts[3][5][0]" type="text" size="2" maxlength="3" value="{$discounts[3][5][0]}"/></td>
+			    <td><input name="discounts[3][6][0]" type="text" size="2" maxlength="3" value="{$discounts[3][6][0]}"/></td>
+			    <td><input name="discounts[3][0][0]" type="text" size="2" maxlength="3" value="{$discounts[3][0][0]}"/></td>
+			  </tr>
+			  <tr>
+			    <td style="font-weight: bold;">减价设置<br />（任意金额）</td>
+			    <td><input name="discounts[3][1][1]" type="text" size="2" maxlength="3" value="{$discounts[3][1][1]}"/></td>
+			    <td><input name="discounts[3][2][1]" type="text" size="2" maxlength="3" value="{$discounts[3][2][1]}"/></td>
+			    <td><input name="discounts[3][3][1]" type="text" size="2" maxlength="3" value="{$discounts[3][3][1]}"/></td>
+			    <td><input name="discounts[3][4][1]" type="text" size="2" maxlength="3" value="{$discounts[3][4][1]}"/></td>
+			    <td><input name="discounts[3][5][1]" type="text" size="2" maxlength="3" value="{$discounts[3][5][1]}"/></td>
+			    <td><input name="discounts[3][6][1]" type="text" size="2" maxlength="3" value="{$discounts[3][6][1]}"/></td>
+			    <td><input name="discounts[3][0][1]" type="text" size="2" maxlength="3" value="{$discounts[3][0][1]}"/></td>
+			  </tr>
+			</table>
+			<div style="text-align: center;">
+			    <input class="btn btn-primary" type="submit" name="end_submit" id="end_submit" value="提交" class="tijiao">
+			</div>
+		</form>
+	</div>
+</div>
+<div class="alert alert-info">
+	<i class="fa fa-info-circle"></i> 停车场活动模块操作注意事项：<br>
+	<p>注意事项一：      </p>
+	<p>停车场活动模块有3项分别是：</p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;水游城APP停车场，微信停车场，支付宝服务窗停车场，目前仅支持微信停车场活动折扣设置，其他两项设置  请不用进行操作。</p>
+	
+	<p>注意事项二：
+	<p>微信停车场具体功能设置描述:</p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;折扣设置：可填入数字0-10（整数），填入0表示0折，即当日停车场免费停车，10表示不打折，即当日停车场全额付费，没有折扣。目前系统默认填入的数字为5，即微信缴费半折优惠。
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;减价设置: 可设置任意整数数字进行微信停车场减价设置，如在周一减价设置中填写10，表示周一停车场微信支付减价10元。</p>
+	
+	<p>注意事项三：</p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;任何折扣，减价设置请提前至少一个工作日设置，可设置周一至周日每天活动，每天24点活动自动重置。隔夜车不享受优惠活动。</p>
+	
+	<p>注意事项四：</p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;折扣设置，减价设置不可同时享受，减价设置优先折扣设置。比如设置了周一减价10元，就不可设置周一折扣，系统自动默认无折扣，当天只享受10元减价。如果周一折扣设置为5，则不可设置减价设置，请务必保持减价设置数字必须为0.（否则减价设置将优先折扣设置生效）</p>
+<!-- 	<strong class="text-danger"> -->
+<!-- 		<i class="fa fa-info-circle"></i> 会员的总积分 = 账户积分 + 账户贡献. 会员所在的会员组是根据 "总积分的多少" 和 "会员组的变更规则" (<根据总积分多少自动升价> 或 <根据总积分多少只升不降>) 自动匹配.<br> -->
+<!-- 	</strong> -->
+</div>
+{/if}
+{template 'common/footer'}

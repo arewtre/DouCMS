@@ -1,0 +1,303 @@
+{template 'common/header'}
+{if $do=="display"||$do=="post"}
+<ul class="nav nav-tabs">
+<li{if $do == 'display'} class="active"{/if}><a href="{php echo url('coupon/list/dispaly');}">优惠券列表</a>
+</li>
+<li{if $do == 'post'} class="active"{/if}><a href="{php echo url('coupon/list/post');}">{if $id > 0}编辑优惠券{else}添加优惠券{/if}</a>
+</li>
+</ul>
+{/if}
+{if $do == 'post'}
+<div class="clearfix">
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+        <div class="panel panel-default" id="step1">
+            <div class="panel-heading">
+               	 优惠券信息
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <span class="text-danger">*</span>
+                       	 优惠券名称
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="coupon_name" value="{$item['coupon_name']}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	优惠券描述
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="coupon_desc" value="{$item['coupon_desc']}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	优惠券成本比例
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" class="form-control" name="coupon_desc" value="{$item['coupon_desc']}"/><span class="help-block">商户承担百分比 （如，12 表示商户承担 12%）</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	发布有效期
+                    </label>
+                    <div class="col-sm-6 col-md-8 col-lg-8 col-xs-12">
+                        {php echo tpl_form_field_daterange('issue_time', array('starttime' => date('Y-m-d', time()), 'endtime' => date('Y-m-d', time()),));}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <span class="text-danger">*</span>
+                        	优惠券类型
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="row row-fix tpl-location-container">
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                <select name="coupon_type" data-value="" id="dis_type_sel" class="form-control" onchange="changeDisType()">
+                                    <option value=0>折扣券</option>
+                                    <option value=1>抵用券</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $(function(){
+                        changeDisType();
+                        changeUseTimeType();
+                    });
+                    function changeDisType(){
+                        if ($("#dis_type_sel").val() == 1) {
+                            $(".dis_value_help_0").hide();
+                            $(".dis_value_help_1").show();
+                        }
+                        else {
+                            $(".dis_value_help_1").hide();
+                            $(".dis_value_help_0").show();
+                        }
+                    }
+                    
+                    function changeUseTimeType(){
+                        $("#usetime_type_1").hide();
+                        $("#usetime_type_2").hide();
+                        $("#usetime_type_3").hide();
+                        var id = "#usetime_type_" + $("#usetime_type_sel").val();
+                        $(id).show();
+                    }
+                </script>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	折扣
+                    </label>
+                    <div class="col-sm-9 col-xs-4 col-md-3">
+                        <input type="text" class="form-control col-md-2" name="dis_value" value=""/><span class="help-block dis_value_help_0">优惠券折扣 （如，0.8 表示8折）</span>
+                        <span class="help-block dis_value_help_1" style="display:none;">优惠券抵用金额 （如，8.8 表示抵用8.8元）</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	使用有效期
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="row row-fix tpl-location-container">
+                            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                <select name="coupon_type" data-value="" id="usetime_type_sel" class="form-control" onchange="changeUseTimeType()">
+                                    <option value=1>指定时间</option>
+                                    <option value=2>领取后时间</option>
+                                    <option value=3>领取当天</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        	有效期至
+                    </label>
+                    <div class="col-sm-9 col-xs-4 col-md-3" id="usetime_type_1">
+						{php echo tpl_form_field_date('use_time_end', date('Y-m-d H:i', time()), true)}
+						<span class="help-block">优惠券有效期</span>
+                    </div>
+                    <div class="col-sm-9 col-xs-4 col-md-3" id="usetime_type_2" style="display:none;">
+                        <input type="text" class="form-control col-md-2" name="dis_value" value=""/>
+						<span class="help-block">用户领取优惠券后，优惠券有效的小时数 </span>
+                    </div>
+                    <div class="col-sm-9 col-xs-4 col-md-3" id="usetime_type_3" style="display:none;">
+                        <input type="text" class="form-control col-md-2" name="dis_value" value="领取优惠券当天" readonly="readonly"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        <span class="text-danger">*</span>
+                        	图片列表
+                    </label>
+                    <div class="col-sm-8 col-xs-12">
+                        {if $_W['account']['level'] == ACCOUNT_SERVICE_VERIFY}
+                        {php echo tpl_form_field_wechat_multi_image('photo_list', '', '', array('mode' => 'file_upload'));}
+                        {else}
+                        {php echo tpl_form_field_multi_image('photo_list', $item['photo_list'],'');}
+                        {/if}<span class="help-block">图片只支持jpg格式,大小不超过1M</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+            <input name="submit" id="submit" type="submit" value="提交" class="btn btn-primary col-lg-1"><input type="hidden" name="add" value="1" />
+        </div>
+    </form>
+</div> {/if}
+{if $do == 'display'}
+<div class="main">
+    <div class="main table-responsive">
+    <div style="margin-bottom:1vw">
+		            <a title="全选" class="btn btn-default checkall">全选</a>
+		            <a title="全不选" class="btn btn-default unselect">全不选</a>
+		            <a title="反选" class="btn btn-default checkno">反选</a>
+		            <a title="拒绝" class="btn btn-danger refuse">拒绝</a>
+		            <a title="通过" class="btn btn-primary allow">通过</a>
+            </div>
+	<script>
+            $(".checkall").click(function () {
+            	   $("#list :checkbox,#all").prop("checked", true);  
+            });
+            
+            $("#list :checkbox").click(function(){
+            	allchk();
+            });
+            
+            $(".unselect").click(function () {  
+            	   $("#list :checkbox,#all").prop("checked", false);  
+            });
+            $(".checkno").click(function () { 
+                $("#list :checkbox").each(function () {  
+                    $(this).prop("checked", !$(this).prop("checked"));  
+                });
+            	allchk();
+           });
+            
+        	$(".refuse").click(function(){
+        		var array = new Array();   
+                var checkedNum = $("input[name='coupon[]']:checked").length;  
+                if(checkedNum == 0) {  
+                    alert("请选择至少一项！");  
+                    return;  
+                }  
+                $("input[name='coupon[]']:checked").each(function() {  
+                    array.push($(this).val());  
+                });  
+               		console.log(array); 
+               		window.location.href = "{php echo url('coupon/dis_list/check',array('m'=>'unPass'))}"+"&id="+array; 
+            });
+        	
+        	$(".allow").click(function(){
+        		var array = new Array();   
+                var checkedNum = $("input[name='coupon[]']:checked").length;  
+                if(checkedNum == 0) {  
+                    alert("请选择至少一项！");  
+                    return;  
+                }  
+                $("input[name='coupon[]']:checked").each(function() {  
+                    array.push($(this).val());  
+                });  
+               		console.log(array); 
+               		window.location.href = "{php echo url('coupon/dis_list/check',array('m'=>'pass'))}"+"&id="+array; 
+            });
+        	
+            function allchk(){
+            	var chknum = $("#list :checkbox").size();
+            	var chk = 0;
+            	$("#list :checkbox").each(function () {  
+                    if($(this).prop("checked")==true){
+            			chk++;
+            		}
+                });
+            	if(chknum==chk){//全选
+            		$("#all").prop("checked",true);
+            	}else{//不全选
+            		$("#all").prop("checked",false);
+            	}
+            }
+	</script>
+        <form method="post" class="form-horizontal" id="form2">
+            <div class="panel panel-default">
+                <div class="panel-body table-responsive">
+                    <table class="table table-hover">
+                        <thead class="navbar-inner">
+                            <tr>
+                            	<th width="80">
+                                         选择  
+                                </th>
+                                <th width="150">
+                                   	 	优惠券名
+                                </th>
+                                <th width="150">
+                                    	优惠券描述
+                                </th>
+                                <th>
+                                    	商户比例
+                                </th>
+                                <th>
+                                    	优惠
+                                </th>
+                                <th>
+                                    	抵用金额
+                                </th>
+                                <th>
+                                    	剩余数量
+                                </th>
+                                <th>
+                                    	操作
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="list">
+                            {loop $list $item}
+                            <tr>
+                            	<td>
+                                    <input type="checkbox" id="list" name="coupon[]" value="{$item['coupon_id']}">
+                                </td>
+                                <td>
+                                    {$item['name']}
+                                </td>
+                                <td>
+                                    {$item['coupon_desc']}
+                                </td>
+                                <td>
+                                    {$item['ratio_pay']}%
+                                </td>
+                                <td>
+                                    {$item['dis_value']}
+                                </td>
+                                <td>
+                                    {$item['min_amount']}
+                                </td>
+                                <td>
+                                    {$item['remain_total']}
+                                </td>	
+                                <td >
+                                    <a href="{php echo url('coupon/dis_list/check',array('id' => $item['coupon_id'],'m' =>'unPass'));}" title="拒绝" class="btn btn-danger">拒绝</a>
+                                    <a href="{php echo url('coupon/dis_list/check',array('id' => $item['coupon_id'],'m' =>'pass'));}" title="通过" class="btn btn-primary">通过</a>
+                                </td>
+                            </tr>
+                            {/loop}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {$pager}
+        </form>
+    </div>
+</div>
+{/if}
+<script>
+    $('#form1').submit(function(){
+        if (!$.trim($(':text[name="coupon_name"]').val())) {
+            util.message('优惠券名');
+            return false;
+        }
+    });
+</script>
+{template 'common/footer'}

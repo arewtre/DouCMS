@@ -1,0 +1,137 @@
+<extend name="Public/base" />
+<block name="main">
+		<td><!---批量上传-->
+            <div class="photo_list">
+                <input name="token" type="hidden" value="{$_W['token']}" />
+                <span id="selectimage" tabindex="-1" class="btn btn-primary"><i class="icon-plus"></i> 上传照片</span><span style="color:red;">
+                    <input name="piclist" type="hidden" value="{$item['piclist']}" /></span>
+                <div id="file_upload-queue" class="uploadify-queue"></div>
+                <ul class="ipost-list ui-sortable" id="fileList">
+
+                    <foreach name="piclist" item="v">
+                    <li class="imgbox" style="list-type:none">
+                        <a class="item_close" href="javascript:;" onclick="deletepic(this);" title="删除"></a>
+                        <span class="item_box">
+                            <img src="{$v['attachment']}" style="width:110px;height:80px">
+                        </span>
+                        <input type="hidden" value="{$v['attachment']}" name="attachment[]">
+                    </li>
+                    </foreach>
+                </ul>              
+        </td>
+	<div style="display:block; margin-top:5px;" class="input-append">
+	<input type="text" value="" name="" id="upload-image-url" class="span3" autocomplete="off">
+	<input type="hidden" value="" name="" id="upload-image-url">
+	<button class="btn" type="button" id="upload-image">选择图片</button>
+	</div>
+	<div id="upload-image-preview" style="margin-top:10px;"><img src="" width="100" onload="thumb(this)" /></div>
+	<textarea style="height:500px; width:90%;" id="editor_id" class="span7 richtext-clone" name="content" cols="70">1241</textarea>
+<script>
+$(function(){		
+	KindEditor.ready(function(K) {
+        window.editor = K.create('#editor_id', {
+        	uploadJson : "{:U('Upload/upload')}",
+	        fileManagerJson : "{:U('Upload/manager')}",
+			allowFileManager : true,
+		});
+	});
+});
+
+</script>
+	<script type="text/javascript">
+	function thumb(obj) {
+		if (obj.height > obj.width) { obj.style.height = "100px"; obj.style.width = "auto"}
+	}
+    $(function(){		
+		var editor = KindEditor.editor({
+			uploadJson : "{:U('Upload/upload')}",
+	        fileManagerJson : "{:U('Upload/manager')}",
+			allowFileManager : true,
+			afterUpload : function(url, data) {
+			}
+		});
+		$("#upload-image").click(function() {
+			editor.loadPlugin("image", function() {
+				editor.plugin.imageDialog({
+					tabIndex : 1,
+					imageUrl : $("#upload-image-url").val(),
+					clickFn : function(url) {
+						editor.hideDialog();
+						var val = url;
+						if(url.toLowerCase().indexOf("http://") == -1 && url.toLowerCase().indexOf("https://") == -1) {
+							var filename = /images(.*)/.exec(url);
+							if(filename && filename[0]) {
+								val = filename[0];
+							}
+						}
+						$("#upload-image-url").val($("#upload-image-url").val());
+						$("#upload-image-url").val(val);
+						$("#upload-image-preview").html('<li class="imgbox" style="list-type:none">'+
+								'<a class="item_close" href="javascript:;" onclick="deletepic(this);" title="删除"></a>'+
+								'<span class="item_box"> <img src="'+url+'" style="width:112px;height:80px"></span>'+
+								'<input type="hidden" name="attachment-new[]" value="'+url+'" />'+
+								'</li>');
+						}
+					});
+				});
+			});
+		});
+	</script>
+<!--批量上传结束-->
+    <script language="javascript">    
+			
+        $(function(){				 
+				var i = 0;
+				$('#selectimage').click(function() {
+					var editor = KindEditor.editor({
+						allowFileManager : false,
+						imageSizeLimit : '30MB',
+						uploadJson : "{:U('Upload/upload')}",
+//			            fileManagerJson : "{:U('Upload/manager')}",
+//			            allowFileManager : true
+					});
+					editor.loadPlugin('multiimage', function() {
+						editor.plugin.multiImageDialog({
+							clickFn : function(list) {
+								if (list && list.length > 0) {
+									for (i in list) {
+										if (list[i]) {
+											html =	'<li class="imgbox" style="list-type:none">'+
+											'<a class="item_close" href="javascript:;" onclick="deletepic(this);" title="删除"></a>'+
+											'<span class="item_box"> <img src="'+list[i]['url']+'" style="width:112px;height:80px"></span>'+
+											'<input type="hidden" name="attachment-new[]" value="'+list[i]['url']+'" />'+
+											'</li>';
+											$('#fileList').append(html);
+											i++;
+										}
+									}
+									editor.hideDialog();
+								} else {
+									alert('请先选择要上传的图片！');
+								}
+							}
+						});
+					});
+				});
+			});
+			
+			function deletepic(obj){
+				if (confirm("确认要删除？")) {
+					var $thisob=$(obj);
+					var $liobj=$thisob.parent();
+					var picurl=$liobj.children('input').val();
+					$.post("{:U('Upload/del')}",{pic:picurl},function(m){
+						if(m=='1') {
+							$liobj.remove();
+							$("#upload-image-url").val("");
+						} else {
+							alert("删除失败");
+						}
+					},"html");	
+				}
+			}
+
+    </script>
+</block>
+
+

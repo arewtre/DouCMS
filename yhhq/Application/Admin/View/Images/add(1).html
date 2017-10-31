@@ -1,0 +1,85 @@
+<extend name="Public/base"/>
+	<block name="main">
+	    <fieldset class="layui-elem-field">
+	        <legend>添加照片</legend>
+	        <div class="layui-input-inline">
+              <select class="cate" name="cid" lay-verify="" style="height:38px">
+                  <option value="">全部分类</option>
+                  <volist name="cates" id="vo">
+    	              <if condition="$vo.res eq 0">
+    	                  <option value="{$vo.pid}">{$vo['showName']}{$vo['title']}</option>
+    	              <else />
+    	              	  <optgroup label="{$vo['title']}"></optgroup>
+    	              </if>
+                  </volist>
+              </select>
+    	    </div>
+	        <div class="layui-field-box">
+				<div id="demo" class="demo"></div>  		   
+			</div>
+		</fieldset>
+		<!-- 引用控制层插件样式 -->
+		<link rel="stylesheet" href="__PUBLIC__/upload/css/zyUpload.css" type="text/css">		
+		<!-- 引用核心层插件 -->
+		<script type="text/javascript" src="__PUBLIC__/upload/js/zyFile.js"></script>
+		<!-- 引用控制层插件 -->
+		<script type="text/javascript" src="__PUBLIC__/upload/js/zyUpload.js"></script>
+		<script>
+		    layui.use(['form', 'layer'], function() {
+            var form = layui.form(), layer = layui.layer;
+        	
+        });
+		</script>
+		<script>
+		    $(function(){
+    		$(".cate").change(function () {  
+    		    window.cid = $(this).children('option:selected').val();
+    		    window.id = $(".cate option:selected").val() 
+    			console.log(window.id);
+    		});
+    		
+			$("#demo").zyUpload({
+			    width: "650px", // 宽度 
+			    height: "400px", // 宽度 
+			    itemWidth: "140px", // 文件项的宽度 
+			    itemHeight: "115px", // 文件项的高度 
+			    url: "{:U('Admin/Images/add/cid/"+ $(".cate option:selected").val() +"')}", // 上传文件的路径
+			    //url: "./up.php", // 上传文件的路径
+			    fileType: ["jpg", "png", "txt", "js"], // 上传文件的类型 
+			    fileSize: 5120000000, // 上传文件的大小 
+			    multiple: true, // 是否可以多个文件上传 
+			    dragDrop: true, // 是否可以拖动上传文件 
+			    tailor: true, // 是否可以裁剪图片 
+			    del: true, // 是否可以删除文件 
+			    finishDel: false, // 是否在上传文件完成后删除预览 
+			    /* 外部获得的回调接口 */ 
+			    onSelect: function(selectFiles, allFiles) {    // 选择文件的回调方法  selectFile:当前选中的文件  allFiles:还没上传的全部文件 
+			        //console.info("当前选择了以下文件："); 
+			        //console.info(selectFiles); 
+			    }, 
+			    onDelete: function(file, files) {              // 删除一个文件的回调方法 file:当前删除的文件  files:删除之后的文件 
+			        console.info("当前删除了此文件："); 
+			        //console.info(file.name); 
+			    }, 
+			    onSuccess: function(file, response) {          // 文件上传成功的回调方法 
+			        console.info("此文件上传成功："); 
+			        console.info(file.name); 
+			        console.info("此文件上传到服务器地址："); 
+			        console.info(response); 
+			        $("#uploadInf").append("<p>上传成功，文件地址是：" + response + "</p>"); 
+			    }, 
+			    onFailure: function(file, response) {          // 文件上传失败的回调方法 
+			        //console.info("此文件上传失败："); 
+			        //console.info(file.name); 
+			    }, 
+			    onComplete: function(response) {                 // 上传完成的回调方法 
+			        console.info("文件上传完成"); 
+			        console.info(response);
+			        
+			    } 
+			});
+		})
+
+    	
+	</script>
+</block>

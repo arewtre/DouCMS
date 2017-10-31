@@ -1,0 +1,88 @@
+<extend name="Public/base" />
+<block name="main">            
+    <link href="__PUBLIC__/css/theme.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="__PUBLIC__/css/font-style.css" rel="stylesheet">
+    <style>
+        #myCarousel .carousel-caption {
+            position: relative;
+        }
+
+        #myCarousel .carousel-indicators {
+            bottom: 15px;
+            top: auto;
+        }
+
+        .span4.icon {
+            margin-bottom: 10px;
+        }
+
+        .span4.icon .media {
+            margin: 5px;
+        }
+
+        .span4.icon:hover {
+            background: #eeeeee;
+        }
+    </style>
+
+            			
+			<div class="container">
+			    <div class="row">
+                   <foreach name="list" item="v">
+                   <div class="span4 icon" style="width:50%">
+                    <div class="media" data-id="{$v['icon']}">
+                        <a class="pull-left">
+                            <i class="fa {$v['icon']} fa-3x"></i>
+                        </a>
+                        <div class="media-body">
+                            <a class="pull-left">
+                                <h4 class="media-heading">{$v['icon']}</h4>
+                                {$v['icon']}                            </a>
+                        </div>
+                    </div>
+                </div>
+                </foreach>
+            </div>
+
+
+    <script src="__PUBLIC__/js/jquery.smooth-scroll.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script>
+       /* $(document).ready(function(){
+         var arr = new Array();
+         $(".media-heading").each(function(){
+              //console.log($(this).text());return;
+              arr.push($(this).text());
+              
+         }) 
+         console.log(arr);
+         $.ajax({
+                type: "POST",
+                url: '{:U("tub2")}',
+                data: {arr:arr},
+                //traditional: true,//这里设置为true,
+                dataType:"json",
+                async: true,
+                cache: false,
+                success: function(msg){
+                    if( msg.code == 1 ){
+                        //parent.location.reload();
+                    }
+                }
+            });
+     })*/
+     
+     $(".media").each(function(){
+         $(this).click(function(){
+             var icon = $(this).attr("data-id");
+             //console.log(icon);
+             parent.layer.closeAll()
+             parent.tubiao1(icon);
+         })
+     })
+        
+    </script>
+    </fieldset>
+</block>

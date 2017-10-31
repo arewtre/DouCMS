@@ -1,0 +1,1 @@
+[2017/10/11 11:18:21]用户ID:,用户名：,添加了数据,数据表:ims_core_sessions,添加数据：a:5:{s:3:"sid";s:32:"0c317965b8ac52575290aff7547aeece";s:7:"uniacid";i:40;s:6:"openid";s:13:"192.168.1.150";s:4:"data";s:99:"acid|N;uniacid|i:40;token|a:1:{s:4:"RGQx";i:1507691900;}openid|s:28:"ou6vRwsidZOeYlAZeHIDMmJDkWho";";s:10:"expiretime";i:1507695500;}

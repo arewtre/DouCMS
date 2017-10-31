@@ -1,0 +1,1682 @@
+[ 2017-10-13T16:18:07+08:00 ] ::1 /htdocs/index.php/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0340s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Index/index' LIMIT 1   [ RunTime:0.0330s ]
+
+[ 2017-10-13T16:18:07+08:00 ] ::1 /htdocs/index.php?s=/Admin/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Undefined index: HTTP_REFERER D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:07+08:00 ] ::1 /htdocs/index.php?s=/Admin/Login/geetest_show_verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:14+08:00 ] ::1 /htdocs/index.php?s=/Admin/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_user` WHERE `username` = 'admin' AND `password` = '912601e4ad1b308c9ae41877cf6ca754' LIMIT 1   [ RunTime:0.0330s ]
+SQL: SHOW COLUMNS FROM `lin_user_data` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_user_data` WHERE `uid` = '2' LIMIT 1   [ RunTime:0.0320s ]
+NOTIC: [8] Undefined index: loginTimes D:\wwwroot\htdocs\Application\Admin\Controller\LoginController.class.php 第 41 行.
+SQL: UPDATE `lin_user_data` SET `loginTimes`='1',`lastLoginIp`='0',`lastLoginTime`='1507882694' WHERE `uid` = '2' [ RunTime:0.0340s ]
+
+[ 2017-10-13T16:18:17+08:00 ] ::1 /htdocs/index.php?s=/Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Index/index' LIMIT 1   [ RunTime:0.0290s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0290s ]
+SQL: SELECT VERSION() AS ver [ RunTime:0.0280s ]
+SQL: SHOW COLUMNS FROM `lin_message` [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_message` ORDER BY asktime desc LIMIT 4   [ RunTime:0.0310s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: top D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 72 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T16:18:17+08:00 ] ::1 /htdocs/index.php?s=/Admin/Index/index/main/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Index/index' LIMIT 1   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0320s ]
+SQL: SELECT VERSION() AS ver [ RunTime:0.0320s ]
+SQL: SHOW COLUMNS FROM `lin_message` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_message` ORDER BY asktime desc LIMIT 4   [ RunTime:0.0310s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: userface D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 196 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 197 行.
+NOTIC: [8] Undefined index: userface D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 196 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 197 行.
+NOTIC: [8] Undefined index: userface D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 196 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 197 行.
+NOTIC: [8] Undefined index: userface D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 196 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\b0f0b709690a72033d17719e8059053c.php 第 197 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:18:18+08:00 ] ::1 /htdocs/index.php?s=/Admin/Index/index.html&Param=index_menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Index/index' LIMIT 1   [ RunTime:0.0300s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE ( parentid=0 AND is_display=1 ) ORDER BY displayorder desc  [ RunTime:0.0290s ]
+SQL: SHOW COLUMNS FROM `lin_menu` [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE ( parentid=154 AND is_display=1 ) ORDER BY displayorder desc  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 155 AND `is_display` = 1 ORDER BY displayorder desc  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 6 AND `is_display` = 1 ORDER BY displayorder desc  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 10 AND `is_display` = 1 ORDER BY displayorder desc  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 1 AND `is_display` = 1 ORDER BY displayorder desc  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 14 AND `is_display` = 1  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 147 AND `is_display` = 1  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 158 AND `is_display` = 1  [ RunTime:0.0290s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:33:33+08:00 ] ::1 /htdocs/Admin/Log/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Log/index' LIMIT 1   [ RunTime:0.0280s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0270s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant row - assumed 'row' D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2b4cb611afdbb12eca63b3e3ba9c0912.php 第 161 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2b4cb611afdbb12eca63b3e3ba9c0912.php 第 161 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:33:33+08:00 ] ::1 /htdocs/index.php?s=/Admin/Log/ajaxGetIndex.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0340s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Log/ajaxGetIndex' LIMIT 1   [ RunTime:0.0340s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0340s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0340s ]
+SQL: SHOW COLUMNS FROM `lin_user_action` [ RunTime:0.0360s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lin_user_action` LIMIT 1   [ RunTime:0.0340s ]
+SQL: SELECT * FROM `lin_user_action` ORDER BY id desc LIMIT 0,20   [ RunTime:0.0340s ]
+
+[ 2017-10-13T16:33:34+08:00 ] ::1 /htdocs/Admin/User/userInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/User/userInfo' LIMIT 1   [ RunTime:0.0320s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0310s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: birthday D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\77c8641503353dfe2b0965e0be90332f.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:33:39+08:00 ] ::1 /htdocs/index.php?s=/Admin/Index/index.html&pid=154&Param=index_menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0340s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Index/index' LIMIT 1   [ RunTime:0.0330s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0340s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_menu` WHERE ( parentid=0 AND is_display=1 ) ORDER BY displayorder desc  [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_menu` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 154 AND `is_display` = 1 ORDER BY displayorder desc  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 155 AND `is_display` = 1  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 6 AND `is_display` = 1  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 10 AND `is_display` = 1  [ RunTime:0.0310s ]
+NOTIC: [8] Undefined index: left D:\wwwroot\htdocs\Application\Admin\Controller\IndexController.class.php 第 60 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\htdocs\Application\Admin\Controller\IndexController.class.php 第 60 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2017-10-13T16:33:40+08:00 ] ::1 /htdocs/index.php?s=/Admin/Index/index.html&pid=1&Param=index_menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0350s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Index/index' LIMIT 1   [ RunTime:0.0330s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_menu` WHERE ( parentid=0 AND is_display=1 ) ORDER BY displayorder desc  [ RunTime:0.0340s ]
+SQL: SHOW COLUMNS FROM `lin_menu` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 1 AND `is_display` = 1 ORDER BY displayorder desc  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 14 AND `is_display` = 1  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 147 AND `is_display` = 1  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 158 AND `is_display` = 1  [ RunTime:0.0320s ]
+NOTIC: [8] Undefined index: left D:\wwwroot\htdocs\Application\Admin\Controller\IndexController.class.php 第 60 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\htdocs\Application\Admin\Controller\IndexController.class.php 第 60 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-10-13T16:33:45+08:00 ] ::1 /htdocs/index.php?s=/Admin/Index/index.html&pid=2&Param=index_menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Index/index' LIMIT 1   [ RunTime:0.0320s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_menu` WHERE ( parentid=0 AND is_display=1 ) ORDER BY displayorder desc  [ RunTime:0.0270s ]
+SQL: SHOW COLUMNS FROM `lin_menu` [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 2 AND `is_display` = 1 ORDER BY displayorder desc  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 18 AND `is_display` = 1  [ RunTime:0.0270s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 40 AND `is_display` = 1  [ RunTime:0.0270s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 50 AND `is_display` = 1  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 56 AND `is_display` = 1  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 59 AND `is_display` = 1  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 33 AND `is_display` = 1  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 34 AND `is_display` = 1  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 49 AND `is_display` = 1  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 143 AND `is_display` = 1  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 156 AND `is_display` = 1  [ RunTime:0.0290s ]
+NOTIC: [8] Undefined index: left D:\wwwroot\htdocs\Application\Admin\Controller\IndexController.class.php 第 60 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\htdocs\Application\Admin\Controller\IndexController.class.php 第 60 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-10-13T16:33:47+08:00 ] ::1 /htdocs/Admin/Article/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of Admin\Controller\ArticleController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') D:\wwwroot\htdocs\Application\Admin\Controller\ArticleController.class.php 第 4 行.
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Article/index' LIMIT 1   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0320s ]
+SQL: SHOW COLUMNS FROM `lin_article_category` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_article_category`  [ RunTime:0.0300s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+SQL: SHOW COLUMNS FROM `lin_article` [ RunTime:0.0340s ]
+SQL: SELECT * FROM lin_article as a INNER JOIN lin_article_category  as ac   on ac.pid = a.art_pid  WHERE ( a.art_status=1 ) ORDER BY a.art_addtime desc  [ RunTime:0.1230s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Use of undefined constant row - assumed 'row' D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\7a4184ffe8f804b12b2e7f8851dd8f7d.php 第 202 行.
+NOTIC: [8] Use of undefined constant art_id - assumed 'art_id' D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\7a4184ffe8f804b12b2e7f8851dd8f7d.php 第 202 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:33:48+08:00 ] ::1 /htdocs/index.php?s=/Admin/Article/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Admin\Controller\ArticleController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') D:\wwwroot\htdocs\Application\Admin\Controller\ArticleController.class.php 第 4 行.
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Article/index' LIMIT 1   [ RunTime:0.0280s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0290s ]
+SQL: SHOW COLUMNS FROM `lin_article_category` [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_article_category`  [ RunTime:0.0280s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: keyword D:\wwwroot\htdocs\Application\Admin\Controller\ArticleController.class.php 第 35 行.
+SQL: SHOW COLUMNS FROM `lin_article` [ RunTime:0.0280s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lin_article` WHERE `art_title` LIKE '%%' AND `art_isdel` = 0 LIMIT 1   [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_article` WHERE `art_title` LIKE '%%' AND `art_isdel` = 0 ORDER BY art_addtime desc LIMIT 0,20   [ RunTime:0.0840s ]
+
+[ 2017-10-13T16:33:50+08:00 ] ::1 /htdocs/Admin/ArticleCategory/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/ArticleCategory/index' LIMIT 1   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0330s ]
+SQL: SHOW COLUMNS FROM `lin_article_category` [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_article_category` ORDER BY displayorder desc  [ RunTime:0.0320s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:33:51+08:00 ] ::1 /htdocs/Admin/Article/reback
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [2048] Declaration of Admin\Controller\ArticleController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') D:\wwwroot\htdocs\Application\Admin\Controller\ArticleController.class.php 第 4 行.
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Article/reback' LIMIT 1   [ RunTime:0.0320s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_article_category` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_article_category`  [ RunTime:0.0330s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T16:33:52+08:00 ] ::1 /htdocs/index.php?s=/Admin/Article/reback.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Admin\Controller\ArticleController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') D:\wwwroot\htdocs\Application\Admin\Controller\ArticleController.class.php 第 4 行.
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Article/reback' LIMIT 1   [ RunTime:0.0290s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0350s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0280s ]
+SQL: SHOW COLUMNS FROM `lin_article_category` [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_article_category`  [ RunTime:0.0290s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: keyword D:\wwwroot\htdocs\Application\Admin\Controller\ArticleController.class.php 第 180 行.
+SQL: SHOW COLUMNS FROM `lin_article` [ RunTime:0.0300s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lin_article` WHERE `art_title` LIKE '%%' AND `art_isdel` = 1 LIMIT 1   [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_article` WHERE `art_title` LIKE '%%' AND `art_isdel` = 1 ORDER BY art_addtime desc LIMIT 0,20   [ RunTime:0.0320s ]
+
+[ 2017-10-13T16:33:52+08:00 ] ::1 /htdocs/Admin/Article/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Admin\Controller\ArticleController::show() should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') D:\wwwroot\htdocs\Application\Admin\Controller\ArticleController.class.php 第 4 行.
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Article/comment' LIMIT 1   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0280s ]
+SQL: SHOW COLUMNS FROM `lin_article_category` [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_article_category`  [ RunTime:0.0290s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+SQL: SHOW COLUMNS FROM `lin_message` [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_message`  [ RunTime:0.0300s ]
+NOTIC: [8] Undefined index: msgReply D:\wwwroot\htdocs\Application\Admin\Controller\ArticleController.class.php 第 198 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+NOTIC: [8] Undefined index: username D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 42 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 51 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 54 行.
+NOTIC: [8] Undefined index: id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 55 行.
+NOTIC: [8] Undefined variable: v D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\2c39f5307ca2a1898372c37ea614daf9.php 第 41 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:34:01+08:00 ] ::1 /htdocs/Admin/Images/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `lin_images_category` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` ORDER BY displayorder desc  [ RunTime:0.0320s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=114 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=123 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=124 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=125 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=126 )  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=115 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=127 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=128 )  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=129 )  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=130 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=131 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=116 )  [ RunTime:0.0340s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=121 )  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=117 )  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=118 )  [ RunTime:0.0350s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=120 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=132 )  [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_image` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_image` ORDER BY create_time desc  [ RunTime:0.0330s ]
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Admin\Controller\ImagesController.class.php 第 64 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: pageindex D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\4e5087ac5f7a9376e93020949294d616.php 第 119 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:34:02+08:00 ] ::1 /htdocs/Admin/Images/Admin/Images/index?page=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `lin_images_category` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` ORDER BY displayorder desc  [ RunTime:0.0330s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=114 )  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=123 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=124 )  [ RunTime:0.0340s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=125 )  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=126 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=115 )  [ RunTime:0.0340s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=127 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=128 )  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=129 )  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=130 )  [ RunTime:0.0350s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=131 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=116 )  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=121 )  [ RunTime:0.0340s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=117 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=118 )  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=120 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=132 )  [ RunTime:0.0330s ]
+ERR: 非法操作:Admin
+
+[ 2017-10-13T16:34:12+08:00 ] ::1 /htdocs/index.php?s=/Admin/Images/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `lin_images_category` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` ORDER BY displayorder desc  [ RunTime:0.0320s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=114 )  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=123 )  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=124 )  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=125 )  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=126 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=115 )  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=127 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=128 )  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=129 )  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=130 )  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=131 )  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=116 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=121 )  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=117 )  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=118 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=120 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=132 )  [ RunTime:0.0320s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:34:18+08:00 ] ::1 /htdocs/index.php?s=/Admin/Images/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `lin_images_category` [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_images_category` ORDER BY displayorder desc  [ RunTime:0.0290s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=114 )  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=123 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=124 )  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=125 )  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=126 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=115 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=127 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=128 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=129 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=130 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=131 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=116 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=121 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=117 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=118 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=120 )  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_images_category` WHERE ( parentid=132 )  [ RunTime:0.0290s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\f91b0c3f8e246e4eefd765df2d79f2d4.php 第 32 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:34:51+08:00 ] ::1 /htdocs/Admin/Video/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `lin_video_category` [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_video_category` ORDER BY displayorder desc  [ RunTime:0.0290s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=121 )  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=122 )  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=123 )  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=124 )  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=125 )  [ RunTime:0.0300s ]
+NOTIC: [8] Undefined variable: where D:\wwwroot\htdocs\Application\Admin\Controller\VideoController.class.php 第 98 行.
+SQL: SELECT * FROM `lin_video_category` ORDER BY displayorder desc  [ RunTime:0.0310s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=121 )  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=122 )  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=123 )  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=124 )  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=125 )  [ RunTime:0.0310s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\a1139c397cab62ab83c0f7dbd7530fa9.php 第 131 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\a1139c397cab62ab83c0f7dbd7530fa9.php 第 131 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\a1139c397cab62ab83c0f7dbd7530fa9.php 第 131 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\a1139c397cab62ab83c0f7dbd7530fa9.php 第 131 行.
+NOTIC: [8] Undefined variable: cat_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\a1139c397cab62ab83c0f7dbd7530fa9.php 第 131 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T16:34:52+08:00 ] ::1 /htdocs/index.php?s=/Admin/Video/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `lin_video_category` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_video_category` ORDER BY displayorder desc  [ RunTime:0.0330s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=121 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=122 )  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=123 )  [ RunTime:0.0340s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=124 )  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=125 )  [ RunTime:0.0330s ]
+SQL: SHOW COLUMNS FROM `lin_video` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_video` ORDER BY v_create_time desc  [ RunTime:0.0330s ]
+SQL: SHOW COLUMNS FROM `lin_video` [ RunTime:0.0330s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lin_video` LIMIT 1   [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_video` ORDER BY v_create_time desc LIMIT 0,5   [ RunTime:0.0330s ]
+
+[ 2017-10-13T16:34:58+08:00 ] ::1 /htdocs/index.php?s=/Admin/Video/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `lin_video_category` [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_video_category` ORDER BY displayorder desc  [ RunTime:0.0300s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=121 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=122 )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=123 )  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=124 )  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_video_category` WHERE ( parentid=125 )  [ RunTime:0.0300s ]
+SQL: SHOW COLUMNS FROM `lin_video` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_video` ORDER BY v_create_time desc  [ RunTime:0.0290s ]
+SQL: SHOW COLUMNS FROM `lin_video` [ RunTime:0.0300s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lin_video` LIMIT 1   [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_video` ORDER BY v_create_time desc LIMIT 5,5   [ RunTime:0.0300s ]
+
+[ 2017-10-13T16:35:05+08:00 ] ::1 /htdocs/Admin/Banner/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Banner/index' LIMIT 1   [ RunTime:0.0400s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0320s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:35:06+08:00 ] ::1 /htdocs/index.php?s=/Admin/Banner/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0360s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Banner/index' LIMIT 1   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0320s ]
+SQL: SHOW COLUMNS FROM `lin_banner` [ RunTime:0.0330s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lin_banner` LIMIT 1   [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_banner` ORDER BY addtime desc,displayorder desc LIMIT 0,20   [ RunTime:0.0320s ]
+
+[ 2017-10-13T16:35:09+08:00 ] ::1 /htdocs/Admin/Banner/advert
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Banner/advert' LIMIT 1   [ RunTime:0.0300s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0300s ]
+ERR: 非法操作:advert
+
+[ 2017-10-13T16:35:12+08:00 ] ::1 /htdocs/Admin/Link/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Link/index' LIMIT 1   [ RunTime:0.0330s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0340s ]
+SQL: SHOW COLUMNS FROM `lin_link` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_link` ORDER BY link_sort LIMIT 0,4   [ RunTime:0.0320s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lin_link` LIMIT 1   [ RunTime:0.0320s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T16:35:13+08:00 ] ::1 /htdocs/Admin/Web/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Web/index' LIMIT 1   [ RunTime:0.0280s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0290s ]
+SQL: SHOW COLUMNS FROM `lin_site_menu` [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_site_menu` ORDER BY displayorder desc  [ RunTime:0.0280s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:35:16+08:00 ] ::1 /htdocs/Admin/Filemanage/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Filemanage/index' LIMIT 1   [ RunTime:0.0340s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0310s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:35:27+08:00 ] ::1 /htdocs/Admin/Icon/fontAwesome
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Icon/fontAwesome' LIMIT 1   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0320s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.006000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.007000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.248014s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.248014s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:35:28+08:00 ] ::1 /htdocs/Admin/Icon/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Icon/index' LIMIT 1   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0310s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:35:37+08:00 ] ::1 /htdocs/Admin/Filemanage/codeEdit
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Filemanage/codeEdit' LIMIT 1   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0320s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:35:53+08:00 ] ::1 /htdocs/index.php?s=/Admin/Index/index.html&pid=138&Param=index_menu
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0310s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Index/index' LIMIT 1   [ RunTime:0.0290s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0280s ]
+SQL: SELECT * FROM `lin_menu` WHERE ( parentid=0 AND is_display=1 ) ORDER BY displayorder desc  [ RunTime:0.0290s ]
+SQL: SHOW COLUMNS FROM `lin_menu` [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 138 AND `is_display` = 1 ORDER BY displayorder desc  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 23 AND `is_display` = 1  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `lin_menu` WHERE `parentid` = 181 AND `is_display` = 1  [ RunTime:0.0290s ]
+NOTIC: [8] Undefined index: left D:\wwwroot\htdocs\Application\Admin\Controller\IndexController.class.php 第 60 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\htdocs\Application\Admin\Controller\IndexController.class.php 第 60 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-10-13T16:35:55+08:00 ] ::1 /htdocs/Admin/Menu/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Menu/index' LIMIT 1   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY displayorder desc  [ RunTime:0.0330s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-10-13T16:36:08+08:00 ] ::1 /htdocs/index.php?s=/Admin/Menu/edit/id/154.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/Menu/edit' LIMIT 1   [ RunTime:0.0270s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0300s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0270s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY displayorder desc  [ RunTime:0.0290s ]
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+NOTIC: [8] Undefined index: name D:\wwwroot\htdocs\Application\Admin\Common\function.php 第 75 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+NOTIC: [8] Undefined variable: parentid D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\31553d7bb41170a30982ff9dddd5d67e.php 第 39 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-10-13T16:36:21+08:00 ] ::1 /htdocs/Admin/System/parameter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT * FROM `lin_menu` ORDER BY is_display desc  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_menu` WHERE `href` = 'Admin/System/parameter' LIMIT 1   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_user` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_user` WHERE `id` = 2 LIMIT 1   [ RunTime:0.0310s ]
+SQL: SHOW COLUMNS FROM `lin_parameter` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `lin_parameter` LIMIT 1   [ RunTime:0.0330s ]
+SQL: SHOW COLUMNS FROM `lin_third_parameter` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `lin_third_parameter`  [ RunTime:0.0320s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\wwwroot\htdocs\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php 第 39 行.
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: link_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\7a9da5cca7f5e77e7366f76452baf4d7.php 第 208 行.
+NOTIC: [8] Undefined index: link_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\7a9da5cca7f5e77e7366f76452baf4d7.php 第 208 行.
+NOTIC: [8] Undefined index: link_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\7a9da5cca7f5e77e7366f76452baf4d7.php 第 208 行.
+NOTIC: [8] Undefined index: link_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\7a9da5cca7f5e77e7366f76452baf4d7.php 第 208 行.
+NOTIC: [8] Undefined index: link_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\7a9da5cca7f5e77e7366f76452baf4d7.php 第 208 行.
+NOTIC: [8] Undefined index: link_id D:\wwwroot\htdocs\Application\Runtime\Cache\Admin\7a9da5cca7f5e77e7366f76452baf4d7.php 第 208 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+

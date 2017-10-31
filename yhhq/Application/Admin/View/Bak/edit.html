@@ -1,0 +1,82 @@
+<extend name="Public/base" />
+<block name="main">
+<link rel="stylesheet" href="__PUBLIC__/css/user.css?{TIMESTAMP}">
+    <fieldset class="layui-elem-field">
+        <legend>表结构管理 - 查看表</legend>
+        <div class="layui-field-box">            
+            <table class="layui-table" lay-even>
+                <thead>
+                <tr>
+                <volist name="dalist" id="vo">
+                    <th>{$vo.column_name}</th>
+                </volist>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="list" id="vo">                
+                    <tr>
+	                    <volist name="vo" id="v">
+	                        <td>{$v}</td>
+	                    </volist>
+                    </tr>
+                </volist>
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
+</block>
+<block name="myScript">
+    <if condition="isset($detail['id'])">
+        <script>
+            layui.use('form', function(){
+                var form = layui.form();
+                form.on('submit(admin-form)', function(data){
+                    $.ajax({
+                        type: "POST",
+                        url: '{:U("edit")}',
+                        data: data.field,
+                        success: function(msg){
+                            if( msg.code == 1 ){
+                                parent.location.reload();
+                            }else{
+                                parent.layer.msg(msg.msg, {
+                                    icon: 5,
+                                    shade: [0.6, '#393D49'],
+                                    time:1500
+                                });
+                            }
+                        }
+                    });
+                    return false;
+                });
+
+            });
+        </script>
+        <else />
+        <script>
+            layui.use('form', function(){
+                var form = layui.form();
+                form.on('submit(admin-form)', function(data){
+                    $.ajax({
+                        type: "POST",
+                        url: '{:U("add")}',
+                        data: data.field,
+                        success: function(msg){
+                            if( msg.code == 1 ){
+                                parent.location.reload();
+                            }else{
+                                parent.layer.msg(msg.msg, {
+                                    icon: 5,
+                                    shade: [0.6, '#393D49'],
+                                    time:1500
+                                });
+                            }
+                        }
+                    });
+                    return false;
+                });
+
+            });
+        </script>
+    </if>
+</block>

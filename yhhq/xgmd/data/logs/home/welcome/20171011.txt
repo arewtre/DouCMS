@@ -1,0 +1,1 @@
+[2017/10/11 11:14:35]用户ID:1,用户名：admin,更新了数据,数据表:ims_stat_fans,旧数据：a:1:{i:0;a:6:{s:2:"id";s:3:"650";s:7:"uniacid";s:2:"40";s:3:"new";s:1:"5";s:6:"cancel";s:1:"1";s:8:"cumulate";s:1:"0";s:4:"date";s:8:"20171009";}},更新数据：a:5:{s:7:"uniacid";i:40;s:3:"new";i:6;s:6:"cancel";i:1;s:8:"cumulate";i:2607;s:4:"date";s:8:"20171009";}

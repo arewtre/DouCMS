@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{:C('DOU_NAME')}</title>
+    <link rel="stylesheet" href="__PUBLIC__/common/layui/css/layui.css">
+    <link href="__PUBLIC__/buluoge/plug/layui/css/layui.css" rel="stylesheet" />
+    <link href="__PUBLIC__/buluoge/plug/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/bootstrap.min.css" />  
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css?{TIMESTAMP}" />
+    <!--全局样式表-->
+    <link href="__PUBLIC__/buluoge/css/global.css?{TIMESTAMP}" rel="stylesheet" />
+    <link href="__PUBLIC__/css/my.css?{TIMESTAMP}" rel="stylesheet" />
+    <link href="__PUBLIC__/buluoge/css/home.css" rel="stylesheet" />
+    <link href="__PUBLIC__/Home/css/common.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/normalize.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/flickity-docs.css" media="screen" />
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/BreakingNews.css">
+    <script src="__PUBLIC__/common/js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/common/layui/layui.js"></script>
+    <script src="__PUBLIC__/Home/js/BreakingNews.js"></script>
+    <style>
+        .demo{padding:0;margin-bottom: 10px;background: #fff;border-left: 5px solid #fff;-moz-transition: all 0.3s linear;-o-transition: all 0.3s linear;-webkit-transition: all 0.3s linear;transition: all 0.3s linear;}
+    	body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+    </style>
+</head>
+<body>
+<div class="pace  pace-inactive">
+   <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);"> 
+    <div class="pace-progress-inner"></div> 
+   </div> 
+   <div class="pace-activity"></div>
+  </div>
+   <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+     <div class="navbar-header">
+      <button type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      <a href="" class="navbar-brand"><img style="margin-left:200px;height:80px;margin-top:-32px"src="__PUBLIC__/img/dou4.png" alt="echarts logo" class="navbar-logo" /></a>
+     </div>
+     <div style="margin-left:350px;height:65px"id="navbar-collapse" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-left">
+       		<foreach name="menu" item="v">
+	       		<li class="{$v['class']}"><a href="{:U($v['href'])}">{$v.title}</a></li>
+	       	</foreach>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+       <li id="nav-github"><a href="" target="_blank"><img src="__PUBLIC__/img/github.png" width="18" /></a></li>
+       <li id="nav-homeen"><a href="">登录</a></li>
+       <li id="nav-2" class="0"><a href="">注册</a></li>
+      </ul>
+     </div>
+    </div>
+   </nav>
+<div>
+    <block name="main"></block>
+</div>
+
+<script type="text/javascript" src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/common.js"></script>
+<script type="text/javascript">
+	document.getElementById('nav-doc').className = 'active';
+</script>
+<block name="myScript"></block>
+    <footer class="blog-footer">
+        <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="http://www.linxinran.cn">豆宝网</a><span>Design By 九月一十八</span></p>
+        <p><a href="#" target="_blank">苏ICP备16048545号</a></p>
+    </footer>
+    <div class="blog-mask animated layui-hide"></div>
+    <script src="__PUBLIC__/buluoge/js/global.js"></script>
+    <script>
+	layui.use('element', function(){
+	 var element = layui.element(); //导航的hover效果、二级菜单等功能，需要依赖element模块
+	 
+	 //监听导航点击
+		 element.on('nav(nav)', function(elem){
+		  //console.log(elem)
+		  layer.msg(elem.text());
+		 });
+	});	
+    
+    $(window).load(function(){
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+   })
+
+</script>
+</body>
+</html>

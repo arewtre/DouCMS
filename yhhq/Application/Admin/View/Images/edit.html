@@ -1,0 +1,61 @@
+<extend name="Public/hbase" />
+<block name="mains">
+	  <form class="layui-form" id="form-admin-add" action="">
+      <div class="layui-form-item">
+          <label class="layui-form-label">照片描述</label>
+          <input type="hidden" value="{$list['img_id']}"  name="id"  class="imgid layui-input">
+          <div class="layui-input-block">
+                <input type="text" value="{$list['image_desc']}"  name="desc"  class="desc layui-input">
+          </div>
+      </div>
+      <div class="layui-input-inline">
+	          <label class="layui-form-label">照片分类</label>
+	          <div class="layui-input-block">
+                <select class="cate" id="cate" name="cate_id" style="height:38px">
+                  <option value="">--请选择分类--</option>
+                  <volist name="cates" id="vo">
+    	              <if condition="$vo.res eq 0">
+    	                  <option value="{$vo.pid}" {:($list['cat_id'] == $vo['pid']?'selected':'')}>{$vo['showName']}{$vo['title']}</option>
+    	              <else />
+    	              	  <optgroup label="{$vo['title']}"></optgroup>
+    	              </if>
+                  </volist>
+              </select>
+      </div>
+      </div>
+      <div class="layui-form-item" style="margin-top:35px">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="admin-form">立即提交</button>
+            </div>
+      </div>
+      </form>
+    <script>
+            layui.use('form', function(){
+                var form = layui.form();
+                form.on('submit(admin-form)', function(data){
+                    var id = $(".imgid").val();
+                    var desc = $(".desc").val();
+                    $.ajax({
+                        type: "POST",
+                        url: '{:U("edit")}',
+                        data: data.field,
+                        success: function(msg){
+                            if( msg.code == 1 ){
+                                parent.layer.closeAll();
+                                parent.editdesc(id,desc);
+                                
+                            }else{
+                                parent.layer.msg(msg.msg, {
+                                    icon: 5,
+                                    shade: [0.6, '#393D49'],
+                                    time:1500
+                                });
+                            }
+                        }
+                    });
+                    return false;
+                });
+
+            });
+        </script>
+</block>

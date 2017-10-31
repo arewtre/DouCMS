@@ -1,0 +1,59 @@
+<extend name="Public/hbase"/>
+<block name="mains">
+	<form class="layui-form">
+		<blockquote class="layui-elem-quote news_search">
+			<div class="layui-inline selectMsg">
+				<select name="msgColl" lay-filter="selectMsg">
+					<option value="0">全部</option>
+			        <option value="1">已收藏</option>
+			    </select>
+			</div>
+			<div class="layui-inline">
+				<div class="layui-form-mid layui-word-aux">本页所有数据均为静态，刷新后所有操作无效</div>
+			</div>
+		</blockquote>
+		<table class="layui-table msg_box" lay-skin="line">
+			<colgroup>
+				<col width="45%">
+				<col width="25%">
+				<col width="15%">
+				<col>
+			</colgroup>
+			<tbody class="msgHtml">
+			<foreach name="list" item="v">
+			<tr>
+              <td class="msg_info">
+                <img src="__PUBLIC__/images/{$v.userface}" width="50" height="50"><input type="hidden" value="">
+                <div class="user_info">
+                    <h2>{$v.userName}</h2>
+                    <p>{$v.userAsk}</p>
+                </div>
+              </td>
+              <td class="msg_time">{$v.askTime}</td>
+              <td class="msg_reply"></td>
+              <td class="msg_opr">
+                <a class="layui-btn layui-btn-mini layui-btn-normal msg_collect"><i class="layui-icon">&#xe600;</i> 收藏</a>
+                <a class="layui-btn layui-btn-mini reply_msg"><i class="layui-icon">&#xe611;</i> 回复</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="msg_info">
+                <img src="__PUBLIC__/images/{$v.userface}" width="50" height="50"><input type="hidden" value="">
+                <div class="user_info">
+                    <h2>{$v.msgReply.userName}</h2>
+                    <p>{$v.msgReply.userAsk}</p>
+                </div>
+              </td>
+              <td class="msg_time">{$v.msgReply.askTime}</td>
+              <td class="msg_reply"></td>
+              <td class="msg_opr">
+                <a class="layui-btn layui-btn-mini layui-btn-normal msg_collect"><i class="layui-icon">&#xe600;</i> 收藏</a>
+                <a class="layui-btn layui-btn-mini reply_msg"><i class="layui-icon">&#xe611;</i> 回复</a>
+              </td>
+            </tr>
+			</foreach>
+			</tbody>
+		</table>
+	</form>
+	<script type="text/javascript" src="__PUBLIC__/js/message.js"></script>
+</block>
