@@ -7,14 +7,6 @@ return array(
 	'DB_USER'   => 'root', // 用户名
 	'DB_PWD'    => 'root', // 密码
 	
-//     'DB_HOST'   => '182.254.131.216', // 服务器地址
-//     'DB_USER'   => 'root', // 用户名
-//     'DB_PWD'    => 'quanquan2014', // 密码
-
-//     'DB_HOST'   => 'bdm248798407.my3w.com', // 服务器地址
-//     'DB_NAME'   => 'bdm248798407_db', // 数据库名
-//     'DB_USER'   => 'bdm248798407', // 用户名
-//     'DB_PWD'    => 'linxinran5201314', // 密码
     
 	'DB_NAME'   => 'yhhq', // 数据库名
 	'DB_PORT'   => 3306, // 端口
@@ -74,28 +66,28 @@ return array(
     'EMAIL_PORT'             => '25', // 端口 如果使用QQ邮箱；需要把此项改为  465
     //***********************************其他设置**********************************
     'RONG_IS_DEV'            => true,//是否是在开发中
-    'RONG_DEV_APP_KEY'       => '25wehl3u28y3w', //融云开发环境下的key       仅供测试使用
-    'RONG_DEV_APP_SECRET'    => 'qxtqT4Eg9W4dGE', //融云开发环境下的SECRET     仅供测试使用
-    'GEETEST_ID'             => 'b302f8e3625812582852d8ed5d565575',//极验id  仅供测试使用
-    'GEETEST_KEY'            => 'b83b0e01210c986ea6730c9c2f226495',//极验key 仅供测试使用
+    'RONG_DEV_APP_KEY'       => '', //融云开发环境下的key       仅供测试使用
+    'RONG_DEV_APP_SECRET'    => '', //融云开发环境下的SECRET     仅供测试使用
+    'GEETEST_ID'             => '',//极验id  仅供测试使用
+    'GEETEST_KEY'            => '',//极验key 仅供测试使用
     'RONG_PRO_APP_KEY'       => '', //融云生产环境下的key
     'RONG_PRO_APP_SECRET'    => '', //融云生产环境下的SECRET
     'UMENG_IOS_APP_KEY'      => '', //友盟ios AppKey
     'UMENG_IOS_SECRET'       => '', //友盟ios App Master Secret
     'UMENG_ANDROID_APP_KEY'  => '', //友盟android AppKey
     'UMENG_ANDROID_SECRET'   => '', //友盟android App Master Secret
-    'RONGLIAN_ACCOUNT_SID'   => '8aaf07085d106c7f015d5a7469b01f22', //容联云通讯 主账号 accountSid
-    'RONGLIAN_ACCOUNT_TOKEN' => 'db699cf876174655a4339cffc3b36291', //容联云通讯 主账号token accountToken
-    'RONGLIAN_APPID'         => '8aaf07085d106c7f015d5a746b211f29', //容联云通讯 应用Id appid
+    'RONGLIAN_ACCOUNT_SID'   => '', //容联云通讯 主账号 accountSid
+    'RONGLIAN_ACCOUNT_TOKEN' => '', //容联云通讯 主账号token accountToken
+    'RONGLIAN_APPID'         => '', //容联云通讯 应用Id appid
     'RONGLIAN_TEMPLATE_ID'   => '', //容联云通讯 模板Id
-    'QINIU_AK' =>'S4VIexWbZ8QYEdFezqC3oywx-uqzhVB1Z2sXhTB5',//七牛key
-	'QINIU_SK'=>'-1LRNWrUwEFrlf9w922GUPb_52MgTzMHZhKT_xb3',//七牛secret
+    'QINIU_AK' =>'',//七牛key
+	'QINIU_SK'=>'',//七牛secret
 	'QINIU_IMAGE_BUCKET'=>'image',//七牛上传图片bucket
-	'QINIU_IMAGE_DOMAIN'=>'oiwban6zi.bkt.clouddn.com',//七牛图片上传domain
+	'QINIU_IMAGE_DOMAIN'=>'',//七牛图片上传domain
 	'QINIU_VIDEO_BUCKET'=>'video',//七牛上传视频bucket
-	'QINIU_VIDEO_DOMAIN'=>'oo8ss07gi.bkt.clouddn.com',//七牛视频上传domain    
-	'QQ_CONTACT_APPID' => '101417835',//QQ互联APPID
-    'QQ_CONTACT_KEY' =>'d26f0f478c0c4ac44dc95ce05dfed35e',//QQ互联key
+	'QINIU_VIDEO_DOMAIN'=>'',//七牛视频上传domain    
+	'QQ_CONTACT_APPID' => '',//QQ互联APPID
+    'QQ_CONTACT_KEY' =>'',//QQ互联key
 	
 	'APP_VERSION' => 'v1.0',
 	'APP_NAME'    => 'apiDouCMS',
